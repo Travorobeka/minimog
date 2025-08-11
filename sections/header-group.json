@@ -103,7 +103,7 @@
         "show_arrows": false,
         "show_dots": false,
         "height": 40,
-        "height_mobile": 30,
+        "height_mobile": 15,
         "text_size": 13,
         "text_size_mobile": 12,
         "custom_class": ""
