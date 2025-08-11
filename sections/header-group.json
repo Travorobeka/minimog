@@ -107,7 +107,7 @@
         "show_arrows": true,
         "show_dots": false,
         "height": 60,
-        "height_mobile": 50,
+        "height_mobile": 30,
         "text_size": 14,
         "text_size_mobile": 12,
         "custom_class": ""
