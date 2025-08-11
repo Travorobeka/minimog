@@ -26,9 +26,6 @@
   justify-content: center;
   width: 100%;
   text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .m-announcement-countdown__icon {
@@ -193,32 +190,34 @@
 }
 
 /* Large device centering */
-@media (min-width: 1200px) {
-  .m-announcement-countdown__content {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+@media (min-width: 768px) {
+  .m-announcement-countdown {
+    justify-content: center;
+    text-align: center;
   }
   
   .m-announcement-countdown__wrapper {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .m-announcement-countdown__content {
     justify-content: center;
     align-items: center;
     text-align: center;
   }
   
+  .m-announcement-countdown__content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .m-announcement-countdown__prefix {
-    margin-right: auto;
-    margin-left: auto;
+    text-align: center;
   }
   
   .m-announcement-countdown__timer {
-    margin: 0 auto;
+    text-align: center;
   }
   
   .m-announcement-countdown__button {
