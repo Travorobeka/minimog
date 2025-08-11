@@ -130,14 +130,18 @@
 
 .m-announcement-slideshow__title--linked {
   border-bottom: 0.5px solid currentColor;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
 
 .m-announcement-slideshow__link:hover .m-announcement-slideshow__title--linked {
   border-bottom-width: 1px;
 }
 
-/* Social icon styles removed */
+.m-announcement-slideshow__separator {
+  margin: 0 8px;
+  opacity: 0.6;
+  font-weight: 300;
+}
 
 .m-announcement-slideshow__controls {
   position: absolute;
