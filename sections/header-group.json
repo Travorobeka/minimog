@@ -100,7 +100,7 @@
         "autoplay_speed": 5,
         "transition_effect": "fade",
         "transition_duration": 500,
-        "show_arrows": true,
+        "show_arrows": false,
         "show_dots": false,
         "height": 40,
         "height_mobile": 30,
