@@ -19,6 +19,8 @@
     --countdown-height: {{ section.settings.height }}px;
     --text-size: {{ section.settings.text_size }}px;
     --timer-size: {{ section.settings.timer_size }}px;
+    {% if section.settings.expired_text_color != blank %}--expired-text-color: {{ section.settings.expired_text_color }};{% endif %}
+    {% if section.settings.expired_background_color != blank %}--expired-background-color: {{ section.settings.expired_background_color }};{% endif %}
   }
   @media (max-width: 767px) {
     #m-announcement-countdown--{{ section.id }} {
@@ -81,11 +83,6 @@
               </div>
               
               
-              {% if section.settings.button_text != blank and section.settings.button_link != blank %}
-                <a href="{{ section.settings.button_link }}" class="m-announcement-countdown__button btn btn--primary btn--small">
-                  {{ section.settings.button_text }}
-                </a>
-              {% endif %}
             </div>
             
             <div class="m-announcement-countdown__expired" data-expired-message style="display: none;">
@@ -93,11 +90,6 @@
                 <span class="m-announcement-countdown__expired-text">
                   {{ section.settings.expired_message }}
                 </span>
-              {% endif %}
-              {% if section.settings.expired_button_text != blank and section.settings.expired_button_link != blank %}
-                <a href="{{ section.settings.expired_button_link }}" class="m-announcement-countdown__button btn btn--primary btn--small">
-                  {{ section.settings.expired_button_text }}
-                </a>
               {% endif %}
             </div>
           </div>
@@ -261,16 +253,6 @@
       "default": "Sale ends in:"
     },
     {
-      "type": "text",
-      "id": "button_text",
-      "label": "Button text"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
-    },
-    {
       "type": "header",
       "content": "Timer Labels"
     },
@@ -309,14 +291,16 @@
       "default": "Sale has ended - Thank you!"
     },
     {
-      "type": "text",
-      "id": "expired_button_text",
-      "label": "Expired button text"
+      "type": "color",
+      "id": "expired_text_color",
+      "label": "Expired message color",
+      "info": "Custom color for expired message text"
     },
     {
-      "type": "url",
-      "id": "expired_button_link",
-      "label": "Expired button link"
+      "type": "color",
+      "id": "expired_background_color",
+      "label": "Expired background color",
+      "info": "Custom background color when countdown expires"
     },
     {
       "type": "header",
@@ -393,8 +377,7 @@
       "name": "Announcement Countdown",
       "category": "Promotional",
       "settings": {
-        "prefix_text": "Flash Sale ends in:",
-        "button_text": "Shop Sale"
+        "prefix_text": "Flash Sale ends in:"
       }
     }
   ]
