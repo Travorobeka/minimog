@@ -132,7 +132,7 @@
         "seconds_label": "S",
         "expired_message": "Sale has ended - Thank you!",
         "expired_color_scheme": "scheme-09e5b5b4-774c-4b6c-8025-416ced49cc74",
-        "height": 30,
+        "height": 10,
         "height_mobile": 20,
         "text_size": 14,
         "text_size_mobile": 14,
