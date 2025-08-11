@@ -1,11 +1,11 @@
 .m-announcement-countdown {
   position: relative;
-  min-height: var(--countdown-height);
+  height: var(--countdown-height);
   overflow: visible;
   z-index: 10;
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 0;
 }
 
 .m-announcement-countdown__wrapper {
@@ -60,8 +60,9 @@
   padding: 8px 12px;
   border-radius: 8px;
   backdrop-filter: blur(10px);
-  height: calc(var(--countdown-height) - 16px);
+  height: calc(var(--countdown-height) * 0.7);
   min-height: 24px;
+  max-height: 80px;
   box-sizing: border-box;
   transition: all 0.3s ease;
   flex-shrink: 0;
@@ -131,11 +132,14 @@
   font-weight: 500;
   text-align: center;
   width: 100%;
+  height: 100%;
   padding: 8px 16px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  min-height: calc(var(--countdown-height) - 16px);
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .m-announcement-countdown__expired-text {
@@ -281,25 +285,28 @@
   }
   
   .m-announcement-countdown__expired {
-    text-align: center !important;
-    justify-content: center !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
     align-items: center !important;
-    flex-direction: column;
-    padding: 8px 12px;
-    gap: 8px;
-    width: 100%;
-    min-height: calc(var(--countdown-height) - 8px);
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    transform: none !important;
   }
   
   .m-announcement-countdown__expired-text {
     text-align: center !important;
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-    font-size: calc(var(--text-size) * 0.95);
+    width: 100% !important;
+    display: block !important;
+    margin: 0 auto !important;
+    font-size: calc(var(--text-size) * 0.95) !important;
+    line-height: 1.2 !important;
   }
   
   .m-announcement-countdown__unit {
