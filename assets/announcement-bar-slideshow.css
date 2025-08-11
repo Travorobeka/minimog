@@ -89,11 +89,12 @@
 .m-announcement-slideshow__inner {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   text-align: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
+  max-width: 100%;
 }
 
 .m-announcement-slideshow__icon {
@@ -128,11 +129,13 @@
 }
 
 .m-announcement-slideshow__button {
-  margin-left: 12px;
   font-size: 0.9em;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border-radius: 4px;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
 }
 
 .m-announcement-slideshow__button:hover {
@@ -239,11 +242,12 @@
     padding: 16px 12px;
   }
   
-  .m-announcement-slideshow__inner {
-    gap: 8px;
+.m-announcement-slideshow__inner {
+    gap: 10px;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
   
   .m-announcement-slideshow__title {
@@ -261,10 +265,11 @@
     height: 16px;
   }
   
-  .m-announcement-slideshow__button {
-    margin: 8px 0 0 0;
-    padding: 6px 12px;
+.m-announcement-slideshow__button {
+    margin: 0;
+    padding: 6px 14px;
     font-size: 0.85em;
+    flex-shrink: 0;
   }
   
   .m-announcement-slideshow__arrow {
