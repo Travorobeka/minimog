@@ -80,11 +80,6 @@
                 </div>
               </div>
               
-              {% if section.settings.suffix_text != blank %}
-                <span class="m-announcement-countdown__suffix">
-                  {{ section.settings.suffix_text }}
-                </span>
-              {% endif %}
               
               {% if section.settings.button_text != blank and section.settings.button_link != blank %}
                 <a href="{{ section.settings.button_link }}" class="m-announcement-countdown__button btn btn--primary btn--small">
@@ -267,12 +262,6 @@
     },
     {
       "type": "text",
-      "id": "suffix_text",
-      "label": "Suffix text",
-      "default": "Don't miss out!"
-    },
-    {
-      "type": "text",
       "id": "button_text",
       "label": "Button text"
     },
@@ -405,7 +394,6 @@
       "category": "Promotional",
       "settings": {
         "prefix_text": "Flash Sale ends in:",
-        "suffix_text": "Shop now before it's too late!",
         "button_text": "Shop Sale"
       }
     }

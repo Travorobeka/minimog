@@ -47,6 +47,7 @@
 .m-announcement-countdown__timer {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-size: var(--timer-size);
   font-weight: 600;
@@ -210,8 +211,7 @@
     padding: 4px;
   }
   
-  .m-announcement-countdown__prefix,
-  .m-announcement-countdown__suffix {
+  .m-announcement-countdown__prefix {
     font-size: 0.9em;
   }
 }
