@@ -11,6 +11,108 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "announcement_bar_ticker_KGawVj": {
+      "type": "announcement-bar-ticker",
+      "blocks": {
+        "ticker_item_FifAJc": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "Free shipping on orders over $75",
+            "link": ""
+          }
+        },
+        "ticker_item_zRV9Vy": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "30-day returns on all items",
+            "link": ""
+          }
+        },
+        "ticker_item_aYBgjk": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "24/7 customer support",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ticker_item_FifAJc",
+        "ticker_item_zRV9Vy",
+        "ticker_item_aYBgjk"
+      ],
+      "disabled": true,
+      "name": "Announcement Ticker",
+      "settings": {
+        "show_ticker": true,
+        "homepage_only": false,
+        "show_close": false,
+        "container": "container-fluid",
+        "color_scheme": "",
+        "direction": "left",
+        "speed": 30,
+        "height": 50,
+        "text_size": 14,
+        "text_size_mobile": 12,
+        "separator_type": "plus",
+        "separator_custom": "•",
+        "separator_spacing": 32,
+        "separator_color": "",
+        "custom_class": ""
+      }
+    },
+    "announcement_bar_slideshow_XJJ397": {
+      "type": "announcement-bar-slideshow",
+      "blocks": {
+        "slideshow_item_E9fGgf": {
+          "type": "slideshow_item",
+          "settings": {
+            "title": "Free Shipping",
+            "message": "Free shipping on all orders over $50",
+            "icon": "",
+            "link": "",
+            "button_text": "",
+            "button_link": "",
+            "background_color": ""
+          }
+        },
+        "slideshow_item_zQB6ri": {
+          "type": "slideshow_item",
+          "settings": {
+            "title": "New Collection",
+            "message": "Discover our latest arrivals now available",
+            "icon": "",
+            "link": "",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_E9fGgf",
+        "slideshow_item_zQB6ri"
+      ],
+      "name": "Announcement Slideshow",
+      "settings": {
+        "show_slideshow": true,
+        "homepage_only": false,
+        "show_close": true,
+        "container": "container-fluid",
+        "color_scheme": "",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "transition_effect": "fade",
+        "transition_duration": 500,
+        "show_arrows": true,
+        "show_dots": false,
+        "height": 60,
+        "height_mobile": 50,
+        "text_size": 14,
+        "text_size_mobile": 12,
+        "custom_class": ""
+      }
+    },
     "header": {
       "type": "header",
       "blocks": {
@@ -70,61 +172,11 @@
         "mb_show_country_selector": true,
         "mb_show_language_switcher": true
       }
-    },
-    "announcement_bar_ticker_KGawVj": {
-      "type": "announcement-bar-ticker",
-      "blocks": {
-        "ticker_item_FifAJc": {
-          "type": "ticker_item",
-          "settings": {
-            "message": "Free shipping on orders over $75",
-            "icon": "",
-            "link": ""
-          }
-        },
-        "ticker_item_zRV9Vy": {
-          "type": "ticker_item",
-          "settings": {
-            "message": "30-day returns on all items",
-            "icon": "",
-            "link": ""
-          }
-        },
-        "ticker_item_aYBgjk": {
-          "type": "ticker_item",
-          "settings": {
-            "message": "24/7 customer support",
-            "icon": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "ticker_item_FifAJc",
-        "ticker_item_zRV9Vy",
-        "ticker_item_aYBgjk"
-      ],
-      "name": "Announcement Ticker",
-      "settings": {
-        "show_ticker": true,
-        "homepage_only": false,
-        "show_close": false,
-        "container": "container-fluid",
-        "color_scheme": "",
-        "direction": "left",
-        "speed": 30,
-        "height": 50,
-        "text_size": 14,
-        "text_size_mobile": 12,
-        "separator_type": "plus",
-        "separator_custom": "•",
-        "separator_spacing": 32,
-        "custom_class": ""
-      }
     }
   },
   "order": [
-    "header",
-    "announcement_bar_ticker_KGawVj"
+    "announcement_bar_ticker_KGawVj",
+    "announcement_bar_slideshow_XJJ397",
+    "header"
   ]
 }
