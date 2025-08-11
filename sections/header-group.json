@@ -89,6 +89,7 @@
         "slideshow_item_E9fGgf",
         "slideshow_item_zQB6ri"
       ],
+      "disabled": true,
       "name": "Announcement Slideshow",
       "settings": {
         "show_slideshow": true,
@@ -106,6 +107,40 @@
         "height_mobile": 15,
         "text_size": 13,
         "text_size_mobile": 12,
+        "custom_class": ""
+      }
+    },
+    "announcement_bar_countdown_DtGApQ": {
+      "type": "announcement-bar-countdown",
+      "name": "Announcement Countdown",
+      "settings": {
+        "show_countdown": true,
+        "homepage_only": false,
+        "show_close": true,
+        "container": "container-fluid",
+        "color_scheme": "",
+        "end_date": "2025-12-31",
+        "end_time": "23:59",
+        "timezone": "America/New_York",
+        "expired_action": "show_message",
+        "icon": "",
+        "prefix_text": "Flash Sale ends in:",
+        "suffix_text": "Shop now before it's too late!",
+        "button_text": "Shop Sale",
+        "button_link": "",
+        "days_label": "D",
+        "hours_label": "H",
+        "minutes_label": "M",
+        "seconds_label": "S",
+        "expired_message": "Sale has ended - Thank you!",
+        "expired_button_text": "",
+        "expired_button_link": "",
+        "height": 70,
+        "height_mobile": 100,
+        "text_size": 14,
+        "text_size_mobile": 12,
+        "timer_size": 20,
+        "timer_size_mobile": 16,
         "custom_class": ""
       }
     },
@@ -173,6 +208,7 @@
   "order": [
     "announcement_bar_ticker_KGawVj",
     "announcement_bar_slideshow_XJJ397",
+    "announcement_bar_countdown_DtGApQ",
     "header"
   ]
 }
