@@ -70,9 +70,7 @@
             "title": "Free Shipping",
             "message": "Free shipping on all orders over $50",
             "icon": "",
-            "link": "",
-            "button_text": "",
-            "button_link": "",
+            "link": "shopify://pages/refund",
             "background_color": ""
           }
         },
@@ -83,8 +81,6 @@
             "message": "Discover our latest arrivals now available",
             "icon": "",
             "link": "",
-            "button_text": "Shop Now",
-            "button_link": "",
             "background_color": ""
           }
         }
