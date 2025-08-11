@@ -246,6 +246,19 @@
     min-height: 35px;
   }
   
+  .m-announcement-countdown__expired {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px 16px;
+  }
+  
+  .m-announcement-countdown__expired-text {
+    text-align: center;
+    width: 100%;
+  }
+  
   .m-announcement-countdown__icon {
     width: 16px;
     height: 16px;
