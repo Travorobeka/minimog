@@ -1,0 +1,414 @@
+{{ 'announcement-bar-countdown.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'announcement-bar-countdown.js' | asset_url }}" defer="defer"></script>
+
+{% liquid
+  assign container = section.settings.container
+  if container == 'w-full'
+    assign container = 'container-full'
+  endif
+
+  assign classes = 'm-section m-announcement-countdown'
+  if section.settings.custom_class != blank
+    assign classes = classes | append: ' ' | append: section.settings.custom_class
+  endif
+  assign classes = classes | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
+%}
+
+<style>
+  #m-announcement-countdown--{{ section.id }} {
+    --countdown-height: {{ section.settings.height }}px;
+    --text-size: {{ section.settings.text_size }}px;
+    --timer-size: {{ section.settings.timer_size }}px;
+  }
+  @media (max-width: 767px) {
+    #m-announcement-countdown--{{ section.id }} {
+      --countdown-height: {{ section.settings.height_mobile }}px;
+      --text-size: {{ section.settings.text_size_mobile }}px;
+      --timer-size: {{ section.settings.timer_size_mobile }}px;
+    }
+  }
+</style>
+
+{% if section.settings.show_countdown %}
+  {% if section.settings.homepage_only == false or request.page_type == 'index' %}
+    <section
+      id="m-announcement-countdown--{{ section.id }}"
+      data-section-id="{{ section.id }}"
+      data-section-type="announcement-countdown"
+      class="{{ classes }}"
+    >
+      <m-announcement-countdown
+        data-end-date="{{ section.settings.end_date }}"
+        data-end-time="{{ section.settings.end_time }}"
+        data-timezone="{{ section.settings.timezone }}"
+        data-expired-action="{{ section.settings.expired_action }}"
+      >
+        <div class="{{ container }}">
+          <div class="m-announcement-countdown__wrapper">
+            <div class="m-announcement-countdown__content">
+              {% if section.settings.icon != blank %}
+                <span class="m-announcement-countdown__icon">
+                  {{ section.settings.icon }}
+                </span>
+              {% endif %}
+              
+              {% if section.settings.prefix_text != blank %}
+                <span class="m-announcement-countdown__prefix">
+                  {{ section.settings.prefix_text }}
+                </span>
+              {% endif %}
+              
+              <div class="m-announcement-countdown__timer" data-countdown-timer>
+                <div class="m-announcement-countdown__unit">
+                  <span class="m-announcement-countdown__number" data-days>00</span>
+                  <span class="m-announcement-countdown__label">{{ section.settings.days_label | default: 'D' }}</span>
+                </div>
+                <span class="m-announcement-countdown__separator">:</span>
+                <div class="m-announcement-countdown__unit">
+                  <span class="m-announcement-countdown__number" data-hours>00</span>
+                  <span class="m-announcement-countdown__label">{{ section.settings.hours_label | default: 'H' }}</span>
+                </div>
+                <span class="m-announcement-countdown__separator">:</span>
+                <div class="m-announcement-countdown__unit">
+                  <span class="m-announcement-countdown__number" data-minutes>00</span>
+                  <span class="m-announcement-countdown__label">{{ section.settings.minutes_label | default: 'M' }}</span>
+                </div>
+                <span class="m-announcement-countdown__separator">:</span>
+                <div class="m-announcement-countdown__unit">
+                  <span class="m-announcement-countdown__number" data-seconds>00</span>
+                  <span class="m-announcement-countdown__label">{{ section.settings.seconds_label | default: 'S' }}</span>
+                </div>
+              </div>
+              
+              {% if section.settings.suffix_text != blank %}
+                <span class="m-announcement-countdown__suffix">
+                  {{ section.settings.suffix_text }}
+                </span>
+              {% endif %}
+              
+              {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+                <a href="{{ section.settings.button_link }}" class="m-announcement-countdown__button btn btn--primary btn--small">
+                  {{ section.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+            
+            <div class="m-announcement-countdown__expired" data-expired-message style="display: none;">
+              {% if section.settings.expired_message != blank %}
+                <span class="m-announcement-countdown__expired-text">
+                  {{ section.settings.expired_message }}
+                </span>
+              {% endif %}
+              {% if section.settings.expired_button_text != blank and section.settings.expired_button_link != blank %}
+                <a href="{{ section.settings.expired_button_link }}" class="m-announcement-countdown__button btn btn--primary btn--small">
+                  {{ section.settings.expired_button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        
+        {% if section.settings.show_close %}
+          <button class="m-announcement-countdown__close" aria-label="Close announcement">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        {% endif %}
+      </m-announcement-countdown>
+    </section>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Countdown",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Announcement bar with countdown timer for sales, launches, and events"
+    },
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Show announcement countdown",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "homepage_only",
+      "label": "Homepage only",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close",
+      "label": "Show close button",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container type",
+      "default": "container-fluid",
+      "options": [
+        {
+          "value": "container-fluid",
+          "label": "Default"
+        },
+        {
+          "value": "w-full",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Use container box"
+        }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Countdown Settings"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End date (YYYY-MM-DD)",
+      "default": "2024-12-31",
+      "info": "Format: YYYY-MM-DD"
+    },
+    {
+      "type": "text",
+      "id": "end_time",
+      "label": "End time (HH:MM)",
+      "default": "23:59",
+      "info": "Format: HH:MM (24-hour)"
+    },
+    {
+      "type": "select",
+      "id": "timezone",
+      "label": "Timezone",
+      "default": "America/New_York",
+      "options": [
+        {
+          "value": "America/New_York",
+          "label": "Eastern Time"
+        },
+        {
+          "value": "America/Chicago",
+          "label": "Central Time"
+        },
+        {
+          "value": "America/Denver",
+          "label": "Mountain Time"
+        },
+        {
+          "value": "America/Los_Angeles",
+          "label": "Pacific Time"
+        },
+        {
+          "value": "UTC",
+          "label": "UTC"
+        },
+        {
+          "value": "Europe/London",
+          "label": "London"
+        },
+        {
+          "value": "Europe/Paris",
+          "label": "Paris"
+        },
+        {
+          "value": "Asia/Tokyo",
+          "label": "Tokyo"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "expired_action",
+      "label": "When countdown expires",
+      "default": "show_message",
+      "options": [
+        {
+          "value": "hide",
+          "label": "Hide announcement"
+        },
+        {
+          "value": "show_message",
+          "label": "Show expired message"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "icon",
+      "label": "Icon (SVG)",
+      "info": "Optional SVG icon to display"
+    },
+    {
+      "type": "text",
+      "id": "prefix_text",
+      "label": "Prefix text",
+      "default": "Sale ends in:"
+    },
+    {
+      "type": "text",
+      "id": "suffix_text",
+      "label": "Suffix text",
+      "default": "Don't miss out!"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Timer Labels"
+    },
+    {
+      "type": "text",
+      "id": "days_label",
+      "label": "Days label",
+      "default": "D"
+    },
+    {
+      "type": "text",
+      "id": "hours_label",
+      "label": "Hours label",
+      "default": "H"
+    },
+    {
+      "type": "text",
+      "id": "minutes_label",
+      "label": "Minutes label",
+      "default": "M"
+    },
+    {
+      "type": "text",
+      "id": "seconds_label",
+      "label": "Seconds label",
+      "default": "S"
+    },
+    {
+      "type": "header",
+      "content": "Expired State"
+    },
+    {
+      "type": "text",
+      "id": "expired_message",
+      "label": "Expired message",
+      "default": "Sale has ended - Thank you!"
+    },
+    {
+      "type": "text",
+      "id": "expired_button_text",
+      "label": "Expired button text"
+    },
+    {
+      "type": "url",
+      "id": "expired_button_link",
+      "label": "Expired button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Countdown height",
+      "min": 50,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "label": "Countdown height (Mobile)",
+      "min": 40,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Text size (Mobile)",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "timer_size",
+      "label": "Timer size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "timer_size_mobile",
+      "label": "Timer size (Mobile)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom classes"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Countdown",
+      "category": "Promotional",
+      "settings": {
+        "prefix_text": "Flash Sale ends in:",
+        "suffix_text": "Shop now before it's too late!",
+        "button_text": "Shop Sale"
+      }
+    }
+  ]
+}
+{% endschema %}

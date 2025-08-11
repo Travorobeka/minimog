@@ -1,0 +1,217 @@
+.m-announcement-countdown {
+  position: relative;
+  height: var(--countdown-height);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.m-announcement-countdown__wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.m-announcement-countdown__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: var(--text-size);
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.m-announcement-countdown__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.m-announcement-countdown__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.m-announcement-countdown__prefix,
+.m-announcement-countdown__suffix {
+  line-height: 1.3;
+  text-align: center;
+}
+
+.m-announcement-countdown__timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--timer-size);
+  font-weight: 600;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.m-announcement-countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.m-announcement-countdown__number {
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.m-announcement-countdown__label {
+  font-size: 0.7em;
+  opacity: 0.8;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.m-announcement-countdown__separator {
+  font-size: 1.2em;
+  font-weight: 700;
+  opacity: 0.7;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 0.7; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.m-announcement-countdown__button {
+  margin-left: 8px;
+  font-size: 0.9em;
+  padding: 6px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.m-announcement-countdown__button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  color: inherit;
+}
+
+.m-announcement-countdown__expired {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: var(--text-size);
+  font-weight: 500;
+  text-align: center;
+}
+
+.m-announcement-countdown__expired-text {
+  line-height: 1.3;
+}
+
+.m-announcement-countdown__close {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.m-announcement-countdown__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Animation for numbers */
+.m-announcement-countdown__number {
+  transition: all 0.3s ease;
+}
+
+.m-announcement-countdown__number.updating {
+  animation: numberFlip 0.6s ease;
+}
+
+@keyframes numberFlip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+/* Urgency effects */
+.m-announcement-countdown--urgent .m-announcement-countdown__timer {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.m-announcement-countdown--critical .m-announcement-countdown__number {
+  color: #ff4757;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .m-announcement-countdown__content {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .m-announcement-countdown__timer {
+    gap: 6px;
+    padding: 6px 10px;
+    font-size: calc(var(--timer-size) * 0.9);
+  }
+  
+  .m-announcement-countdown__icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .m-announcement-countdown__button {
+    margin-left: 4px;
+    padding: 4px 12px;
+    font-size: 0.8em;
+  }
+  
+  .m-announcement-countdown__close {
+    right: 12px;
+    padding: 4px;
+  }
+  
+  .m-announcement-countdown__prefix,
+  .m-announcement-countdown__suffix {
+    font-size: 0.9em;
+  }
+}
