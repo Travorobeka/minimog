@@ -102,9 +102,9 @@
         "transition_duration": 500,
         "show_arrows": true,
         "show_dots": false,
-        "height": 60,
+        "height": 40,
         "height_mobile": 30,
-        "text_size": 14,
+        "text_size": 13,
         "text_size_mobile": 12,
         "custom_class": ""
       }
