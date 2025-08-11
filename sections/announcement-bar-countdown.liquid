@@ -19,8 +19,6 @@
     --countdown-height: {{ section.settings.height }}px;
     --text-size: {{ section.settings.text_size }}px;
     --timer-size: {{ section.settings.timer_size }}px;
-    {% if section.settings.expired_text_color != blank %}--expired-text-color: {{ section.settings.expired_text_color }};{% endif %}
-    {% if section.settings.expired_background_color != blank %}--expired-background-color: {{ section.settings.expired_background_color }};{% endif %}
   }
   @media (max-width: 767px) {
     #m-announcement-countdown--{{ section.id }} {
@@ -60,6 +58,10 @@
                 </span>
               {% endif %}
               
+              {% if section.settings.timer_link != blank %}
+                <a href="{{ section.settings.timer_link }}" class="m-announcement-countdown__timer-link">
+              {% endif %}
+              
               <div class="m-announcement-countdown__timer" data-countdown-timer>
                 <div class="m-announcement-countdown__unit">
                   <span class="m-announcement-countdown__number" data-days>00</span>
@@ -82,10 +84,14 @@
                 </div>
               </div>
               
+              {% if section.settings.timer_link != blank %}
+                </a>
+              {% endif %}
+              
               
             </div>
             
-            <div class="m-announcement-countdown__expired" data-expired-message style="display: none;">
+            <div class="m-announcement-countdown__expired m-gradient m-color-{{ section.settings.expired_color_scheme }}" data-expired-message style="display: none;">
               {% if section.settings.expired_message != blank %}
                 <span class="m-announcement-countdown__expired-text">
                   {{ section.settings.expired_message }}
@@ -253,6 +259,12 @@
       "default": "Sale ends in:"
     },
     {
+      "type": "url",
+      "id": "timer_link",
+      "label": "Timer link URL",
+      "info": "Optional link when timer is clicked - directs to sales page"
+    },
+    {
       "type": "header",
       "content": "Timer Labels"
     },
@@ -291,16 +303,10 @@
       "default": "Sale has ended - Thank you!"
     },
     {
-      "type": "color",
-      "id": "expired_text_color",
-      "label": "Expired message color",
-      "info": "Custom color for expired message text"
-    },
-    {
-      "type": "color",
-      "id": "expired_background_color",
-      "label": "Expired background color",
-      "info": "Custom background color when countdown expires"
+      "type": "color_scheme",
+      "id": "expired_color_scheme",
+      "label": "Expired message color scheme",
+      "info": "Color scheme applied when countdown expires"
     },
     {
       "type": "header",
