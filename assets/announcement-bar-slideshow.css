@@ -128,18 +128,33 @@
   white-space: normal;
 }
 
-.m-announcement-slideshow__title--linked,
-.m-announcement-slideshow__text--linked {
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 1px;
+.m-announcement-slideshow__title--linked {
+  border-bottom: 0.5px solid currentColor;
+  padding-bottom: 2px;
 }
 
-.m-announcement-slideshow__link:hover .m-announcement-slideshow__title--linked,
-.m-announcement-slideshow__link:hover .m-announcement-slideshow__text--linked {
-  border-bottom-width: 2px;
+.m-announcement-slideshow__link:hover .m-announcement-slideshow__title--linked {
+  border-bottom-width: 1px;
 }
 
-/* Button styles removed - using underlines instead */
+.m-announcement-slideshow__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+.m-announcement-slideshow__social svg {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.m-announcement-slideshow__social svg:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
 
 .m-announcement-slideshow__controls {
   position: absolute;
@@ -264,7 +279,15 @@
     height: 16px;
   }
   
-/* Mobile button styles removed */
+.m-announcement-slideshow__social {
+    gap: 10px;
+    margin-top: 6px;
+  }
+  
+  .m-announcement-slideshow__social svg {
+    width: 14px;
+    height: 14px;
+  }
   
   .m-announcement-slideshow__arrow {
     padding: 6px;
