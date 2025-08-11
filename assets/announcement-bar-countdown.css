@@ -140,14 +140,17 @@
   position: absolute;
   top: 0;
   left: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .m-announcement-countdown__expired-text {
   line-height: 1.4;
   text-align: center;
-  width: 100%;
-  word-wrap: break-word;
-  hyphens: auto;
+  width: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .m-announcement-countdown__close {
@@ -298,15 +301,19 @@
     padding: 0 16px !important;
     box-sizing: border-box !important;
     transform: none !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
   }
   
   .m-announcement-countdown__expired-text {
     text-align: center !important;
-    width: 100% !important;
-    display: block !important;
-    margin: 0 auto !important;
+    width: auto !important;
+    display: inline-block !important;
+    margin: 0 !important;
     font-size: calc(var(--text-size) * 0.95) !important;
     line-height: 1.2 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   
   .m-announcement-countdown__unit {
