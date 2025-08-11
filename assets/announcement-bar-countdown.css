@@ -1,8 +1,11 @@
 .m-announcement-countdown {
   position: relative;
-  height: var(--countdown-height);
-  overflow: hidden;
+  min-height: var(--countdown-height);
+  overflow: visible;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
 }
 
 .m-announcement-countdown__wrapper {
@@ -56,6 +59,9 @@
   padding: 8px 12px;
   border-radius: 8px;
   backdrop-filter: blur(10px);
+  height: calc(var(--countdown-height) - 16px);
+  min-height: 40px;
+  box-sizing: border-box;
 }
 
 .m-announcement-countdown__unit {
@@ -184,6 +190,10 @@
 
 /* Mobile responsive */
 @media (max-width: 767px) {
+  .m-announcement-countdown {
+    padding: 6px 0;
+  }
+  
   .m-announcement-countdown__content {
     gap: 12px;
     flex-wrap: wrap;
@@ -193,6 +203,8 @@
     gap: 6px;
     padding: 6px 10px;
     font-size: calc(var(--timer-size) * 0.9);
+    height: calc(var(--countdown-height) - 12px);
+    min-height: 35px;
   }
   
   .m-announcement-countdown__icon {
