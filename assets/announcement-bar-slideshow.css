@@ -32,7 +32,7 @@
   opacity: 0;
   transition: opacity var(--transition-duration) ease-in-out;
   font-size: var(--text-size);
-  padding: 12px 16px;
+  padding: 12px 16px 40px 16px; /* Extra bottom padding for social icons */
   min-height: var(--slideshow-height);
   box-sizing: border-box;
 }
@@ -137,23 +137,60 @@
   border-bottom-width: 1px;
 }
 
+/* Desktop social icons - below content */
 .m-announcement-slideshow__social {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 8px;
-  opacity: 0.7;
+  margin-top: 12px;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
-.m-announcement-slideshow__social svg {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
+.m-announcement-slideshow__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px;
+  border-radius: 50%;
 }
 
-.m-announcement-slideshow__social svg:hover {
+.m-announcement-slideshow__social a:hover {
   opacity: 1;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile social icons - inline with arrows */
+.m-announcement-slideshow__social--mobile {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+}
+
+.m-announcement-slideshow__social--mobile a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 3px;
+  border-radius: 50%;
+}
+
+.m-announcement-slideshow__social--mobile a:hover {
+  opacity: 1;
+  transform: translateY(-1px) scale(1.05);
 }
 
 .m-announcement-slideshow__controls {
@@ -279,14 +316,24 @@
     height: 16px;
   }
   
-.m-announcement-slideshow__social {
-    gap: 10px;
-    margin-top: 6px;
+/* Mobile responsive layout */
+  .m-announcement-slideshow__slide {
+    padding: 12px 8px 40px 8px; /* Extra bottom padding for mobile social icons */
   }
   
-  .m-announcement-slideshow__social svg {
-    width: 14px;
-    height: 14px;
+  /* Hide desktop social icons on mobile */
+  .m-announcement-slideshow__social {
+    display: none;
+  }
+  
+  /* Show mobile social icons inline with arrows */
+  .m-announcement-slideshow__social--mobile {
+    display: flex;
+  }
+  
+  .m-announcement-slideshow__controls {
+    align-items: center;
+    padding: 0 12px;
   }
   
   .m-announcement-slideshow__arrow {
