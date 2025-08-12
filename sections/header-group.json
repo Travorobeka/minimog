@@ -104,8 +104,8 @@
         "show_dots": false,
         "height": 25,
         "height_mobile": 20,
-        "text_size": 14,
-        "text_size_mobile": 11,
+        "text_size": 13,
+        "text_size_mobile": 18,
         "custom_class": ""
       }
     },
