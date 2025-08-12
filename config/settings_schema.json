@@ -211,6 +211,32 @@
       },
       {
         "type": "header",
+        "content": "MOBILE FONT SCALING"
+      },
+      {
+        "type": "range",
+        "id": "mobile_font_scale",
+        "label": "Mobile font scale multiplier",
+        "default": 0.9,
+        "min": 0.7,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "",
+        "info": "Scales all font sizes on mobile devices. 1.0 = same as desktop, 0.9 = 10% smaller"
+      },
+      {
+        "type": "range",
+        "id": "mobile_base_size_scale",
+        "label": "Mobile body text scale",
+        "default": 0.9,
+        "min": 0.7,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "",
+        "info": "Specific scaling for body text on mobile. Overrides global mobile scale for body text"
+      },
+      {
+        "type": "header",
         "content": "HEADINGS"
       },
       {
@@ -335,6 +361,17 @@
         "unit": "px"
       },
       {
+        "type": "range",
+        "id": "mobile_heading_scale",
+        "label": "Mobile heading scale",
+        "default": 0.8,
+        "min": 0.6,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "",
+        "info": "Specific scaling for headings on mobile. Overrides global mobile scale for headings"
+      },
+      {
         "type": "header",
         "content": "BUTTONS"
       },
@@ -397,6 +434,17 @@
         "max": 50,
         "step": 1,
         "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "mobile_button_scale",
+        "label": "Mobile button font scale",
+        "default": 0.9,
+        "min": 0.7,
+        "max": 1.2,
+        "step": 0.05,
+        "unit": "",
+        "info": "Specific scaling for button text on mobile. Overrides global mobile scale for buttons"
       },
       {
         "id": "btn_weight",

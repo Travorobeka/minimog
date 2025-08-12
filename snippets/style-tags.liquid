@@ -6,6 +6,12 @@
   assign h2_font_size = settings.h2_font_size
   assign h3_font_size = settings.type_header_base_size
   assign h4_font_size = settings.h4_font_size
+  
+  # Mobile font scaling settings
+  assign mobile_font_scale = settings.mobile_font_scale | default: 0.9
+  assign mobile_base_size_scale = settings.mobile_base_size_scale | default: 0.9
+  assign mobile_heading_scale = settings.mobile_heading_scale | default: 0.8
+  assign mobile_button_scale = settings.mobile_button_scale | default: 0.9
 
   assign enable_rtl = settings.enable_rtl
   assign language_support_rtl = settings.language_support_rtl
@@ -131,25 +137,33 @@
 
   	/* FONT SIZES */
   	--font-base-size: {{ font_body_base }};
+  	--font-base-size-mobile: {{ font_body_base | times: mobile_base_size_scale | floor }}px;
   	--font-btn-size: {{ settings.btn_base_size }}px;
+  	--font-btn-size-mobile: {{ settings.btn_base_size | times: mobile_button_scale | floor }}px;
   	--font-btn-weight: {{ settings.btn_weight }};
   	--font-h1-desktop: {{ h1_font_size }};
   	--font-h1-tablet: {{ h1_font_size | times: 0.70 | floor }};
-  	--font-h1-mobile: {{ h1_font_size | times: 0.60 | floor }};
+  	--font-h1-mobile: {{ h1_font_size | times: mobile_heading_scale | floor }};
   	--font-h2-desktop: {{ h2_font_size }};
   	--font-h2-tablet: {{ h2_font_size | times: 0.80 | floor }};
-  	--font-h2-mobile: {{ h2_font_size | times: 0.70 | floor }};
+  	--font-h2-mobile: {{ h2_font_size | times: mobile_heading_scale | floor }};
   	--font-h3-desktop: {{ h3_font_size }};
   	--font-h3-tablet: {{ h3_font_size | times: 0.80 | floor }};
-  	--font-h3-mobile: {{ h3_font_size | times: 0.70 | floor }};
+  	--font-h3-mobile: {{ h3_font_size | times: mobile_heading_scale | floor }};
   	--font-h4-desktop: {{ h4_font_size }};
   	--font-h4-tablet: {{ h4_font_size | times: 0.80 | floor }};
-  	--font-h4-mobile: {{ h4_font_size | times: 0.80 | floor }};
+  	--font-h4-mobile: {{ h4_font_size | times: mobile_heading_scale | floor }};
   	--font-h5-desktop: {{ font_body_base | times: 1.125 | floor }};
-  	--font-h5-mobile: {{ font_body_base }};
+  	--font-h5-mobile: {{ font_body_base | times: mobile_base_size_scale | floor }};
   	--font-h6-desktop: {{ font_body_base }};
-  	--font-h6-mobile: {{ font_body_base }};
+  	--font-h6-mobile: {{ font_body_base | times: mobile_base_size_scale | floor }};
   	--heading-letter-spacing: {{ settings.type_header_spacing }}px;
+
+  	/* MOBILE FONT SCALING */
+  	--mobile-font-scale: {{ mobile_font_scale }};
+  	--mobile-base-size-scale: {{ mobile_base_size_scale }};
+  	--mobile-heading-scale: {{ mobile_heading_scale }};
+  	--mobile-button-scale: {{ mobile_button_scale }};
 
    --arrow-down-url: url({{ 'arrow-down.svg' | asset_url }});
    --arrow-down-white-url: url({{ 'arrow-down-white.svg' | asset_url }});
@@ -168,6 +182,57 @@
    --blocks-radius: {{ blocks_radius }}px;
    --medium-blocks-radius: {{ medium_blocks_radius }}px;
    --pcard-radius: {{ pcard_radius }}px;
+  }
+
+  /* Mobile Typography Scaling */
+  @media screen and (max-width: 767px) {
+    :root {
+      /* Apply mobile-specific font sizes */
+      --font-base-size: var(--font-base-size-mobile);
+      --font-btn-size: var(--font-btn-size-mobile);
+    }
+
+    /* Scale all body text on mobile */
+    body {
+      font-size: calc(var(--font-base-size) * var(--mobile-base-size-scale));
+    }
+
+    /* Scale button text on mobile */
+    .m-button,
+    .btn,
+    button {
+      font-size: calc(var(--font-btn-size) * var(--mobile-button-scale)) !important;
+    }
+
+    /* Apply global mobile font scaling to common text elements */
+    p, li, span, div:not([class*="heading"]):not([class*="title"]) {
+      font-size: calc(1rem * var(--mobile-font-scale));
+    }
+
+    /* Apply heading-specific mobile scaling */
+    h1, .h1 {
+      font-size: calc(var(--font-h1-desktop) * var(--mobile-heading-scale) / var(--font-base-size) * 1px);
+    }
+
+    h2, .h2 {
+      font-size: calc(var(--font-h2-desktop) * var(--mobile-heading-scale) / var(--font-base-size) * 1px);
+    }
+
+    h3, .h3 {
+      font-size: calc(var(--font-h3-desktop) * var(--mobile-heading-scale) / var(--font-base-size) * 1px);
+    }
+
+    h4, .h4 {
+      font-size: calc(var(--font-h4-desktop) * var(--mobile-heading-scale) / var(--font-base-size) * 1px);
+    }
+
+    h5, .h5 {
+      font-size: calc(var(--font-h5-desktop) * var(--mobile-base-size-scale) / var(--font-base-size) * 1px);
+    }
+
+    h6, .h6 {
+      font-size: calc(var(--font-h6-desktop) * var(--mobile-base-size-scale) / var(--font-base-size) * 1px);
+    }
   }
    {%- endcapture -%}
 
