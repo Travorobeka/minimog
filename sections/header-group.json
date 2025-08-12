@@ -68,7 +68,7 @@
           "type": "slideshow_item",
           "settings": {
             "title": "Free Shipping",
-            "message": "Free shipping on all orders over $50",
+            "message": "On all orders over $50",
             "icon": "",
             "link": "",
             "background_color": ""
@@ -78,7 +78,7 @@
           "type": "slideshow_item",
           "settings": {
             "title": "New Collection",
-            "message": "Discover our latest arrivals now available",
+            "message": "Discover our latest arrivals",
             "icon": "",
             "link": "",
             "background_color": ""
@@ -103,9 +103,9 @@
         "show_arrows": false,
         "show_dots": false,
         "height": 25,
-        "height_mobile": 20,
+        "height_mobile": 15,
         "text_size": 13,
-        "text_size_mobile": 13,
+        "text_size_mobile": 12,
         "custom_class": ""
       }
     },
