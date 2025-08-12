@@ -121,7 +121,7 @@
   51%, 100% { opacity: 0.3; }
 }
 
-/* Button styles removed */
+/* Button styles removed - sync test */
 
 .m-announcement-countdown__expired {
   position: absolute;
