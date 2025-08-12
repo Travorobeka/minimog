@@ -241,20 +241,24 @@
   
   .m-announcement-countdown__content {
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     text-align: center;
     justify-content: center;
     align-items: center;
     width: 100%;
+    display: flex;
   }
   
   .m-announcement-countdown__timer {
     gap: 4px;
-    padding: 4px 8px;
-    font-size: calc(var(--timer-size) * 0.85);
-    height: calc(var(--countdown-height) - 8px);
-    min-height: 18px;
+    padding: 6px 10px;
+    font-size: var(--timer-size);
+    height: calc(var(--countdown-height) * 0.7);
+    min-height: 20px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   
@@ -290,10 +294,10 @@
   }
   
   .m-announcement-countdown__prefix {
-    font-size: 0.85em;
+    font-size: var(--text-size);
     text-align: center;
-    width: 100%;
-    display: block;
+    display: inline-block;
+    flex-shrink: 0;
   }
 }
 
