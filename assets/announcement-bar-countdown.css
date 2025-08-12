@@ -141,7 +141,6 @@
   top: 0;
   left: 0;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .m-announcement-countdown__expired-text {
@@ -302,7 +301,6 @@
     box-sizing: border-box !important;
     transform: none !important;
     white-space: nowrap !important;
-    overflow: hidden !important;
   }
   
   .m-announcement-countdown__expired-text {
