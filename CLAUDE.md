@@ -57,3 +57,4 @@ All announcement bars are configured in `/sections/header-group.json` and can be
 
 ## Next Steps
 Consider customizing the countdown timer and social proof announcement variations based on user requirements.
+- always push to git

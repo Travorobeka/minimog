@@ -88,13 +88,14 @@
 
 .m-announcement-slideshow__inner {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
   text-align: center;
   flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
   max-width: 100%;
+  line-height: 1.4;
 }
 
 .m-announcement-slideshow__icon {
@@ -113,20 +114,22 @@
 
 .m-announcement-slideshow__title {
   margin: 0;
-  font-size: 1.1em;
+  font-size: inherit;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
   word-wrap: break-word;
   max-width: 100%;
+  vertical-align: baseline;
 }
 
 .m-announcement-slideshow__text {
-  font-size: var(--text-size);
+  font-size: inherit;
   line-height: 1.4;
   margin: 0;
   word-wrap: break-word;
   max-width: 100%;
   white-space: normal;
+  vertical-align: baseline;
 }
 
 .m-announcement-slideshow__title--linked {
@@ -142,6 +145,8 @@
   margin: 0 8px;
   opacity: 0.6;
   font-weight: 300;
+  vertical-align: baseline;
+  line-height: 1.4;
 }
 
 .m-announcement-slideshow__controls {
