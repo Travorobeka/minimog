@@ -93,7 +93,7 @@
       "settings": {
         "show_slideshow": true,
         "homepage_only": false,
-        "show_close": true,
+        "show_close": false,
         "container": "container-fluid",
         "color_scheme": "scheme-09e5b5b4-774c-4b6c-8025-416ced49cc74",
         "autoplay": true,
