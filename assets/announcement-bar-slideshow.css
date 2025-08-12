@@ -249,15 +249,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
   }
   
   .m-announcement-slideshow__title {
-    font-size: 1em;
+    font-size: var(--text-size);
     text-align: center;
   }
   
   .m-announcement-slideshow__text {
-    font-size: 0.9em;
+    font-size: var(--text-size);
     text-align: center;
   }
   
