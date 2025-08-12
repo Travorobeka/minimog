@@ -48,10 +48,10 @@
         "homepage_only": false,
         "show_close": false,
         "container": "container-fluid",
-        "color_scheme": "",
+        "color_scheme": "scheme-09e5b5b4-774c-4b6c-8025-416ced49cc74",
         "direction": "left",
-        "speed": 30,
-        "height": 50,
+        "speed": 100,
+        "height": 40,
         "text_size": 14,
         "text_size_mobile": 12,
         "separator_type": "plus",
@@ -61,20 +61,20 @@
         "custom_class": ""
       }
     },
-    "announcement_bar_slideshow_XJJ397": {
+    "announcement_bar_slideshow_pkXp4j": {
       "type": "announcement-bar-slideshow",
       "blocks": {
-        "slideshow_item_E9fGgf": {
+        "slideshow_item_DqFWaH": {
           "type": "slideshow_item",
           "settings": {
             "title": "Free Shipping",
             "message": "Free shipping on all orders over $50",
             "icon": "",
-            "link": "shopify://pages/refund",
+            "link": "",
             "background_color": ""
           }
         },
-        "slideshow_item_zQB6ri": {
+        "slideshow_item_yVwe7U": {
           "type": "slideshow_item",
           "settings": {
             "title": "New Collection",
@@ -86,10 +86,9 @@
         }
       },
       "block_order": [
-        "slideshow_item_E9fGgf",
-        "slideshow_item_zQB6ri"
+        "slideshow_item_DqFWaH",
+        "slideshow_item_yVwe7U"
       ],
-      "disabled": true,
       "name": "Announcement Slideshow",
       "settings": {
         "show_slideshow": true,
@@ -105,36 +104,8 @@
         "show_dots": false,
         "height": 25,
         "height_mobile": 15,
-        "text_size": 13,
-        "text_size_mobile": 12,
-        "custom_class": ""
-      }
-    },
-    "announcement_bar_countdown_DtGApQ": {
-      "type": "announcement-bar-countdown",
-      "name": "Announcement Countdown",
-      "settings": {
-        "show_countdown": true,
-        "homepage_only": false,
-        "show_close": true,
-        "container": "container-fluid",
-        "color_scheme": "badge-sale",
-        "end_date": "2025-12-31",
-        "end_time": "23:59",
-        "timezone": "America/New_York",
-        "icon": "",
-        "prefix_text": "Flash Sale ends in:",
-        "timer_link": "",
-        "days_label": "D",
-        "hours_label": "H",
-        "minutes_label": "M",
-        "seconds_label": "S",
-        "height": 50,
-        "height_mobile": 40,
         "text_size": 14,
-        "text_size_mobile": 14,
-        "timer_size": 16,
-        "timer_size_mobile": 19,
+        "text_size_mobile": 12,
         "custom_class": ""
       }
     },
@@ -201,8 +172,7 @@
   },
   "order": [
     "announcement_bar_ticker_KGawVj",
-    "announcement_bar_slideshow_XJJ397",
-    "announcement_bar_countdown_DtGApQ",
+    "announcement_bar_slideshow_pkXp4j",
     "header"
   ]
 }
