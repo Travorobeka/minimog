@@ -220,8 +220,7 @@
         "default": 0.9,
         "min": 0.7,
         "max": 1.2,
-        "step": 0.05,
-        "unit": "",
+        "step": 0.1,
         "info": "Scales all font sizes on mobile devices. 1.0 = same as desktop, 0.9 = 10% smaller"
       },
       {
@@ -231,8 +230,7 @@
         "default": 0.9,
         "min": 0.7,
         "max": 1.2,
-        "step": 0.05,
-        "unit": "",
+        "step": 0.1,
         "info": "Specific scaling for body text on mobile. Overrides global mobile scale for body text"
       },
       {
@@ -367,8 +365,7 @@
         "default": 0.8,
         "min": 0.6,
         "max": 1.2,
-        "step": 0.05,
-        "unit": "",
+        "step": 0.1,
         "info": "Specific scaling for headings on mobile. Overrides global mobile scale for headings"
       },
       {
@@ -442,8 +439,7 @@
         "default": 0.9,
         "min": 0.7,
         "max": 1.2,
-        "step": 0.05,
-        "unit": "",
+        "step": 0.1,
         "info": "Specific scaling for button text on mobile. Overrides global mobile scale for buttons"
       },
       {
