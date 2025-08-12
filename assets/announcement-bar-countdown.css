@@ -123,36 +123,6 @@
 
 /* Button styles removed - sync test */
 
-.m-announcement-countdown__expired {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: var(--text-size);
-  font-weight: 500;
-  text-align: center;
-  width: calc(100% - 32px);
-  padding: 0 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
-
-.m-announcement-countdown__expired-text {
-  line-height: 1.3;
-  text-align: center;
-  width: auto;
-  white-space: nowrap;
-  flex-shrink: 0;
-  display: inline-block;
-  margin: 0;
-}
-
 .m-announcement-countdown__close {
   position: absolute;
   top: 50%;
@@ -287,34 +257,6 @@
     margin: 0 auto;
   }
   
-  .m-announcement-countdown__expired {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
-    width: calc(100% - 24px) !important;
-  }
-  
-  .m-announcement-countdown__expired-text {
-    text-align: center !important;
-    width: auto !important;
-    display: inline-block !important;
-    margin: 0 !important;
-    font-size: var(--text-size) !important;
-    line-height: 1.3 !important;
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-  }
   
   .m-announcement-countdown__unit {
     gap: 1px;

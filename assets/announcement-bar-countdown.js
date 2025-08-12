@@ -93,30 +93,12 @@ if (!customElements.get("m-announcement-countdown")) {
         this.timer = null;
       }
 
-      const contentEl = this.querySelector('.m-announcement-countdown__content');
-      const expiredEl = this.querySelector('[data-expired-message]');
       const sectionEl = this.closest('section');
 
-      if (this.expiredAction === 'hide') {
-        sectionEl.remove();
-        if (document.documentElement.style.getPropertyValue('--m-announcement-height')) {
-          document.documentElement.style.setProperty('--m-announcement-height', '0px');
-        }
-      } else if (this.expiredAction === 'show_message' && expiredEl) {
-        if (contentEl) contentEl.style.display = 'none';
-        expiredEl.style.display = 'flex';
-        
-        // Apply expired color scheme to the main section
-        const expiredColorScheme = expiredEl.className.match(/m-color-([^\s]+)/);
-        if (expiredColorScheme && expiredColorScheme[1] && sectionEl) {
-          // Remove current color scheme
-          const currentColorScheme = sectionEl.className.match(/m-color-([^\s]+)/);
-          if (currentColorScheme && currentColorScheme[1]) {
-            sectionEl.classList.remove(`m-color-${currentColorScheme[1]}`);
-          }
-          // Add expired color scheme
-          sectionEl.classList.add(`m-color-${expiredColorScheme[1]}`);
-        }
+      // Always hide the announcement when expired
+      sectionEl.remove();
+      if (document.documentElement.style.getPropertyValue('--m-announcement-height')) {
+        document.documentElement.style.setProperty('--m-announcement-height', '0px');
       }
     }
 

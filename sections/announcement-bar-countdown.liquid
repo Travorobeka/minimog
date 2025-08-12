@@ -41,7 +41,7 @@
         data-end-date="{{ section.settings.end_date }}"
         data-end-time="{{ section.settings.end_time }}"
         data-timezone="{{ section.settings.timezone }}"
-        data-expired-action="{{ section.settings.expired_action }}"
+        data-expired-action="hide"
       >
         <div class="{{ container }}">
           <div class="m-announcement-countdown__wrapper">
@@ -91,13 +91,6 @@
               
             </div>
             
-            <div class="m-announcement-countdown__expired m-gradient m-color-{{ section.settings.expired_color_scheme }}" data-expired-message style="display: none;">
-              {% if section.settings.expired_message != blank %}
-                <span class="m-announcement-countdown__expired-text">
-                  {{ section.settings.expired_message }}
-                </span>
-              {% endif %}
-            </div>
           </div>
         </div>
         
@@ -227,22 +220,6 @@
       ]
     },
     {
-      "type": "select",
-      "id": "expired_action",
-      "label": "When countdown expires",
-      "default": "show_message",
-      "options": [
-        {
-          "value": "hide",
-          "label": "Hide announcement"
-        },
-        {
-          "value": "show_message",
-          "label": "Show expired message"
-        }
-      ]
-    },
-    {
       "type": "header",
       "content": "Content"
     },
@@ -291,22 +268,6 @@
       "id": "seconds_label",
       "label": "Seconds label",
       "default": "S"
-    },
-    {
-      "type": "header",
-      "content": "Expired State"
-    },
-    {
-      "type": "text",
-      "id": "expired_message",
-      "label": "Expired message",
-      "default": "Sale has ended - Thank you!"
-    },
-    {
-      "type": "color_scheme",
-      "id": "expired_color_scheme",
-      "label": "Expired message color scheme",
-      "info": "Color scheme applied when countdown expires"
     },
     {
       "type": "header",
