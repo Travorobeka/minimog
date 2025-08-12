@@ -253,28 +253,24 @@
     gap: 8px;
     flex-wrap: nowrap;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     white-space: nowrap;
   }
   
   .m-announcement-slideshow__title {
-    font-size: var(--text-size);
+    font-size: inherit;
     text-align: center;
   }
   
   .m-announcement-slideshow__text {
-    font-size: var(--text-size);
+    font-size: inherit;
     text-align: center;
   }
   
   .m-announcement-slideshow__icon {
     width: 16px;
     height: 16px;
-  }
-  
-.m-announcement-slideshow__slide {
-    padding: 16px 12px;
   }
   
   .m-announcement-slideshow__arrow {
