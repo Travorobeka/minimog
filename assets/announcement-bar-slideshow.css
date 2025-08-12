@@ -244,8 +244,8 @@
   }
   
 .m-announcement-slideshow__inner {
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
+    flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
     justify-content: center;
