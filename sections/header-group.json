@@ -103,9 +103,9 @@
         "show_arrows": false,
         "show_dots": false,
         "height": 25,
-        "height_mobile": 15,
+        "height_mobile": 20,
         "text_size": 14,
-        "text_size_mobile": 12,
+        "text_size_mobile": 11,
         "custom_class": ""
       }
     },
