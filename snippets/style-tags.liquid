@@ -240,11 +240,7 @@
 <link rel="stylesheet" href="{{ 'cart.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'cart.css' | asset_url | stylesheet_tag }}</noscript>
 
-<link rel="stylesheet" href="{{ 'count-bubble-base.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'count-bubble-base.css' | asset_url | stylesheet_tag }}</noscript>
 
-<link rel="stylesheet" href="{{ 'count-bubble-styling.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'count-bubble-styling.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- liquid
   echo 'vendor.css' | asset_url | stylesheet_tag
@@ -283,5 +279,4 @@
 {% comment %} For init Product list of Recently product, Foxkit Related, Product recommendation {% endcomment %}
 <script src="{{ 'product-list.js' | asset_url }}" defer="defer"></script>
 
-{% comment %} Count Bubble Dynamic Styling System {% endcomment %}
-<script src="{{ 'count-bubble-init.js' | asset_url }}" defer="defer"></script>
+

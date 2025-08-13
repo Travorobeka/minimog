@@ -1,4 +1,4 @@
-<m-cart-count class="m-cart-count-bubble m-cart-count{% if cart == empty %} m:hidden{% endif %}">
+<m-cart-count class="m-cart-count{% if cart == empty %} m:hidden{% endif %}">
   {%- if cart.item_count < 100 -%}
     {{- cart.item_count -}}
   {%- else -%}
