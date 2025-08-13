@@ -108,15 +108,13 @@
     >
       {% comment %} Mobile Left Icons {% endcomment %}
       <div class="m-header__mobile-left m:w-3/12 m:flex m:justify-start m:items-center">
-        <span class="m-menu-button m:flex">
+        <span class="m-menu-button m:flex m:justify-center m:items-center">
           <div class="m-hamburger-box">
             <div class="m-hamburger-box__inner"></div>
           </div>
         </span>
         {% if show_wishlist_icon %}
-          <div class="m-header__mobile-wishlist m:flex m:justify-center m:items-center">
-            {% render 'header-option-item__wishlist', display_by: 'icon', header_settings: section.settings %}
-          </div>
+          {% render 'header-option-item__wishlist', display_by: 'icon', header_settings: section.settings %}
         {% endif %}
       </div>
       {% comment %} Header-logo-mobile {% endcomment %}

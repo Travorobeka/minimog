@@ -70,17 +70,13 @@
   height: calc(var(--header-icon-size) * 0.85);
 }
 
-/* Mobile left icons container */
+/* Mobile left icons container - match right side natural spacing */
 .m-header__mobile-left {
-  gap: 0.75rem; /* Match the spacing of right side icons */
+  /* No gap - let natural icon spacing work like right side */
 }
 
 /* Mobile wishlist icon - clean styling to match search/cart */
-.m-header__mobile-wishlist {
-  /* No background, padding, or special styling - just like search/cart */
-}
-
-.m-header__mobile-wishlist .m-header__wishlist {
+.m-header__mobile-left .m-header__wishlist {
   /* Remove all custom styling to match other icons */
   padding: 0;
   border-radius: 0;
@@ -88,22 +84,17 @@
   transition: none;
 }
 
-.m-header__mobile-wishlist .m-header__wishlist:hover {
+.m-header__mobile-left .m-header__wishlist:hover {
   background: none;
   transform: none;
 }
 
-.m-header__mobile-wishlist svg {
-  width: calc(var(--header-icon-size) * 0.85);
-  height: calc(var(--header-icon-size) * 0.85);
-}
-
 /* Remove tooltip on mobile wishlist to save space */
-.m-header__mobile-wishlist .m-tooltip__content {
+.m-header__mobile-left .m-tooltip__content {
   display: none;
 }
 
-/* Hamburger menu button spacing adjustment */
+/* Hamburger menu button styling to match other icon containers */
 .m-header__mobile-left .m-menu-button {
-  /* Ensure consistent sizing with other mobile icons */
+  /* Match the flex styling of search popup */
 }
