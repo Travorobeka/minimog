@@ -69,3 +69,41 @@
   width: calc(var(--header-icon-size) * 0.85);
   height: calc(var(--header-icon-size) * 0.85);
 }
+
+/* Mobile wishlist icon specific styling */
+.m-header__mobile-wishlist {
+  padding: 0 4px;
+}
+
+.m-header__mobile-wishlist .m-header__wishlist {
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.m-header__mobile-wishlist .m-header__wishlist:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+.m-header__mobile-wishlist svg {
+  width: calc(var(--header-icon-size) * 0.8);
+  height: calc(var(--header-icon-size) * 0.8);
+}
+
+/* Remove tooltip on mobile wishlist to save space */
+.m-header__mobile-wishlist .m-tooltip__content {
+  display: none;
+}
+
+/* Adjust mobile header layout */
+@media (max-width: 480px) {
+  .m-header__mobile-wishlist {
+    padding: 0 2px;
+  }
+  
+  .m-header__mobile-wishlist svg {
+    width: calc(var(--header-icon-size) * 0.7);
+    height: calc(var(--header-icon-size) * 0.7);
+  }
+}
