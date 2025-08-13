@@ -1,7 +1,9 @@
+{% comment %}
+  Header Icon Snippet - Customizable icons for header
+  Parameters: icon_type, icon_name, class, attributes
+{% endcomment %}
+
 {%- liquid
-  comment 'Header Icon Snippet - Customizable icons for header'
-  comment 'Parameters: icon_type, icon_name, class, attributes'
-  
   assign stroke_width = settings.icon_stroke_width | default: 1.5
   assign icon_size = settings.icon_size | default: 20
   assign icon_style = settings.icon_style | default: 'outline'
