@@ -47,6 +47,14 @@ class CountBubbleStyling {
     const shadow = this.getCSSVariable('--count-bubble-shadow') || 'soft';
     const animation = this.getCSSVariable('--count-bubble-animation') || 'true';
     
+    // Get offset values for positioning
+    const offsetX = this.getCSSVariable('--count-bubble-offset-x') || '0px';
+    const offsetY = this.getCSSVariable('--count-bubble-offset-y') || '0px';
+    
+    // Get custom size values
+    const customWidth = this.getCSSVariable('--count-bubble-custom-width') || '18px';
+    const customHeight = this.getCSSVariable('--count-bubble-custom-height') || '18px';
+    
     // Set data attributes for CSS styling
     bubble.setAttribute('data-style', style);
     bubble.setAttribute('data-size', size);
@@ -54,8 +62,26 @@ class CountBubbleStyling {
     bubble.setAttribute('data-shadow', shadow);
     bubble.setAttribute('data-animation', animation);
     
+    // Set offset data attributes for reference
+    bubble.setAttribute('data-offset-x', offsetX);
+    bubble.setAttribute('data-offset-y', offsetY);
+    
+    // Set custom size attributes
+    bubble.setAttribute('data-custom-width', customWidth);
+    bubble.setAttribute('data-custom-height', customHeight);
+    
     // Add a class to indicate styling has been applied
     bubble.classList.add('count-bubble-styled');
+    
+    // Force refresh of CSS variables if needed
+    this.forceStyleRefresh(bubble);
+  }
+  
+  forceStyleRefresh(bubble) {
+    // Force the browser to recalculate styles
+    bubble.style.display = 'none';
+    bubble.offsetHeight; // Trigger reflow
+    bubble.style.display = 'flex';
   }
   
   getCSSVariable(variableName) {

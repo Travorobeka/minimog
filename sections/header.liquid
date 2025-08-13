@@ -1091,7 +1091,7 @@
     {
       "type": "select",
       "id": "count_bubble_size",
-      "label": "Bubble size",
+      "label": "Bubble size preset",
       "default": "medium",
       "options": [
         {
@@ -1105,8 +1105,34 @@
         {
           "value": "large",
           "label": "Large (22px)"
+        },
+        {
+          "value": "custom",
+          "label": "Custom size"
         }
       ]
+    },
+    {
+      "type": "range",
+      "id": "count_bubble_custom_width",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom width",
+      "default": 18,
+      "info": "Custom bubble width (only used when 'Custom size' is selected)"
+    },
+    {
+      "type": "range",
+      "id": "count_bubble_custom_height",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom height",
+      "default": 18,
+      "info": "Custom bubble height (only used when 'Custom size' is selected)"
     },
     {
       "type": "range",
@@ -1173,8 +1199,34 @@
         {
           "value": "bottom-left",
           "label": "Bottom left"
+        },
+        {
+          "value": "custom",
+          "label": "Custom position"
         }
       ]
+    },
+    {
+      "type": "range",
+      "id": "count_bubble_offset_x",
+      "min": -20,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Horizontal offset",
+      "default": 0,
+      "info": "Fine-tune horizontal position (negative = left, positive = right)"
+    },
+    {
+      "type": "range",
+      "id": "count_bubble_offset_y",
+      "min": -20,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical offset",
+      "default": 0,
+      "info": "Fine-tune vertical position (negative = up, positive = down)"
     },
     {
       "type": "range",

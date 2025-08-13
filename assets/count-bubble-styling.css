@@ -6,21 +6,22 @@
 .m-cart-count,
 .m-wishlist-count,
 .m-compare-count {
-  position: absolute;
-  background-color: var(--bg-cart-wishlist-count);
-  color: var(--color-cart-wishlist-count);
-  border-width: var(--count-bubble-border-width);
-  border-style: solid;
-  border-color: var(--count-bubble-border-color);
-  font-size: var(--count-bubble-font-size);
-  font-weight: var(--count-bubble-font-weight);
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  transition: all 0.3s ease;
-  text-align: center;
+  position: absolute !important;
+  background-color: var(--bg-cart-wishlist-count) !important;
+  color: var(--color-cart-wishlist-count) !important;
+  border-width: var(--count-bubble-border-width) !important;
+  border-style: solid !important;
+  border-color: var(--count-bubble-border-color) !important;
+  font-size: var(--count-bubble-font-size) !important;
+  font-weight: var(--count-bubble-font-weight) !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
 }
 
 /* Size Variations */
@@ -29,9 +30,9 @@
 .m-cart-count[data-size="small"],
 .m-wishlist-count[data-size="small"],
 .m-compare-count[data-size="small"] {
-  min-width: 14px;
-  height: 14px;
-  padding: 1px 3px;
+  min-width: 14px !important;
+  height: 14px !important;
+  padding: 1px 3px !important;
 }
 
 /* Medium (default) */
@@ -39,9 +40,9 @@
 .m-cart-count[data-size="medium"],
 .m-wishlist-count[data-size="medium"],
 .m-compare-count[data-size="medium"] {
-  min-width: 18px;
-  height: 18px;
-  padding: 2px 4px;
+  min-width: 18px !important;
+  height: 18px !important;
+  padding: 2px 4px !important;
 }
 
 /* Large */
@@ -49,9 +50,20 @@
 .m-cart-count[data-size="large"],
 .m-wishlist-count[data-size="large"],
 .m-compare-count[data-size="large"] {
-  min-width: 22px;
-  height: 22px;
-  padding: 3px 6px;
+  min-width: 22px !important;
+  height: 22px !important;
+  padding: 3px 6px !important;
+}
+
+/* Custom Size */
+.m-cart-count-bubble[data-size="custom"],
+.m-cart-count[data-size="custom"],
+.m-wishlist-count[data-size="custom"],
+.m-compare-count[data-size="custom"] {
+  min-width: var(--count-bubble-custom-width) !important;
+  width: var(--count-bubble-custom-width) !important;
+  height: var(--count-bubble-custom-height) !important;
+  padding: 1px !important;
 }
 
 /* Shape Variations */
@@ -90,14 +102,16 @@
   padding-right: 8px;
 }
 
-/* Position Variations */
+/* Position Variations with Custom Offset Support */
 /* Top Right (default) */
 .m-cart-count-bubble[data-position="top-right"],
 .m-cart-count[data-position="top-right"],
 .m-wishlist-count[data-position="top-right"],
 .m-compare-count[data-position="top-right"] {
-  top: -6px;
-  right: -8px;
+  top: calc(-6px + var(--count-bubble-offset-y)) !important;
+  right: calc(-8px - var(--count-bubble-offset-x)) !important;
+  left: auto !important;
+  bottom: auto !important;
 }
 
 /* Top Left */
@@ -105,8 +119,10 @@
 .m-cart-count[data-position="top-left"],
 .m-wishlist-count[data-position="top-left"],
 .m-compare-count[data-position="top-left"] {
-  top: -6px;
-  left: -8px;
+  top: calc(-6px + var(--count-bubble-offset-y)) !important;
+  left: calc(-8px + var(--count-bubble-offset-x)) !important;
+  right: auto !important;
+  bottom: auto !important;
 }
 
 /* Bottom Right */
@@ -114,8 +130,10 @@
 .m-cart-count[data-position="bottom-right"],
 .m-wishlist-count[data-position="bottom-right"],
 .m-compare-count[data-position="bottom-right"] {
-  bottom: -6px;
-  right: -8px;
+  bottom: calc(-6px - var(--count-bubble-offset-y)) !important;
+  right: calc(-8px - var(--count-bubble-offset-x)) !important;
+  top: auto !important;
+  left: auto !important;
 }
 
 /* Bottom Left */
@@ -123,8 +141,21 @@
 .m-cart-count[data-position="bottom-left"],
 .m-wishlist-count[data-position="bottom-left"],
 .m-compare-count[data-position="bottom-left"] {
-  bottom: -6px;
-  left: -8px;
+  bottom: calc(-6px - var(--count-bubble-offset-y)) !important;
+  left: calc(-8px + var(--count-bubble-offset-x)) !important;
+  top: auto !important;
+  right: auto !important;
+}
+
+/* Custom Position - Full manual control */
+.m-cart-count-bubble[data-position="custom"],
+.m-cart-count[data-position="custom"],
+.m-wishlist-count[data-position="custom"],
+.m-compare-count[data-position="custom"] {
+  top: var(--count-bubble-offset-y) !important;
+  right: calc(-1 * var(--count-bubble-offset-x)) !important;
+  left: auto !important;
+  bottom: auto !important;
 }
 
 /* Default positioning for existing bubbles without data attributes */
