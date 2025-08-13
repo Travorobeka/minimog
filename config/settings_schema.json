@@ -728,26 +728,6 @@
       },
       {
         "type": "header",
-        "content": "Count bubble"
-      },
-      {
-        "type": "paragraph",
-        "content": "Use for cart count bubble, wishlist count bubble, compare count bubble"
-      },
-      {
-        "type": "color",
-        "id": "bg_cart_wishlist_count",
-        "label": "Background",
-        "default": "#da3f3f"
-      },
-      {
-        "type": "color",
-        "id": "color_cart_wishlist_count",
-        "label": "Text",
-        "default": "#ffffff"
-      },
-      {
-        "type": "header",
         "content": "Notification"
       },
       {
