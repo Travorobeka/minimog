@@ -359,3 +359,26 @@
     border-width: 2px !important;
   }
 }
+
+/* OVERRIDE HARDCODED POSITIONING FROM MAIN.CSS */
+/* Remove hardcoded positioning that conflicts with count bubble system */
+.m-cart-count {
+  top: unset !important;
+  right: unset !important;
+  position: absolute !important;
+}
+
+.m-wishlist-count,
+.m-compare-count {
+  top: unset !important;
+  right: unset !important;
+  position: absolute !important;
+}
+
+/* Ensure both cart and wishlist bubbles use the same positioning system */
+.m-cart-count,
+.m-wishlist-count,
+.m-compare-count {
+  /* Let the count bubble system handle positioning via data attributes */
+  position: absolute !important;
+}
