@@ -41,7 +41,6 @@
         "ticker_item_zRV9Vy",
         "ticker_item_aYBgjk"
       ],
-      "disabled": true,
       "name": "Announcement Ticker",
       "settings": {
         "show_ticker": true,
@@ -58,54 +57,6 @@
         "separator_custom": "•",
         "separator_spacing": 32,
         "separator_color": "",
-        "custom_class": ""
-      }
-    },
-    "announcement_bar_slideshow_pkXp4j": {
-      "type": "announcement-bar-slideshow",
-      "blocks": {
-        "slideshow_item_DqFWaH": {
-          "type": "slideshow_item",
-          "settings": {
-            "title": "Free Shipping",
-            "message": "On all orders over $50",
-            "icon": "",
-            "link": "",
-            "background_color": ""
-          }
-        },
-        "slideshow_item_yVwe7U": {
-          "type": "slideshow_item",
-          "settings": {
-            "title": "New Collection",
-            "message": "Discover our latest arrivals",
-            "icon": "",
-            "link": "",
-            "background_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "slideshow_item_DqFWaH",
-        "slideshow_item_yVwe7U"
-      ],
-      "name": "Announcement Slideshow",
-      "settings": {
-        "show_slideshow": true,
-        "homepage_only": false,
-        "show_close": false,
-        "container": "container-fluid",
-        "color_scheme": "scheme-09e5b5b4-774c-4b6c-8025-416ced49cc74",
-        "autoplay": true,
-        "autoplay_speed": 5,
-        "transition_effect": "fade",
-        "transition_duration": 500,
-        "show_arrows": false,
-        "show_dots": false,
-        "height": 25,
-        "height_mobile": 15,
-        "text_size": 13,
-        "text_size_mobile": 12,
         "custom_class": ""
       }
     },
@@ -172,7 +123,6 @@
   },
   "order": [
     "announcement_bar_ticker_KGawVj",
-    "announcement_bar_slideshow_pkXp4j",
     "header"
   ]
 }
