@@ -70,25 +70,32 @@
   height: calc(var(--header-icon-size) * 0.85);
 }
 
-/* Mobile wishlist icon specific styling */
+/* Mobile left icons container */
+.m-header__mobile-left {
+  gap: 0.75rem; /* Match the spacing of right side icons */
+}
+
+/* Mobile wishlist icon - clean styling to match search/cart */
 .m-header__mobile-wishlist {
-  padding: 0 4px;
+  /* No background, padding, or special styling - just like search/cart */
 }
 
 .m-header__mobile-wishlist .m-header__wishlist {
-  padding: 8px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  /* Remove all custom styling to match other icons */
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  transition: none;
 }
 
 .m-header__mobile-wishlist .m-header__wishlist:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  transform: scale(1.05);
+  background: none;
+  transform: none;
 }
 
 .m-header__mobile-wishlist svg {
-  width: calc(var(--header-icon-size) * 0.8);
-  height: calc(var(--header-icon-size) * 0.8);
+  width: calc(var(--header-icon-size) * 0.85);
+  height: calc(var(--header-icon-size) * 0.85);
 }
 
 /* Remove tooltip on mobile wishlist to save space */
@@ -96,14 +103,7 @@
   display: none;
 }
 
-/* Adjust mobile header layout */
-@media (max-width: 480px) {
-  .m-header__mobile-wishlist {
-    padding: 0 2px;
-  }
-  
-  .m-header__mobile-wishlist svg {
-    width: calc(var(--header-icon-size) * 0.7);
-    height: calc(var(--header-icon-size) * 0.7);
-  }
+/* Hamburger menu button spacing adjustment */
+.m-header__mobile-left .m-menu-button {
+  /* Ensure consistent sizing with other mobile icons */
 }
