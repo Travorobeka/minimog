@@ -75,10 +75,10 @@
   /* No gap - let natural icon spacing work like right side */
 }
 
-/* Mobile wishlist icon - clean styling to match search/cart */
+/* Mobile wishlist icon - apply same padding as desktop wishlist for proper spacing */
 .m-header__mobile-left .m-header__wishlist {
-  /* Remove all custom styling to match other icons */
-  padding: 0;
+  /* Match desktop wishlist padding for consistent spacing */
+  padding: 14px 8px;
   border-radius: 0;
   background: none;
   transition: none;
@@ -94,7 +94,12 @@
   display: none;
 }
 
-/* Hamburger menu button styling to match other icon containers */
+/* Mobile search popup to match wishlist padding */
+.m-header__mobile m-search-popup {
+  padding: 10px;
+}
+
+/* Hamburger menu button - add padding to match other icons */
 .m-header__mobile-left .m-menu-button {
-  /* Match the flex styling of search popup */
+  padding: 14px 0;
 }
