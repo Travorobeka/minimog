@@ -164,7 +164,7 @@
         "12985deb-0775-45ce-80f6-6be7f3150a91"
       ],
       "custom_css": [
-        ".m-collection-card__title {font-weight: 200;}",
+        ".m-collection-card__title {font-weight: 400;}",
         "@media (max-width: 767px) {.m-slider-controls[class*=\"-bottom-left\"], .m-section__header {text-align: center; }}"
       ],
       "settings": {
