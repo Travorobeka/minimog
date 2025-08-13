@@ -86,6 +86,23 @@
     --mobile-icon-horizontal-spacing: {{ section.settings.mobile_icon_horizontal_spacing | default: 8 }}px;
     --mobile-icon-vertical-padding: {{ section.settings.mobile_icon_vertical_padding | default: 14 }}px;
     --mobile-container-gap: {{ section.settings.mobile_container_gap | default: 12 }}px;
+    
+    /* COUNT BUBBLE VARIABLES */
+    --color-cart-wishlist-count: {{ section.settings.color_cart_wishlist_count | default: '#ffffff' }};
+    --bg-cart-wishlist-count: {{ section.settings.bg_cart_wishlist_count | default: '#da3f3f' }};
+    --count-bubble-style: "{{ section.settings.count_bubble_style | default: 'circle' }}";
+    --count-bubble-size: "{{ section.settings.count_bubble_size | default: 'medium' }}";
+    --count-bubble-custom-width: {{ section.settings.count_bubble_custom_width | default: 18 }}px;
+    --count-bubble-custom-height: {{ section.settings.count_bubble_custom_height | default: 18 }}px;
+    --count-bubble-border-width: {{ section.settings.count_bubble_border_width | default: 0 }}px;
+    --count-bubble-border-color: {{ section.settings.count_bubble_border_color | default: '#ffffff' }};
+    --count-bubble-shadow: "{{ section.settings.count_bubble_shadow | default: 'soft' }}";
+    --count-bubble-position: "{{ section.settings.count_bubble_position | default: 'top-right' }}";
+    --count-bubble-offset-x: {{ section.settings.count_bubble_offset_x | default: 0 }}px;
+    --count-bubble-offset-y: {{ section.settings.count_bubble_offset_y | default: 0 }}px;
+    --count-bubble-font-size: {{ section.settings.count_bubble_font_size | default: 11 }}px;
+    --count-bubble-font-weight: "{{ section.settings.count_bubble_font_weight | default: '600' }}";
+    --count-bubble-animation: "{{ section.settings.count_bubble_animation | default: true }}";
   }
 {% endstyle %}
 <m-header
