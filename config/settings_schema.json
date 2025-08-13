@@ -120,13 +120,51 @@
       },
       {
         "type": "header",
+        "content": "FONT PAIRING PRESETS"
+      },
+      {
+        "type": "select",
+        "id": "font_pairing_preset",
+        "label": "Quick font combinations",
+        "default": "custom",
+        "info": "Choose a pre-configured font pairing or use custom fonts below",
+        "options": [
+          {
+            "value": "custom",
+            "label": "Custom - Configure manually"
+          },
+          {
+            "value": "modern_clean",
+            "label": "Modern Clean - Inter + Work Sans"
+          },
+          {
+            "value": "classic_elegant",
+            "label": "Classic Elegant - Crimson Text + Source Sans Pro"
+          },
+          {
+            "value": "contemporary_bold",
+            "label": "Contemporary Bold - Poppins + Open Sans"
+          },
+          {
+            "value": "minimal_sans",
+            "label": "Minimal Sans - Assistant + Assistant"
+          },
+          {
+            "value": "editorial_serif",
+            "label": "Editorial Serif - Playfair Display + Lora"
+          }
+        ]
+      },
+      {
+        "type": "header",
         "content": "BODY TEXT"
       },
       {
         "type": "font_picker",
         "id": "type_base_font",
-        "label": "Font",
-        "default": "helvetica_n4"
+        "label": "Body font",
+        "default": "assistant_n4",
+        "info": "Choose a highly readable font for body text and content"
       },
       {
         "type": "checkbox",
@@ -141,51 +179,81 @@
       {
         "id": "custom_body_font",
         "type": "textarea",
-        "label": "Font URL",
-        "placeholder": "https://cdn.shopify.com/s/files/1/0075/1288/3285/files/roboto.woff2@400",
-        "info": "Format: Link_to_font@font_weight"
+        "label": "Font URLs",
+        "placeholder": "https://cdn.shopify.com/s/files/1/0075/1288/3285/files/roboto-regular.woff2@400\nhttps://cdn.shopify.com/s/files/1/0075/1288/3285/files/roboto-bold.woff2@700",
+        "info": "Format: Link_to_font@font_weight (one per line). Upload fonts to Shopify Files first. Supports WOFF, WOFF2, TTF, OTF formats."
+      },
+      {
+        "type": "select",
+        "id": "font_display_body",
+        "label": "Font loading strategy",
+        "default": "swap",
+        "info": "Controls how the font loads and displays",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto - Browser default"
+          },
+          {
+            "value": "block",
+            "label": "Block - Hide text until loaded"
+          },
+          {
+            "value": "swap",
+            "label": "Swap - Show fallback first (recommended)"
+          },
+          {
+            "value": "fallback",
+            "label": "Fallback - Quick timeout"
+          },
+          {
+            "value": "optional",
+            "label": "Optional - Use only if cached"
+          }
+        ]
       },
       {
         "id": "custom_body_weight",
         "type": "select",
         "label": "Default font weight",
         "default": "400",
+        "info": "Choose the standard weight for body text readability",
         "options": [
           {
             "value": "100",
-            "label": "Thin 100"
+            "label": "Thin (100) - Ultra lightweight"
           },
           {
             "value": "200",
-            "label": "Extra-light 200"
+            "label": "Extra Light (200) - Very light"
           },
           {
             "value": "300",
-            "label": "Light 300"
+            "label": "Light (300) - Light weight"
           },
           {
             "value": "400",
-            "label": "Regular 400"
+            "label": "Regular (400) - Normal text"
           },
           {
             "value": "500",
-            "label": "Medium 500"
+            "label": "Medium (500) - Slightly bold"
           },
           {
             "value": "600",
-            "label": "Semi-bold 600"
+            "label": "Semi Bold (600) - Strong emphasis"
           },
           {
             "value": "700",
-            "label": "Bold 700"
+            "label": "Bold (700) - High emphasis"
           },
           {
             "value": "800",
-            "label": "Extra-bold 800"
+            "label": "Extra Bold (800) - Very strong"
           },
           {
             "value": "900",
-            "label": "Black 900"
+            "label": "Black (900) - Maximum weight"
           }
         ]
       },
@@ -240,8 +308,9 @@
       {
         "type": "font_picker",
         "id": "type_header_font",
-        "label": "Font",
-        "default": "helvetica_n7"
+        "label": "Heading font",
+        "default": "work_sans_n6",
+        "info": "Choose a distinctive font for headlines and titles"
       },
       {
         "type": "checkbox",
@@ -255,56 +324,86 @@
       },
       {
         "type": "paragraph",
-        "content": "Allow multiple links, each link in a new line. Please upload to [Shopify files](/admin/settings/files) and paste link here. These formats TTF, OTF, WOFF & WOFF2 are supported."
+        "content": "Upload fonts to [Shopify files](/admin/settings/files) first. Supports TTF, OTF, WOFF & WOFF2 formats. Add multiple weights for better typography."
       },
       {
         "id": "custom_heading_font",
         "type": "textarea",
-        "label": "Font file URLS",
-        "placeholder": "https://cdn.shopify.com/s/files/1/0075/1288/3285/files/roboto.woff2@400",
-        "info": "Format: Link_to_font@font_weight"
+        "label": "Font file URLs",
+        "placeholder": "https://cdn.shopify.com/s/files/1/0075/1288/3285/files/playfair-regular.woff2@400\nhttps://cdn.shopify.com/s/files/1/0075/1288/3285/files/playfair-bold.woff2@700",
+        "info": "Format: Link_to_font@font_weight (one per line). Include multiple weights for optimal display."
+      },
+      {
+        "type": "select",
+        "id": "font_display_heading",
+        "label": "Font loading strategy",
+        "default": "swap",
+        "info": "Controls how heading fonts load and display",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto - Browser default"
+          },
+          {
+            "value": "block",
+            "label": "Block - Hide text until loaded"
+          },
+          {
+            "value": "swap",
+            "label": "Swap - Show fallback first (recommended)"
+          },
+          {
+            "value": "fallback",
+            "label": "Fallback - Quick timeout"
+          },
+          {
+            "value": "optional",
+            "label": "Optional - Use only if cached"
+          }
+        ]
       },
       {
         "id": "custom_heading_weight",
         "type": "select",
         "label": "Default font weight",
-        "default": "400",
+        "default": "600",
+        "info": "Choose the standard weight for headings - typically semi-bold or bold",
         "options": [
           {
             "value": "100",
-            "label": "Thin 100"
+            "label": "Thin (100) - Ultra lightweight"
           },
           {
             "value": "200",
-            "label": "Extra-light 200"
+            "label": "Extra Light (200) - Very light"
           },
           {
             "value": "300",
-            "label": "Light 300"
+            "label": "Light (300) - Light weight"
           },
           {
             "value": "400",
-            "label": "Regular 400"
+            "label": "Regular (400) - Normal text"
           },
           {
             "value": "500",
-            "label": "Medium 500"
+            "label": "Medium (500) - Slightly bold"
           },
           {
             "value": "600",
-            "label": "Semi-bold 600"
+            "label": "Semi Bold (600) - Strong emphasis"
           },
           {
             "value": "700",
-            "label": "Bold 700"
+            "label": "Bold (700) - High emphasis"
           },
           {
             "value": "800",
-            "label": "Extra-bold 800"
+            "label": "Extra Bold (800) - Very strong"
           },
           {
             "value": "900",
-            "label": "Black 900"
+            "label": "Black (900) - Maximum weight"
           }
         ]
       },
@@ -367,6 +466,89 @@
         "max": 1.2,
         "step": 0.1,
         "info": "Specific scaling for headings on mobile. Overrides global mobile scale for headings"
+      },
+      {
+        "type": "header",
+        "content": "NAVIGATION & MENU"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_navigation_font",
+        "label": "Navigation font",
+        "default": "assistant_n5",
+        "info": "Font used for main navigation, menus, and links"
+      },
+      {
+        "type": "range",
+        "id": "navigation_font_size",
+        "label": "Navigation font size",
+        "default": 16,
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px"
+      },
+      {
+        "type": "select",
+        "id": "navigation_font_weight",
+        "label": "Navigation font weight",
+        "default": "500",
+        "options": [
+          {
+            "value": "300",
+            "label": "Light (300)"
+          },
+          {
+            "value": "400",
+            "label": "Regular (400)"
+          },
+          {
+            "value": "500",
+            "label": "Medium (500)"
+          },
+          {
+            "value": "600",
+            "label": "Semi Bold (600)"
+          },
+          {
+            "value": "700",
+            "label": "Bold (700)"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "navigation_text_transform",
+        "label": "Navigation text transform",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "uppercase",
+            "label": "UPPERCASE"
+          },
+          {
+            "value": "lowercase",
+            "label": "lowercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "navigation_letter_spacing",
+        "label": "Navigation letter spacing",
+        "default": 0,
+        "min": -2,
+        "max": 5,
+        "step": 0.1,
+        "unit": "px"
       },
       {
         "type": "header",
@@ -509,6 +691,74 @@
         "step": 1,
         "unit": "px",
         "default": 5
+      },
+      {
+        "type": "header",
+        "content": "ADVANCED TYPOGRAPHY"
+      },
+      {
+        "type": "select",
+        "id": "text_rendering",
+        "label": "Text rendering optimization",
+        "default": "optimizeLegibility",
+        "info": "Controls text rendering quality and performance",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Auto - Browser default"
+          },
+          {
+            "value": "optimizeSpeed",
+            "label": "Optimize Speed - Faster rendering"
+          },
+          {
+            "value": "optimizeLegibility",
+            "label": "Optimize Legibility - Better quality (recommended)"
+          },
+          {
+            "value": "geometricPrecision",
+            "label": "Geometric Precision - Precise kerning"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_font_smoothing",
+        "label": "Enable font smoothing",
+        "default": true,
+        "info": "Improves text appearance on retina displays"
+      },
+      {
+        "type": "select",
+        "id": "global_text_transform",
+        "label": "Global text transform",
+        "default": "none",
+        "info": "Apply text transformation across the site",
+        "options": [
+          {
+            "value": "none",
+            "label": "None - Keep original case"
+          },
+          {
+            "value": "smart_caps",
+            "label": "Smart Caps - Headers only"
+          },
+          {
+            "value": "all_caps",
+            "label": "All Caps - Everything uppercase"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "paragraph_spacing",
+        "label": "Paragraph spacing",
+        "default": 16,
+        "min": 8,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "info": "Space between paragraphs"
       },
       {
         "type": "header",
