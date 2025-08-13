@@ -180,7 +180,7 @@
         "container": "container-fluid",
         "layout": "grid",
         "expanded": true,
-        "card_style": "inside-2",
+        "card_style": "inside",
         "text_alignment": "left",
         "hover_effect": "scaling-up",
         "show_product_count": true,
