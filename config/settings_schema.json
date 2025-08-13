@@ -147,35 +147,6 @@
         "info": "Format: Link_to_font@font_weight (one per line). Upload fonts to Shopify Files first. Supports WOFF, WOFF2, TTF, OTF formats."
       },
       {
-        "type": "select",
-        "id": "font_display_body",
-        "label": "Font loading strategy",
-        "default": "swap",
-        "info": "Controls how the font loads and displays",
-        "options": [
-          {
-            "value": "auto",
-            "label": "Auto - Browser default"
-          },
-          {
-            "value": "block",
-            "label": "Block - Hide text until loaded"
-          },
-          {
-            "value": "swap",
-            "label": "Swap - Show fallback first (recommended)"
-          },
-          {
-            "value": "fallback",
-            "label": "Fallback - Quick timeout"
-          },
-          {
-            "value": "optional",
-            "label": "Optional - Use only if cached"
-          }
-        ]
-      },
-      {
         "id": "custom_body_weight",
         "type": "select",
         "label": "Default font weight",
@@ -295,35 +266,6 @@
         "label": "Font file URLs",
         "placeholder": "https://cdn.shopify.com/s/files/1/0075/1288/3285/files/playfair-regular.woff2@400\nhttps://cdn.shopify.com/s/files/1/0075/1288/3285/files/playfair-bold.woff2@700",
         "info": "Format: Link_to_font@font_weight (one per line). Include multiple weights for optimal display."
-      },
-      {
-        "type": "select",
-        "id": "font_display_heading",
-        "label": "Font loading strategy",
-        "default": "swap",
-        "info": "Controls how heading fonts load and display",
-        "options": [
-          {
-            "value": "auto",
-            "label": "Auto - Browser default"
-          },
-          {
-            "value": "block",
-            "label": "Block - Hide text until loaded"
-          },
-          {
-            "value": "swap",
-            "label": "Swap - Show fallback first (recommended)"
-          },
-          {
-            "value": "fallback",
-            "label": "Fallback - Quick timeout"
-          },
-          {
-            "value": "optional",
-            "label": "Optional - Use only if cached"
-          }
-        ]
       },
       {
         "id": "custom_heading_weight",
