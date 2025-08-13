@@ -113,6 +113,15 @@
   	/* COUNT BUBBLE */
   	--color-cart-wishlist-count: {{ sections.header.settings.color_cart_wishlist_count }};
   	--bg-cart-wishlist-count: {{ sections.header.settings.bg_cart_wishlist_count }};
+  	--count-bubble-style: {{ sections.header.settings.count_bubble_style | default: 'circle' }};
+  	--count-bubble-size: {{ sections.header.settings.count_bubble_size | default: 'medium' }};
+  	--count-bubble-border-width: {{ sections.header.settings.count_bubble_border_width | default: 0 }}px;
+  	--count-bubble-border-color: {{ sections.header.settings.count_bubble_border_color | default: '#ffffff' }};
+  	--count-bubble-shadow: {{ sections.header.settings.count_bubble_shadow | default: 'soft' }};
+  	--count-bubble-position: {{ sections.header.settings.count_bubble_position | default: 'top-right' }};
+  	--count-bubble-font-size: {{ sections.header.settings.count_bubble_font_size | default: 11 }}px;
+  	--count-bubble-font-weight: {{ sections.header.settings.count_bubble_font_weight | default: '600' }};
+  	--count-bubble-animation: {{ sections.header.settings.count_bubble_animation | default: true }};
 
   	/* OVERLAY */
   	--color-image-overlay: {{ settings.img_overlay_bg }};
@@ -242,6 +251,9 @@
 <link rel="stylesheet" href="{{ 'cart.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'cart.css' | asset_url | stylesheet_tag }}</noscript>
 
+<link rel="stylesheet" href="{{ 'count-bubble-styling.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'count-bubble-styling.css' | asset_url | stylesheet_tag }}</noscript>
+
 {%- liquid
   echo 'vendor.css' | asset_url | stylesheet_tag
   if template contains 'customers/'
@@ -278,3 +290,6 @@
 
 {% comment %} For init Product list of Recently product, Foxkit Related, Product recommendation {% endcomment %}
 <script src="{{ 'product-list.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Count Bubble Dynamic Styling System {% endcomment %}
+<script src="{{ 'count-bubble-init.js' | asset_url }}" defer="defer"></script>
