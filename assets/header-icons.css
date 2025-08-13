@@ -1,0 +1,71 @@
+/* Header Icon Customizations */
+
+/* Apply icon size and stroke width to all header icons */
+.m-header .m-svg-icon--medium,
+.m-header .m-svg-icon--medium-small {
+  width: var(--header-icon-size);
+  height: var(--header-icon-size);
+}
+
+.m-header svg {
+  stroke-width: var(--header-icon-stroke-width);
+}
+
+/* Icon style variations */
+.m-header[data-icon-style="filled"] svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.m-header[data-icon-style="outline"] svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.m-header[data-icon-style="rounded"] svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.m-header[data-icon-style="minimal"] svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.m-header[data-icon-style="minimal"] svg {
+  stroke-width: calc(var(--header-icon-stroke-width) * 0.8);
+}
+
+/* Responsive icon sizing */
+@media (max-width: 767px) {
+  .m-header .m-svg-icon--medium,
+  .m-header .m-svg-icon--medium-small {
+    width: calc(var(--header-icon-size) * 0.9);
+    height: calc(var(--header-icon-size) * 0.9);
+  }
+}
+
+/* Icon hover effects */
+.m-header__search:hover svg,
+.m-header__account:hover svg,
+.m-header__wishlist:hover svg,
+.m-cart-icon-bubble:hover svg {
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
+
+/* Ensure proper alignment */
+.m-header svg {
+  display: block;
+  margin: auto;
+}
+
+/* Mobile menu icon adjustments */
+.m-header__mobile svg {
+  width: calc(var(--header-icon-size) * 0.85);
+  height: calc(var(--header-icon-size) * 0.85);
+}

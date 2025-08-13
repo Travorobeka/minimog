@@ -1,4 +1,5 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
+{{ 'header-icons.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'mega-menu.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
@@ -75,6 +76,13 @@
     --logo-width-sticky: {{ section.settings.sticky_logo_max_width }}px;
     --logo-height-sticky: {{ section.settings.sticky_logo_max_width | divided_by: logo_aspect_ratio }}px;
     --header-transparent-text-color: {{ section.settings.transparent_text_color.red }}, {{ section.settings.transparent_text_color.green }}, {{ section.settings.transparent_text_color.blue }};
+    --header-icon-stroke-width: {{ section.settings.icon_stroke_width | default: 1.5 }};
+    --header-icon-size: {{ section.settings.icon_size | default: 20 }}px;
+    --header-icon-style: {{ section.settings.icon_style | default: 'outline' }};
+    --header-search-icon: {{ section.settings.search_icon_type | default: 'magnifying_glass' }};
+    --header-cart-icon: {{ section.settings.cart_icon_type | default: 'shopping_bag' }};
+    --header-account-icon: {{ section.settings.account_icon_type | default: 'user_circle' }};
+    --header-wishlist-icon: {{ section.settings.wishlist_icon_type | default: 'heart' }};
   }
 {% endstyle %}
 <m-header
@@ -82,6 +90,7 @@
   data-section-type="header"
   data-page="{{ request.path | strip }}"
   data-header-design="{{ section.settings.header_design }}"
+  data-icon-style="{{ section.settings.icon_style | default: 'outline' }}"
   {% if request.design_mode == true %}
     data-design-mode="true"
   {% endif %}
@@ -227,15 +236,7 @@
           {% if search_settings != 'hide' %}
             <m-search-popup class="m:flex m:justify-center m:items-center" data-open-search-popup>
               <span class="m-header__search-icon">
-                <svg
-                  class="m-svg-icon--medium"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"/>
-                </svg>
+                {% render 'header-icon', icon_type: 'search', icon_name: section.settings.search_icon_type, class: 'm-svg-icon--medium' %}
               </span>
             </m-search-popup>
           {% endif %}
@@ -851,6 +852,151 @@
       "label": "Show language selector",
       "default": false,
       "info": "[Watch tutorial](https://foxecom.link/eBEvt2)"
+    },
+    {
+      "type": "header",
+      "content": "Icon Customization"
+    },
+    {
+      "type": "range",
+      "id": "icon_stroke_width",
+      "min": 0.5,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Icon stroke width",
+      "default": 1.5,
+      "info": "Controls how thin or thick the icon lines appear"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Icon style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "Outline"
+        },
+        {
+          "value": "filled",
+          "label": "Filled"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded outline"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "select",
+      "id": "search_icon_type",
+      "label": "Search icon",
+      "options": [
+        {
+          "value": "magnifying_glass",
+          "label": "Magnifying glass"
+        },
+        {
+          "value": "search_circle",
+          "label": "Search circle"
+        },
+        {
+          "value": "loupe",
+          "label": "Loupe"
+        },
+        {
+          "value": "find",
+          "label": "Find icon"
+        }
+      ],
+      "default": "magnifying_glass"
+    },
+    {
+      "type": "select",
+      "id": "cart_icon_type",
+      "label": "Cart icon",
+      "options": [
+        {
+          "value": "shopping_bag",
+          "label": "Shopping bag"
+        },
+        {
+          "value": "shopping_cart",
+          "label": "Shopping cart"
+        },
+        {
+          "value": "basket",
+          "label": "Basket"
+        },
+        {
+          "value": "bag_simple",
+          "label": "Simple bag"
+        }
+      ],
+      "default": "shopping_bag"
+    },
+    {
+      "type": "select",
+      "id": "account_icon_type",
+      "label": "Account icon",
+      "options": [
+        {
+          "value": "user_circle",
+          "label": "User circle"
+        },
+        {
+          "value": "user_profile",
+          "label": "User profile"
+        },
+        {
+          "value": "person",
+          "label": "Person"
+        },
+        {
+          "value": "account_simple",
+          "label": "Simple account"
+        }
+      ],
+      "default": "user_circle"
+    },
+    {
+      "type": "select",
+      "id": "wishlist_icon_type",
+      "label": "Wishlist icon",
+      "options": [
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "heart_filled",
+          "label": "Filled heart"
+        },
+        {
+          "value": "bookmark",
+          "label": "Bookmark"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        }
+      ],
+      "default": "heart"
     },
     {
       "type": "header",
