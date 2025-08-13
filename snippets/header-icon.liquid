@@ -4,9 +4,15 @@
 {% endcomment %}
 
 {%- liquid
-  assign stroke_width = settings.icon_stroke_width | default: 1.5
-  assign icon_size = settings.icon_size | default: 20
-  assign icon_style = settings.icon_style | default: 'outline'
+  if header_settings
+    assign stroke_width = header_settings.icon_stroke_width | default: 1.5
+    assign icon_size = header_settings.icon_size | default: 20
+    assign icon_style = header_settings.icon_style | default: 'outline'
+  else
+    assign stroke_width = settings.icon_stroke_width | default: 1.5
+    assign icon_size = settings.icon_size | default: 20
+    assign icon_style = settings.icon_style | default: 'outline'
+  endif
   
   assign base_class = class | default: 'm-svg-icon--medium'
   assign icon_attributes = attributes | default: ''

@@ -241,7 +241,7 @@
             </m-search-popup>
           {% endif %}
           {% if show_cart_icon %}
-            {% render 'cart' %}
+            {% render 'cart', header_settings: section.settings %}
           {% endif %}
         </div>
       {% endif %}
@@ -283,19 +283,19 @@
 
                   render 'header-option-item__search', header_settings: section.settings
                   if show_account_icon
-                    render 'header-option-item__account', display_by: 'icon'
+                    render 'header-option-item__account', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_wishlist_icon
-                    render 'header-option-item__wishlist', display_by: 'icon'
+                    render 'header-option-item__wishlist', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_compare_icon
-                    render 'header-option-item__compare', display_by: 'icon'
+                    render 'header-option-item__compare', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_cart_icon
-                    render 'cart'
+                    render 'cart', header_settings: section.settings
                   endif
                 %}
               </div>
@@ -329,19 +329,19 @@
               <div class="m-header__right m:w-2/12">
                 {% liquid
                   if show_account_icon
-                    render 'header-option-item__account', display_by: 'icon'
+                    render 'header-option-item__account', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_wishlist_icon
-                    render 'header-option-item__wishlist', display_by: 'icon'
+                    render 'header-option-item__wishlist', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_compare_icon
-                    render 'header-option-item__compare', display_by: 'icon'
+                    render 'header-option-item__compare', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_cart_icon
-                    render 'cart'
+                    render 'cart', header_settings: section.settings
                   endif
                 %}
               </div>
@@ -372,19 +372,19 @@
 
                   render 'header-option-item__search', header_settings: section.settings
                   if show_account_icon
-                    render 'header-option-item__account', display_by: 'icon'
+                    render 'header-option-item__account', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_wishlist_icon
-                    render 'header-option-item__wishlist', display_by: 'icon'
+                    render 'header-option-item__wishlist', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_compare_icon
-                    render 'header-option-item__compare', display_by: 'icon'
+                    render 'header-option-item__compare', display_by: 'icon', header_settings: section.settings
                   endif
 
                   if show_cart_icon
-                    render 'cart'
+                    render 'cart', header_settings: section.settings
                   endif
                 %}
               </div>
@@ -429,7 +429,7 @@
                     endif
 
                     if show_cart_icon
-                      render 'cart'
+                      render 'cart', header_settings: section.settings
                     endif
                   %}
                 </div>
@@ -477,7 +477,7 @@
                     endif
 
                     if show_cart_icon
-                      render 'cart'
+                      render 'cart', header_settings: section.settings
                     endif
                   %}
                 </div>

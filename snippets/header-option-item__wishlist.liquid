@@ -43,7 +43,7 @@
   >
     {% if display_by == 'icon' %}
       <span class="m-tooltip m:block m-tooltip--bottom m-tooltip--style-2">
-        {% render 'header-icon', icon_type: 'wishlist', icon_name: settings.wishlist_icon_type, class: 'm-svg-icon--medium' %}
+        {% render 'header-icon', icon_type: 'wishlist', icon_name: header_settings.wishlist_icon_type, class: 'm-svg-icon--medium' %}
         <span class="m-tooltip__content">{{ 'layout.wishlist.title' | t }}</span>
       </span>
     {% else %}
