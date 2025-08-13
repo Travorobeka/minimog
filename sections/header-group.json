@@ -115,6 +115,13 @@
         "show_currency_switcher": false,
         "show_country_selector": false,
         "show_language_switcher": false,
+        "icon_stroke_width": 1.5,
+        "icon_size": 20,
+        "icon_style": "minimal",
+        "search_icon_type": "find",
+        "cart_icon_type": "basket",
+        "account_icon_type": "user_profile",
+        "wishlist_icon_type": "bookmark",
         "mb_show_currency_switcher": false,
         "mb_show_country_selector": true,
         "mb_show_language_switcher": true
