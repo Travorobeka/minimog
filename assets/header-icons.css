@@ -70,36 +70,49 @@
   height: calc(var(--header-icon-size) * 0.85);
 }
 
-/* Mobile left icons container - match right side natural spacing */
-.m-header__mobile-left {
-  /* No gap - let natural icon spacing work like right side */
-}
+/* Mobile-only icon spacing controls */
+@media (max-width: 1023px) {
+  
+  /* Mobile left icons container with customizable gap */
+  .m-header__mobile-left {
+    gap: var(--mobile-container-gap);
+  }
+  
+  /* Mobile right icons container with matching gap */
+  .m-header__mobile-right {
+    gap: var(--mobile-container-gap);
+  }
 
-/* Mobile wishlist icon - apply same padding as desktop wishlist for proper spacing */
-.m-header__mobile-left .m-header__wishlist {
-  /* Match desktop wishlist padding for consistent spacing */
-  padding: 14px 8px;
-  border-radius: 0;
-  background: none;
-  transition: none;
-}
+  /* Mobile wishlist icon - customizable spacing */
+  .m-header__mobile-left .m-header__wishlist {
+    padding: var(--mobile-icon-vertical-padding) var(--mobile-icon-horizontal-spacing);
+    border-radius: 0;
+    background: none;
+    transition: none;
+  }
 
-.m-header__mobile-left .m-header__wishlist:hover {
-  background: none;
-  transform: none;
-}
+  .m-header__mobile-left .m-header__wishlist:hover {
+    background: none;
+    transform: none;
+  }
 
-/* Remove tooltip on mobile wishlist to save space */
-.m-header__mobile-left .m-tooltip__content {
-  display: none;
-}
+  /* Mobile search popup with customizable padding */
+  .m-header__mobile m-search-popup {
+    padding: var(--mobile-icon-vertical-padding) var(--mobile-icon-horizontal-spacing);
+  }
 
-/* Mobile search popup to match wishlist padding */
-.m-header__mobile m-search-popup {
-  padding: 10px;
-}
+  /* Hamburger menu button with customizable padding */
+  .m-header__mobile-left .m-menu-button {
+    padding: var(--mobile-icon-vertical-padding) var(--mobile-icon-horizontal-spacing);
+  }
+  
+  /* Mobile cart icon with customizable padding */
+  .m-header__mobile .m-cart-icon-bubble {
+    padding: var(--mobile-icon-vertical-padding) var(--mobile-icon-horizontal-spacing);
+  }
 
-/* Hamburger menu button - add padding to match other icons */
-.m-header__mobile-left .m-menu-button {
-  padding: 14px 0;
+  /* Remove tooltip on mobile wishlist to save space */
+  .m-header__mobile-left .m-tooltip__content {
+    display: none;
+  }
 }

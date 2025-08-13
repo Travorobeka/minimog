@@ -83,6 +83,9 @@
     --header-cart-icon: {{ section.settings.cart_icon_type | default: 'shopping_bag' }};
     --header-account-icon: {{ section.settings.account_icon_type | default: 'user_circle' }};
     --header-wishlist-icon: {{ section.settings.wishlist_icon_type | default: 'heart' }};
+    --mobile-icon-horizontal-spacing: {{ section.settings.mobile_icon_horizontal_spacing | default: 8 }}px;
+    --mobile-icon-vertical-padding: {{ section.settings.mobile_icon_vertical_padding | default: 14 }}px;
+    --mobile-container-gap: {{ section.settings.mobile_container_gap | default: 12 }}px;
   }
 {% endstyle %}
 <m-header
@@ -1003,6 +1006,43 @@
         }
       ],
       "default": "heart"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Header Spacing (Mobile Only)"
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_horizontal_spacing",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile icon horizontal spacing",
+      "default": 8,
+      "info": "Controls horizontal spacing between icons on mobile devices only"
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_vertical_padding",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile icon vertical padding",
+      "default": 14,
+      "info": "Controls vertical padding around icons on mobile devices only"
+    },
+    {
+      "type": "range",
+      "id": "mobile_container_gap",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile container gap",
+      "default": 12,
+      "info": "Gap between left/right icon containers on mobile devices only"
     },
     {
       "type": "header",
