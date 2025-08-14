@@ -28,7 +28,7 @@
                   selected="selected"
                 {%- endif -%}
               >
-                {{- language.endonym_name -}}
+                {{- language.iso_code | upcase -}}
               </option>
             {%- endfor -%}
           </select>
@@ -47,7 +47,7 @@
           </div>
           <div class="m-select-custom--options m-select-custom--options-{{ pos }}">
             {%- for language in localization.available_languages -%}
-              <div class="m-select-custom--option" data-value="{{ language.iso_code }}">{{ language.endonym_name }}</div>
+              <div class="m-select-custom--option" data-value="{{ language.iso_code }}">{{ language.iso_code | upcase }}</div>
             {%- endfor -%}
           </div>
         </div>

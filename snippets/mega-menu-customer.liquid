@@ -3,7 +3,7 @@
     {% if shop.customer_accounts_enabled or shop.customer_accounts_optional %}
       <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="m-menu-customer__account">
         {% render 'header-icon', icon_type: 'account', icon_name: section.settings.account_icon_type, class: 'm-svg-icon--medium' %}
-        <span>{{ 'customer.account.title' | t }}</span>
+        <span>Account</span>
       </a>
     {% endif %}
     {%- liquid
