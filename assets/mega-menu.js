@@ -73,7 +73,9 @@ const accordionStyles = `
   }
   
   /* Currency and Language Selector Plus/Minus Icons */
-  .m-select-custom--trigger-icon {
+  .m-select-custom--trigger-icon,
+  .m-currency-switcher .m-select-custom--trigger-icon,
+  .m-language-switcher .m-select-custom--trigger-icon {
     position: relative !important;
     display: flex !important;
     align-items: center !important;
@@ -81,43 +83,65 @@ const accordionStyles = `
     width: 18px !important;
     height: 18px !important;
     padding: 0 !important;
+    visibility: visible !important;
   }
   
-  .m-select-custom--trigger-icon svg {
+  .m-select-custom--trigger-icon svg,
+  .m-currency-switcher .m-select-custom--trigger-icon svg,
+  .m-language-switcher .m-select-custom--trigger-icon svg {
     width: 18px !important;
     height: 18px !important;
     transition: all 0.3s ease !important;
     stroke-width: 1.5 !important;
     display: block !important;
+    visibility: visible !important;
+    stroke: currentColor !important;
   }
   
   .m-select-custom--trigger-icon .plus-icon,
-  .m-select-custom--trigger-icon .minus-icon {
+  .m-select-custom--trigger-icon .minus-icon,
+  .m-currency-switcher .m-select-custom--trigger-icon .plus-icon,
+  .m-currency-switcher .m-select-custom--trigger-icon .minus-icon,
+  .m-language-switcher .m-select-custom--trigger-icon .plus-icon,
+  .m-language-switcher .m-select-custom--trigger-icon .minus-icon {
     transition: opacity 0.3s ease !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
+    visibility: visible !important;
   }
   
   /* Default state: show plus, hide minus */
-  .m-select-custom--trigger-icon .plus-icon {
+  .m-select-custom--trigger-icon .plus-icon,
+  .m-currency-switcher .m-select-custom--trigger-icon .plus-icon,
+  .m-language-switcher .m-select-custom--trigger-icon .plus-icon {
     opacity: 1 !important;
     z-index: 2 !important;
   }
-  .m-select-custom--trigger-icon .minus-icon {
+  .m-select-custom--trigger-icon .minus-icon,
+  .m-currency-switcher .m-select-custom--trigger-icon .minus-icon,
+  .m-language-switcher .m-select-custom--trigger-icon .minus-icon {
     opacity: 0 !important;
     z-index: 1 !important;
   }
   
   /* Open state: hide plus, show minus */
   .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
-  .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon {
+  .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon,
+  .m-currency-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
+  .m-currency-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon,
+  .m-language-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
+  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon {
     opacity: 0 !important;
     z-index: 1 !important;
   }
   .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
-  .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon {
+  .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon,
+  .m-currency-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
+  .m-currency-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon,
+  .m-language-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
+  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon {
     opacity: 1 !important;
     z-index: 2 !important;
   }
