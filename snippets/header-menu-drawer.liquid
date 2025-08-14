@@ -204,7 +204,32 @@
                   {% endcapture %}
                 {% when 'mobile_collection_images' %}
                   {% capture block_type %}
-                    <div class="m-mobile-collection-images">
+                    {% liquid
+                      assign image_size = block.settings.image_size | default: 'medium'
+                      assign aspect_ratio_setting = block.settings.aspect_ratio | default: '4_5'
+                      assign text_position = block.settings.text_position | default: 'below'
+                      assign text_size = block.settings.text_size | default: 14
+                      assign text_color = block.settings.text_color | default: '#333333'
+                      assign text_color_overlay = block.settings.text_color_overlay | default: '#ffffff'
+                      
+                      case aspect_ratio_setting
+                        when '1_1'
+                          assign aspect_ratio = '1/1'
+                        when '4_5'
+                          assign aspect_ratio = '4/5'
+                        when '3_4'
+                          assign aspect_ratio = '3/4'
+                        when '5_4'
+                          assign aspect_ratio = '5/4'
+                        else
+                          assign aspect_ratio = '4/5'
+                      endcase
+                    %}
+                    
+                    <div class="m-mobile-collection-images" 
+                         data-size="{{ image_size }}" 
+                         data-text-position="{{ text_position }}"
+                         style="--mb-text-size: {{ text_size }}px; --mb-text-color: {{ text_color }}; --mb-text-color-overlay: {{ text_color_overlay }};">
                       {% for i in (1..2) %}
                         {% liquid
                           assign collection_key = 'collection_' | append: i
@@ -231,13 +256,20 @@
                               <div class="m-mobile-collection-image">
                                 {% render 'responsive-image', 
                                   image: collection_image, 
-                                  aspect_ratio: '4/5',
-                                  sizes: '200px'
+                                  aspect_ratio: aspect_ratio,
+                                  sizes: '250px'
                                 %}
+                                {% if text_position contains 'overlay' %}
+                                  <div class="m-mobile-collection-title m-overlay-title">
+                                    {{ collection_title | upcase }}
+                                  </div>
+                                {% endif %}
                               </div>
-                              <div class="m-mobile-collection-title">
-                                {{ collection_title | upcase }}
-                              </div>
+                              {% if text_position == 'below' %}
+                                <div class="m-mobile-collection-title">
+                                  {{ collection_title | upcase }}
+                                </div>
+                              {% endif %}
                             </a>
                           </div>
                         {% endif %}

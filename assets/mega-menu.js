@@ -149,15 +149,79 @@ const accordionStyles = `
   
   .m-mobile-collection-title {
     text-align: center;
-    font-size: inherit;
+    font-size: var(--mb-text-size, inherit);
     font-weight: inherit;
     letter-spacing: inherit;
-    color: inherit;
+    color: var(--mb-text-color, inherit);
     line-height: inherit;
     font-family: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
+  }
+
+  /* Image Size Variations for Accordion Collection Images */
+  .m-mobile-collection-images[data-size="small"] .m-mobile-collection-item {
+    max-width: 120px;
+  }
+  
+  .m-mobile-collection-images[data-size="medium"] .m-mobile-collection-item {
+    max-width: 160px;
+  }
+  
+  .m-mobile-collection-images[data-size="large"] .m-mobile-collection-item {
+    max-width: 200px;
+  }
+
+  /* Conditional margin for below text positioning in accordion */
+  .m-mobile-collection-images[data-text-position="below"] .m-mobile-collection-image {
+    margin-bottom: 12px;
+  }
+  
+  /* Remove margin for overlay positioning in accordion */
+  .m-mobile-collection-images[data-text-position*="overlay"] .m-mobile-collection-image {
+    margin-bottom: 0;
+  }
+
+  /* Text Overlay Styles for Accordion Collection Images */
+  .m-mobile-collection-images .m-mobile-collection-title.m-overlay-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: var(--mb-text-color-overlay, #ffffff);
+    font-size: var(--mb-text-size, 14px);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    z-index: 2;
+    padding: 0 8px;
+    text-decoration: none;
+  }
+
+  /* Overlay Positioning for Accordion Collection Images */
+  .m-mobile-collection-images[data-text-position="overlay_top"] .m-overlay-title {
+    top: 12px;
+  }
+  
+  .m-mobile-collection-images[data-text-position="overlay_center"] .m-overlay-title {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .m-mobile-collection-images[data-text-position="overlay_bottom"] .m-overlay-title {
+    bottom: 12px;
+  }
+
+  /* Add overlay gradient for accordion collection images */
+  .m-mobile-collection-images[data-text-position*="overlay"] .m-mobile-collection-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
   
   /* Standalone Mobile Menu Collections (Footer Area) */
