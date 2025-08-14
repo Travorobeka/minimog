@@ -3,20 +3,45 @@
     {% assign random_number = 'now' | date: '%N' | modulo: 10 | plus: 25 %}
     {% assign form_id = 'country-' | append: random_number %}
   {% endunless %}
+  
+  {%- comment -%}
+    Build unique currency list and mapping to representative country codes
+  {%- endcomment -%}
+  {% assign unique_currencies = '' %}
+  {% assign currency_to_country_map = '' %}
+  
+  {%- for country in localization.available_countries -%}
+    {% assign currency_key = ',' | append: country.currency.iso_code | append: ',' %}
+    {% unless unique_currencies contains currency_key %}
+      {% assign unique_currencies = unique_currencies | append: currency_key %}
+      {% assign currency_mapping = country.currency.iso_code | append: '|' | append: country.currency.symbol | append: '|' | append: country.iso_code %}
+      {% if currency_to_country_map == '' %}
+        {% assign currency_to_country_map = currency_mapping %}
+      {% else %}
+        {% assign currency_to_country_map = currency_to_country_map | append: ',' | append: currency_mapping %}
+      {% endif %}
+    {% endunless %}
+  {%- endfor -%}
+  
   <div class="m-switcher-dropdown m-country-switcher {{ box_size }}">
     {% form 'localization', data-localization-form: '', id: form_id %}
       <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}" data-localization-input>
       <m-select-component>
         <m-localization-form>
           <select name="country_code" class="js-selectNative" data-localization-select>
-            {%- for country in localization.available_countries -%}
+            {% assign currency_mappings = currency_to_country_map | split: ',' %}
+            {%- for currency_mapping in currency_mappings -%}
+              {% assign mapping_parts = currency_mapping | split: '|' %}
+              {% assign currency_code = mapping_parts[0] %}
+              {% assign currency_symbol = mapping_parts[1] %}
+              {% assign country_code = mapping_parts[2] %}
               <option
-                value="{{ country.iso_code }}"
-                {% if country.iso_code == localization.country.iso_code %}
+                value="{{ country_code }}"
+                {% if localization.country.currency.iso_code == currency_code %}
                   selected
                 {% endif %}
               >
-                {{ country.currency.iso_code }} {{ country.currency.symbol }}
+                {{ currency_code }} {{ currency_symbol }}
               </option>
             {%- endfor -%}
           </select>
@@ -34,9 +59,14 @@
             </span>
           </div>
           <div class="m-select-custom--options m-select-custom--options-{{ pos }}">
-            {%- for country in localization.available_countries -%}
-              <div class="m-select-custom--option" data-value="{{ country.iso_code }}">
-                {{ country.currency.iso_code }} {{ country.currency.symbol }}
+            {% assign currency_mappings = currency_to_country_map | split: ',' %}
+            {%- for currency_mapping in currency_mappings -%}
+              {% assign mapping_parts = currency_mapping | split: '|' %}
+              {% assign currency_code = mapping_parts[0] %}
+              {% assign currency_symbol = mapping_parts[1] %}
+              {% assign country_code = mapping_parts[2] %}
+              <div class="m-select-custom--option" data-value="{{ country_code }}">
+                {{ currency_code }} {{ currency_symbol }}
               </div>
             {%- endfor -%}
           </div>
