@@ -91,7 +91,7 @@ const accordionStyles = `
   
   .m-submenu-mobile .m-menu-mobile__item .m-menu-mobile__link,
   .m-submenu-mobile .m-menu-mobile__item .m-menu-item-header .m-menu-mobile__link {
-    padding: 12px 16px !important;
+    padding: 8px 16px 8px 32px !important;
     font-size: 14px;
     opacity: 0.8;
     margin: 0 !important;
@@ -104,7 +104,7 @@ const accordionStyles = `
   }
   
   .m-megamenu-block {
-    padding: 12px 16px;
+    padding: 8px 16px 8px 32px;
     border: none !important;
     margin: 0 !important;
   }
