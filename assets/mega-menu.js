@@ -7,11 +7,9 @@ class Megamenu {
       desktopSubMenus: ".m-mega-menu",
       headerMobile: ".m-header__mobile",
       menuDrawer: "#m-menu-drawer",
-      menuDrawerContent: ".m-menu-drawer__content",
       menu: ".m-menu-mobile",
       menuItems: [".m-menu-mobile__item"],
       megaMenuMobile: [".m-megamenu-mobile"],
-      backDrop: ".m-menu-drawer__backdrop",
     };
     this.menuSelectors = {
       subMenu: ".m-mega-menu",
@@ -42,9 +40,6 @@ class Megamenu {
         this.openMenu();
       }
       this.domNodes.hamburgerButtons.classList.toggle("active");
-    });
-    this.domNodes.backDrop.addEventListener("click", (e) => {
-      this.closeMenu();
     });
     this.initMobileMegaMenu();
     this.initDesktopMegaMenu();
@@ -109,50 +104,11 @@ class Megamenu {
 
   initMobileMegaMenu() {
     [...this.domNodes.menuItems].forEach((item) => {
-      const subMenuContainer = item.querySelector(".m-megamenu-mobile");
-      const backBtn = item.querySelector(".m-menu-mobile__back-button");
-
-      if (subMenuContainer) {
-        addEventDelegate({
-          context: item,
-          selector: "[data-toggle-submenu]",
-          handler: (e, target) => {
-            e.preventDefault();
-            const level = target.dataset.toggleSubmenu;
-            const parentNode = e.target.parentNode;
-            if (
-              e.target.classList.contains("m-menu-mobile__back-button") ||
-              parentNode.classList.contains("m-menu-mobile__back-button")
-            ) {
-              return;
-            }
-
-            this.openSubMenu(subMenuContainer, level);
-          },
-        });
-      }
-
-      if (backBtn) {
-        addEventDelegate({
-          context: item,
-          selector: "[data-toggle-submenu]",
-          handler: (e, target) => {
-            e.preventDefault();
-            const level = target.dataset.toggleSubmenu;
-            const parentNode = e.target.parentNode;
-            if (
-              e.target.classList.contains("m-menu-mobile__back-button") ||
-              parentNode.classList.contains("m-menu-mobile__back-button")
-            ) {
-              return;
-            }
-
-            this.openSubMenu(subMenuContainer, level);
-          },
-        });
-        backBtn.addEventListener("click", (e) => {
-          const level = e.target.dataset.level;
-          this.closeSubMenu(subMenuContainer, level);
+      const toggle = item.querySelector("[data-accordion-toggle]");
+      if (toggle) {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.toggleAccordion(item);
         });
       }
     });
@@ -171,38 +127,25 @@ class Megamenu {
   }
 
   closeMenu() {
-    const { menuDrawer, menu, megaMenuMobile, hamburgerButtons } = this.domNodes;
+    const { menuDrawer, menuItems, hamburgerButtons } = this.domNodes;
 
     setTimeout(() => {
-      megaMenuMobile.forEach((container) => {
-        container.classList.remove("open");
-      });
-      menu && menu.classList.remove("m-submenu-open", "m-submenu-open--level-1", "m-submenu-open--level-2");
+      menuItems.forEach((item) => item.classList.remove("is-open"));
       menuDrawer.classList.remove("open");
       document.documentElement.classList.remove("prevent-scroll");
       this.domNodes.headerMobile.classList.remove("header-drawer-open");
       hamburgerButtons.classList.remove("active");
-      // Close search
     }, this.transitionDuration);
     this.open = false;
   }
 
-  openSubMenu(subMenuContainer, level) {
-    let subMenuOpenClass = `m-submenu-open--level-${level}`;
-
-    this.domNodes.menuDrawerContent.classList.add("open-submenu");
-    this.domNodes.menu && this.domNodes.menu.classList.add("m-submenu-open");
-    this.domNodes.menu && this.domNodes.menu.classList.add(subMenuOpenClass);
-    subMenuContainer.classList.add("open");
-  }
-
-  closeSubMenu(subMenuContainer, level) {
-    let subMenuOpenClass = `m-submenu-open--level-${level}`;
-
-    level === "1" && this.domNodes.menu && this.domNodes.menu.classList.remove("m-submenu-open");
-    this.domNodes.menu && this.domNodes.menu.classList.remove(subMenuOpenClass);
-    subMenuContainer.classList.remove("open");
-    this.domNodes.menuDrawerContent.classList.remove("open-submenu");
+  toggleAccordion(item) {
+    const isOpen = item.classList.contains("is-open");
+    const siblings = item.parentElement.querySelectorAll(".m-menu-mobile__item.is-open");
+    siblings.forEach((sibling) => {
+      if (sibling !== item) sibling.classList.remove("is-open");
+    });
+    item.classList.toggle("is-open", !isOpen);
   }
 
   setMenuHeight() {

@@ -1,0 +1,28 @@
+.m-menu-mobile__item > .m-megamenu-mobile {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+.m-menu-mobile__item.is-open > .m-megamenu-mobile {
+  display: block;
+  max-height: 1000px;
+  opacity: 1;
+}
+.m-menu-mobile__toggle-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.m-menu-mobile__toggle-button svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+.m-menu-mobile__item.is-open > .m-menu-mobile__toggle-button svg {
+  transform: rotate(45deg);
+}
