@@ -9,33 +9,120 @@
   endif
 %}
 <style>
-  /* Accordion-style mobile menu with plus/minus icon transformation */
+  /* Inline accordion mobile menu with minimal plus/minus icons */
   .m-menu-mobile__toggle-button {
-    position: relative;
-    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
   }
   
   .m-menu-mobile__toggle-button svg {
-    transition: all 0.3s ease;
+    width: 16px;
+    height: 16px;
+    transition: all 0.25s ease;
   }
   
-  /* Transform plus to minus when submenu is open using accordion style */
-  .m-megamenu-mobile.open + .m-menu-mobile__item .m-menu-mobile__toggle-button svg,
-  .m-submenu-open .m-menu-mobile__toggle-button svg {
+  /* Hide the slide-out submenu behavior and make it inline */
+  .m-megamenu-mobile {
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    height: auto !important;
+    visibility: visible !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .m-megamenu-mobile.open {
+    max-height: 1000px;
+  }
+  
+  /* Hide back buttons for inline accordion */
+  .m-menu-mobile__back-button {
+    display: none !important;
+  }
+  
+  /* Style submenu items for inline display */
+  .m-submenu-mobile {
+    padding-left: 20px;
+    margin-bottom: 0 !important;
+  }
+  
+  .m-submenu-mobile .m-menu-mobile__item > a {
+    padding-left: 32px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  /* Transform plus to minus when expanded */
+  .m-menu-mobile__item.expanded .m-menu-mobile__toggle-button svg {
     transform: rotate(45deg);
   }
   
-  /* Alternative: Use CSS to create minus icon effect by hiding vertical part of plus */
-  .m-menu-mobile__toggle-button svg path {
-    transition: all 0.3s ease;
+  /* Mega menu block styling for inline display */
+  .m-megamenu-mobile__block {
+    padding-left: 32px;
+    padding-right: 16px;
+    padding-top: 10px;
   }
   
-  /* When accordion is open, modify the path to show minus instead of plus */
-  .m-megamenu-mobile.open + .m-menu-mobile__item .m-menu-mobile__toggle-button svg path,
-  .m-submenu-open .m-menu-mobile__toggle-button svg path {
-    d: path("M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z");
+  /* Remove the drawer content transform behavior */
+  .m-menu-drawer__content.open-submenu {
+    /* Remove any transforms */
   }
 </style>
+
+<script>
+  // Inline accordion functionality for mobile menu
+  document.addEventListener('DOMContentLoaded', function() {
+    // Override the existing mobile menu behavior with inline accordion
+    const toggleButtons = document.querySelectorAll('.m-menu-mobile__toggle-button[data-toggle-submenu]');
+    
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const menuItem = this.closest('.m-menu-mobile__item');
+        const submenu = menuItem.querySelector('.m-megamenu-mobile');
+        
+        if (submenu) {
+          const isExpanded = submenu.classList.contains('open');
+          
+          // Close all other open submenus at the same level
+          const allSubmenus = document.querySelectorAll('.m-megamenu-mobile');
+          const allMenuItems = document.querySelectorAll('.m-menu-mobile__item');
+          
+          allSubmenus.forEach(sub => {
+            if (sub !== submenu) {
+              sub.classList.remove('open');
+            }
+          });
+          
+          allMenuItems.forEach(item => {
+            if (item !== menuItem) {
+              item.classList.remove('expanded');
+            }
+          });
+          
+          // Toggle current submenu
+          if (isExpanded) {
+            submenu.classList.remove('open');
+            menuItem.classList.remove('expanded');
+          } else {
+            submenu.classList.add('open');
+            menuItem.classList.add('expanded');
+          }
+        }
+      });
+    });
+  });
+</script>
 <div id="m-menu-drawer" class="m-menu-drawer">
   <div class="m-menu-drawer__backdrop"></div>
   <div class="m-menu-drawer__wrapper">
@@ -248,8 +335,8 @@
                 <span>{{ link.title }}</span>
               </a>
               <span class="m-menu-mobile__toggle-button" data-toggle-submenu="1">
-                <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                 </svg>
               </span>
               <div class="m-megamenu-mobile m-megamenu-mobile--level-1">
@@ -274,13 +361,8 @@
                         </a>
                         {% if child.links != blank %}
                           <span class="m-menu-mobile__toggle-button" data-toggle-submenu="2">
-                            <svg
-                              fill="currentColor"
-                              stroke="currentColor"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
                           </span>
                           <div class="m-megamenu-mobile m-megamenu-mobile--level-2">
