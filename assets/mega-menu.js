@@ -77,16 +77,30 @@ const accordionStyles = `
     display: flex !important;
     align-items: center !important;
     gap: 8px !important;
-    margin-right: 12px !important;
     text-decoration: none !important;
     color: inherit !important;
-    padding: 10px 0 !important;
+    padding: 12px 16px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
   
   .m-menu-customer__language-currency {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    padding: 16px !important;
+  }
+  
+  .m-menu-customer__language-currency .m-switcher-dropdown {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .m-menu-customer__language-currency .m-switcher-dropdown:not(:last-child) {
+    margin-right: 8px !important;
   }
   
   /* Currency, Language and Country Selector Plus/Minus Icons */
