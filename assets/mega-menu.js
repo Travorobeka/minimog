@@ -149,11 +149,12 @@ const accordionStyles = `
   
   .m-mobile-collection-title {
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #333;
-    line-height: 1.2;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    line-height: inherit;
+    font-family: inherit;
   }
   
   /* Standalone Mobile Menu Collections (Footer Area) */
@@ -175,6 +176,9 @@ const accordionStyles = `
     display: block;
     text-decoration: none;
     color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
   }
   
   .m-mobile-menu-collection-image {
@@ -198,11 +202,12 @@ const accordionStyles = `
   
   .m-mobile-menu-collection-title {
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #333;
-    line-height: 1.2;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    line-height: inherit;
+    font-family: inherit;
   }
   
   /* Ensure drawer content uses flex layout */
