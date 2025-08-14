@@ -72,10 +72,11 @@ const accordionStyles = `
     opacity: 1;
   }
   
-  /* Currency and Language Selector Plus/Minus Icons */
+  /* Currency, Language and Country Selector Plus/Minus Icons */
   .m-select-custom--trigger-icon,
   .m-currency-switcher .m-select-custom--trigger-icon,
-  .m-language-switcher .m-select-custom--trigger-icon {
+  .m-language-switcher .m-select-custom--trigger-icon,
+  .m-country-switcher .m-select-custom--trigger-icon {
     position: relative !important;
     display: flex !important;
     align-items: center !important;
@@ -88,7 +89,8 @@ const accordionStyles = `
   
   .m-select-custom--trigger-icon svg,
   .m-currency-switcher .m-select-custom--trigger-icon svg,
-  .m-language-switcher .m-select-custom--trigger-icon svg {
+  .m-language-switcher .m-select-custom--trigger-icon svg,
+  .m-country-switcher .m-select-custom--trigger-icon svg {
     width: 18px !important;
     height: 18px !important;
     transition: all 0.3s ease !important;
@@ -103,7 +105,9 @@ const accordionStyles = `
   .m-currency-switcher .m-select-custom--trigger-icon .plus-icon,
   .m-currency-switcher .m-select-custom--trigger-icon .minus-icon,
   .m-language-switcher .m-select-custom--trigger-icon .plus-icon,
-  .m-language-switcher .m-select-custom--trigger-icon .minus-icon {
+  .m-language-switcher .m-select-custom--trigger-icon .minus-icon,
+  .m-country-switcher .m-select-custom--trigger-icon .plus-icon,
+  .m-country-switcher .m-select-custom--trigger-icon .minus-icon {
     transition: opacity 0.3s ease !important;
     position: absolute !important;
     top: 50% !important;
@@ -115,13 +119,15 @@ const accordionStyles = `
   /* Default state: show plus, hide minus */
   .m-select-custom--trigger-icon .plus-icon,
   .m-currency-switcher .m-select-custom--trigger-icon .plus-icon,
-  .m-language-switcher .m-select-custom--trigger-icon .plus-icon {
+  .m-language-switcher .m-select-custom--trigger-icon .plus-icon,
+  .m-country-switcher .m-select-custom--trigger-icon .plus-icon {
     opacity: 1 !important;
     z-index: 2 !important;
   }
   .m-select-custom--trigger-icon .minus-icon,
   .m-currency-switcher .m-select-custom--trigger-icon .minus-icon,
-  .m-language-switcher .m-select-custom--trigger-icon .minus-icon {
+  .m-language-switcher .m-select-custom--trigger-icon .minus-icon,
+  .m-country-switcher .m-select-custom--trigger-icon .minus-icon {
     opacity: 0 !important;
     z-index: 1 !important;
   }
@@ -132,7 +138,9 @@ const accordionStyles = `
   .m-currency-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
   .m-currency-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon,
   .m-language-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
-  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon {
+  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon,
+  .m-country-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
+  .m-country-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon {
     opacity: 0 !important;
     z-index: 1 !important;
   }
@@ -141,7 +149,9 @@ const accordionStyles = `
   .m-currency-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
   .m-currency-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon,
   .m-language-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
-  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon {
+  .m-language-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon,
+  .m-country-switcher .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
+  .m-country-switcher .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon {
     opacity: 1 !important;
     z-index: 2 !important;
   }
