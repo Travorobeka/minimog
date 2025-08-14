@@ -27,7 +27,7 @@
                     value="{{ currency.iso_code }}"
                     {% if form.current_currency.iso_code == currency.iso_code %}selected="selected"{% endif %}
                 >
-                  {{ currency.iso_code }}
+                  {{ currency.iso_code }} {{ currency.symbol }}
                 </option>
               {% endfor %}
             </select>
@@ -46,7 +46,7 @@
             </div>
             <div class="m-select-custom--options m-select-custom--options-{{ pos }}">
               {% for currency in form.available_currencies %}
-                <div class="m-select-custom--option" data-value="{{ currency.iso_code }}">{{ currency.iso_code }}</div>
+                <div class="m-select-custom--option" data-value="{{ currency.iso_code }}">{{ currency.iso_code }} {{ currency.symbol }}</div>
               {%- endfor -%}
             </div>
           </div>
