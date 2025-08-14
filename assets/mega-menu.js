@@ -1,3 +1,68 @@
+// Accordion styles for mobile menu
+const accordionStyles = `
+  .m-accordion-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .m-accordion-toggle svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+  
+  .m-menu-mobile__item.is-open .m-accordion-toggle svg {
+    transform: rotate(45deg);
+  }
+  
+  .m-submenu-mobile {
+    display: none;
+    padding-left: 20px;
+  }
+  
+  .m-menu-mobile__item.is-open .m-submenu-mobile {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .m-submenu-mobile .m-menu-mobile__item > a {
+    padding-left: 16px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  .m-megamenu-block {
+    padding-left: 16px;
+    padding-top: 10px;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+`;
+
+// Inject styles
+if (!document.querySelector('#accordion-styles')) {
+  const styleSheet = document.createElement('style');
+  styleSheet.id = 'accordion-styles';
+  styleSheet.textContent = accordionStyles;
+  document.head.appendChild(styleSheet);
+}
+
 class Megamenu {
   constructor(container) {
     this.selectors = {
@@ -109,50 +174,12 @@ class Megamenu {
 
   initMobileMegaMenu() {
     [...this.domNodes.menuItems].forEach((item) => {
-      const subMenuContainer = item.querySelector(".m-megamenu-mobile");
-      const backBtn = item.querySelector(".m-menu-mobile__back-button");
-
-      if (subMenuContainer) {
-        addEventDelegate({
-          context: item,
-          selector: "[data-toggle-submenu]",
-          handler: (e, target) => {
-            e.preventDefault();
-            const level = target.dataset.toggleSubmenu;
-            const parentNode = e.target.parentNode;
-            if (
-              e.target.classList.contains("m-menu-mobile__back-button") ||
-              parentNode.classList.contains("m-menu-mobile__back-button")
-            ) {
-              return;
-            }
-
-            this.openSubMenu(subMenuContainer, level);
-          },
-        });
-      }
-
-      if (backBtn) {
-        addEventDelegate({
-          context: item,
-          selector: "[data-toggle-submenu]",
-          handler: (e, target) => {
-            e.preventDefault();
-            const level = target.dataset.toggleSubmenu;
-            const parentNode = e.target.parentNode;
-            if (
-              e.target.classList.contains("m-menu-mobile__back-button") ||
-              parentNode.classList.contains("m-menu-mobile__back-button")
-            ) {
-              return;
-            }
-
-            this.openSubMenu(subMenuContainer, level);
-          },
-        });
-        backBtn.addEventListener("click", (e) => {
-          const level = e.target.dataset.level;
-          this.closeSubMenu(subMenuContainer, level);
+      const accordionToggle = item.querySelector("[data-accordion-toggle]");
+      
+      if (accordionToggle) {
+        accordionToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.toggleAccordion(item);
         });
       }
     });
@@ -171,38 +198,38 @@ class Megamenu {
   }
 
   closeMenu() {
-    const { menuDrawer, menu, megaMenuMobile, hamburgerButtons } = this.domNodes;
+    const { menuDrawer, hamburgerButtons } = this.domNodes;
 
     setTimeout(() => {
-      megaMenuMobile.forEach((container) => {
-        container.classList.remove("open");
+      // Close all accordion items
+      [...this.domNodes.menuItems].forEach((item) => {
+        item.classList.remove("is-open");
       });
-      menu && menu.classList.remove("m-submenu-open", "m-submenu-open--level-1", "m-submenu-open--level-2");
+      
       menuDrawer.classList.remove("open");
       document.documentElement.classList.remove("prevent-scroll");
       this.domNodes.headerMobile.classList.remove("header-drawer-open");
       hamburgerButtons.classList.remove("active");
-      // Close search
     }, this.transitionDuration);
     this.open = false;
   }
 
-  openSubMenu(subMenuContainer, level) {
-    let subMenuOpenClass = `m-submenu-open--level-${level}`;
-
-    this.domNodes.menuDrawerContent.classList.add("open-submenu");
-    this.domNodes.menu && this.domNodes.menu.classList.add("m-submenu-open");
-    this.domNodes.menu && this.domNodes.menu.classList.add(subMenuOpenClass);
-    subMenuContainer.classList.add("open");
-  }
-
-  closeSubMenu(subMenuContainer, level) {
-    let subMenuOpenClass = `m-submenu-open--level-${level}`;
-
-    level === "1" && this.domNodes.menu && this.domNodes.menu.classList.remove("m-submenu-open");
-    this.domNodes.menu && this.domNodes.menu.classList.remove(subMenuOpenClass);
-    subMenuContainer.classList.remove("open");
-    this.domNodes.menuDrawerContent.classList.remove("open-submenu");
+  toggleAccordion(item) {
+    const isOpen = item.classList.contains("is-open");
+    
+    // Close all other open accordions
+    [...this.domNodes.menuItems].forEach((menuItem) => {
+      if (menuItem !== item) {
+        menuItem.classList.remove("is-open");
+      }
+    });
+    
+    // Toggle current accordion
+    if (isOpen) {
+      item.classList.remove("is-open");
+    } else {
+      item.classList.add("is-open");
+    }
   }
 
   setMenuHeight() {
