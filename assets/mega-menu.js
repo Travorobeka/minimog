@@ -31,14 +31,33 @@ const accordionStyles = `
   }
   
   .m-accordion-toggle svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     transition: all 0.3s ease;
+    stroke-width: 1.5;
   }
   
-  /* Change plus to minus when open */
-  .m-menu-mobile__item.is-open .m-accordion-toggle svg {
-    transform: rotate(45deg);
+  /* Smooth transition for icon change */
+  .m-accordion-toggle .plus-icon,
+  .m-accordion-toggle .minus-icon {
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Default state: show plus, hide minus */
+  .m-accordion-toggle .plus-icon {
+    opacity: 1;
+  }
+  .m-accordion-toggle .minus-icon {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  /* Open state: hide plus, show minus */
+  .m-menu-mobile__item.is-open .m-accordion-toggle .plus-icon {
+    opacity: 0;
+  }
+  .m-menu-mobile__item.is-open .m-accordion-toggle .minus-icon {
+    opacity: 1;
   }
   
   .m-submenu-mobile {
