@@ -19,25 +19,42 @@
 
       {% form 'localization', data-localization-form: '', id: form_id %}
         <input type="hidden" name="currency_code" value="{{ form.current_currency.iso_code }}" data-localization-input/>
+        
+        <!-- Create unique currency list -->
+        {% assign unique_currencies = '' %}
+        {% assign currency_data = '' %}
+        
+        {% for currency in form.available_currencies %}
+          {% assign currency_check = ',' | append: currency.iso_code | append: ',' %}
+          {% unless unique_currencies contains currency_check %}
+            {% assign unique_currencies = unique_currencies | append: currency_check %}
+            {% assign currency_info = currency.iso_code | append: '|' | append: currency.symbol %}
+            {% if currency_data == '' %}
+              {% assign currency_data = currency_info %}
+            {% else %}
+              {% assign currency_data = currency_data | append: ',' | append: currency_info %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        
         <m-select-component>
           <m-localization-form>
             <select class="js-selectNative" data-localization-select>
-              {% assign unique_currencies = form.available_currencies | map: 'iso_code' | uniq %}
-              {% for currency_code in unique_currencies %}
-                {% for currency in form.available_currencies %}
-                  {% if currency.iso_code == currency_code %}
-                    <option
-                        value="{{ currency.iso_code }}"
-                        {% if form.current_currency.iso_code == currency.iso_code %}selected="selected"{% endif %}
-                    >
-                      {{ currency.iso_code }} {{ currency.symbol }}
-                    </option>
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
+              {% assign currency_list = currency_data | split: ',' %}
+              {% for currency_item in currency_list %}
+                {% assign currency_parts = currency_item | split: '|' %}
+                {% assign currency_code = currency_parts[0] %}
+                {% assign currency_symbol = currency_parts[1] %}
+                <option
+                    value="{{ currency_code }}"
+                    {% if form.current_currency.iso_code == currency_code %}selected="selected"{% endif %}
+                >
+                  {{ currency_code }} {{ currency_symbol }}
+                </option>
               {% endfor %}
             </select>
           </m-localization-form>
+          
           <div class="m-select-custom js-selectCustom" aria-hidden="true">
             <div class="m-select-custom--trigger">
               <span class="m-select-custom--trigger-text"></span>
@@ -51,14 +68,12 @@
               </span>
             </div>
             <div class="m-select-custom--options m-select-custom--options-{{ pos }}">
-              {% assign unique_currencies = form.available_currencies | map: 'iso_code' | uniq %}
-              {% for currency_code in unique_currencies %}
-                {% for currency in form.available_currencies %}
-                  {% if currency.iso_code == currency_code %}
-                    <div class="m-select-custom--option" data-value="{{ currency.iso_code }}">{{ currency.iso_code }} {{ currency.symbol }}</div>
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
+              {% assign currency_list = currency_data | split: ',' %}
+              {% for currency_item in currency_list %}
+                {% assign currency_parts = currency_item | split: '|' %}
+                {% assign currency_code = currency_parts[0] %}
+                {% assign currency_symbol = currency_parts[1] %}
+                <div class="m-select-custom--option" data-value="{{ currency_code }}">{{ currency_code }} {{ currency_symbol }}</div>
               {% endfor %}
             </div>
           </div>
