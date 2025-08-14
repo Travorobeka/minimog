@@ -210,35 +210,46 @@
           {% endfor %}
           {% if link.links != blank %}
             <li class="m-menu-mobile__item" data-url="{{ link.url }}" data-index="{{ forloop.index0 }}">
-              <a
-                href="{{ link.url }}"
-                class="m-menu-mobile__link"
-              >
-                <span>{{ link.title }}</span>
-              </a>
-              <button class="m-accordion-toggle" data-accordion-toggle>
-                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                </svg>
-              </button>
+              <div class="m-menu-item-header">
+                <a
+                  href="{{ link.url }}"
+                  class="m-menu-mobile__link"
+                >
+                  <span>{{ link.title }}</span>
+                </a>
+                <button class="m-accordion-toggle" data-accordion-toggle>
+                  <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                  </svg>
+                </button>
+              </div>
               <ul class="m-submenu-mobile">
                 {% for child in link.links %}
                   <li class="m-menu-mobile__item" data-url="{{ link.url }}">
-                    <a
-                      href="{{ child.url }}"
-                      class="m-menu-mobile__link"
-                    >
-                      <span>{{ child.title }}</span>
-                    </a>
                     {% if child.links != blank %}
-                      <button class="m-accordion-toggle" data-accordion-toggle>
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                      </button>
+                      <div class="m-menu-item-header">
+                        <a
+                          href="{{ child.url }}"
+                          class="m-menu-mobile__link"
+                        >
+                          <span>{{ child.title }}</span>
+                        </a>
+                        <button class="m-accordion-toggle" data-accordion-toggle>
+                          <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                          </svg>
+                        </button>
+                      </div>
                       <ul class="m-submenu-mobile">
                         {% render 'mega-menu-link' for child.links as link %}
                       </ul>
+                    {% else %}
+                      <a
+                        href="{{ child.url }}"
+                        class="m-menu-mobile__link"
+                      >
+                        <span>{{ child.title }}</span>
+                      </a>
                     {% endif %}
                   </li>
                 {% endfor %}

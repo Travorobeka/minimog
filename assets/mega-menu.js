@@ -1,46 +1,78 @@
 // Accordion styles for mobile menu
 const accordionStyles = `
+  .m-menu-mobile__item {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .m-menu-item-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  
+  .m-menu-item-header .m-menu-mobile__link {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
   .m-accordion-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     border: none;
     background: transparent;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    flex-shrink: 0;
   }
   
   .m-accordion-toggle svg {
     width: 16px;
     height: 16px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
   }
   
+  /* Change plus to minus when open */
   .m-menu-mobile__item.is-open .m-accordion-toggle svg {
     transform: rotate(45deg);
   }
   
   .m-submenu-mobile {
-    display: none;
+    display: none !important;
+    width: 100% !important;
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
     padding-left: 20px;
+    margin-top: 0;
+    overflow: hidden;
   }
   
-  .m-menu-mobile__item.is-open .m-submenu-mobile {
-    display: block;
+  .m-menu-mobile__item.is-open > .m-submenu-mobile {
+    display: block !important;
     animation: slideDown 0.3s ease-out;
   }
   
-  .m-submenu-mobile .m-menu-mobile__item > a {
-    padding-left: 16px;
+  .m-submenu-mobile .m-menu-mobile__item .m-menu-mobile__link,
+  .m-submenu-mobile .m-menu-mobile__item .m-menu-item-header .m-menu-mobile__link {
+    padding: 8px 16px;
     font-size: 14px;
     opacity: 0.8;
   }
   
+  .m-submenu-mobile .m-menu-mobile__item {
+    border-left: 1px solid rgba(0,0,0,0.1);
+    margin-left: 10px;
+  }
+  
   .m-megamenu-block {
-    padding-left: 16px;
-    padding-top: 10px;
+    padding: 10px 16px;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    margin-left: 10px;
   }
   
   @keyframes slideDown {
