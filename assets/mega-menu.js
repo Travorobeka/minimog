@@ -10,12 +10,22 @@ const accordionStyles = `
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   .m-menu-item-header .m-menu-mobile__link {
     flex: 1 !important;
     display: flex !important;
     align-items: center !important;
+    padding: 12px 16px !important;
+    margin: 0 !important;
+  }
+  
+  /* Ensure consistent alignment for all menu items */
+  .m-menu-mobile__item > .m-menu-mobile__link,
+  .m-menu-mobile__item .m-menu-item-header .m-menu-mobile__link {
+    padding: 12px 16px !important;
   }
   
   .m-accordion-toggle {
@@ -28,6 +38,8 @@ const accordionStyles = `
     background: transparent;
     cursor: pointer;
     flex-shrink: 0;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .m-accordion-toggle svg {
