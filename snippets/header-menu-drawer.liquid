@@ -8,6 +8,34 @@
     assign menu = mobile_menu
   endif
 %}
+<style>
+  /* Accordion-style mobile menu with plus/minus icon transformation */
+  .m-menu-mobile__toggle-button {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .m-menu-mobile__toggle-button svg {
+    transition: all 0.3s ease;
+  }
+  
+  /* Transform plus to minus when submenu is open using accordion style */
+  .m-megamenu-mobile.open + .m-menu-mobile__item .m-menu-mobile__toggle-button svg,
+  .m-submenu-open .m-menu-mobile__toggle-button svg {
+    transform: rotate(45deg);
+  }
+  
+  /* Alternative: Use CSS to create minus icon effect by hiding vertical part of plus */
+  .m-menu-mobile__toggle-button svg path {
+    transition: all 0.3s ease;
+  }
+  
+  /* When accordion is open, modify the path to show minus instead of plus */
+  .m-megamenu-mobile.open + .m-menu-mobile__item .m-menu-mobile__toggle-button svg path,
+  .m-submenu-open .m-menu-mobile__toggle-button svg path {
+    d: path("M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z");
+  }
+</style>
 <div id="m-menu-drawer" class="m-menu-drawer">
   <div class="m-menu-drawer__backdrop"></div>
   <div class="m-menu-drawer__wrapper">
@@ -220,8 +248,8 @@
                 <span>{{ link.title }}</span>
               </a>
               <span class="m-menu-mobile__toggle-button" data-toggle-submenu="1">
-                <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                  <path d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"/>
+                <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                 </svg>
               </span>
               <div class="m-megamenu-mobile m-megamenu-mobile--level-1">
@@ -250,9 +278,9 @@
                               fill="currentColor"
                               stroke="currentColor"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 256 512"
+                              viewBox="0 0 24 24"
                             >
-                              <path d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"/>
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                             </svg>
                           </span>
                           <div class="m-megamenu-mobile m-megamenu-mobile--level-2">
