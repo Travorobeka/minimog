@@ -76,55 +76,31 @@ const accordionStyles = `
   .m-menu-customer__account {
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 8px !important;
     text-decoration: none !important;
     color: inherit !important;
-    padding: 8px 12px !important;
+    padding: 12px 16px !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
-    font-size: 14px !important;
-    border-radius: 4px !important;
-    transition: background-color 0.2s ease !important;
-  }
-  
-  .m-menu-customer__account:hover {
-    background-color: rgba(0,0,0,0.05) !important;
-  }
-  
-  .m-menu-customer__account svg {
-    width: 16px !important;
-    height: 16px !important;
   }
   
   .m-menu-customer__language-currency {
     display: flex !important;
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 12px !important;
-    padding: 12px 16px !important;
-    background-color: rgba(0,0,0,0.02) !important;
-    border-top: 1px solid rgba(0,0,0,0.08) !important;
+    gap: 8px !important;
+    padding: 16px !important;
   }
   
   .m-menu-customer__language-currency .m-switcher-dropdown {
     flex: 1 !important;
-    min-width: 80px !important;
-    max-width: 120px !important;
+    min-width: 0 !important;
     padding: 0 !important;
   }
   
-  .m-menu-customer__language-currency .m-switcher-dropdown .m-select-custom--trigger {
-    padding: 6px 8px !important;
-    font-size: 13px !important;
-    border: 1px solid rgba(0,0,0,0.1) !important;
-    border-radius: 4px !important;
-    background-color: rgb(var(--color-background)) !important;
-    min-height: 32px !important;
-  }
-  
-  .m-menu-customer__language-currency .m-switcher-dropdown .m-select-custom--trigger-text {
-    font-weight: 500 !important;
+  .m-menu-customer__language-currency .m-switcher-dropdown:not(:last-child) {
+    margin-right: 8px !important;
   }
   
   /* Currency, Language and Country Selector Plus/Minus Icons */
