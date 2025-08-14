@@ -72,6 +72,45 @@ const accordionStyles = `
     opacity: 1;
   }
   
+  /* Currency and Language Selector Plus/Minus Icons */
+  .m-select-custom--trigger-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .m-select-custom--trigger-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: all 0.3s ease;
+    stroke-width: 1.5;
+  }
+  
+  .m-select-custom--trigger-icon .plus-icon,
+  .m-select-custom--trigger-icon .minus-icon {
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Default state: show plus, hide minus */
+  .m-select-custom--trigger-icon .plus-icon {
+    opacity: 1;
+  }
+  .m-select-custom--trigger-icon .minus-icon {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  /* Open state: hide plus, show minus */
+  .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon {
+    opacity: 0;
+  }
+  .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon {
+    opacity: 1;
+  }
+  
   .m-submenu-mobile {
     display: none !important;
     width: 100% !important;
