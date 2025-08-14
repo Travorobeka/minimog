@@ -22,14 +22,22 @@
         <m-select-component>
           <m-localization-form>
             <select class="js-selectNative" data-localization-select>
-              {% for currency in form.available_currencies %}
+              {% liquid
+                assign unique_currencies = ''
+                for currency in form.available_currencies
+                  unless unique_currencies contains currency.iso_code
+                    assign unique_currencies = unique_currencies | append: currency.iso_code | append: ','
+              %}
                 <option
                     value="{{ currency.iso_code }}"
                     {% if form.current_currency.iso_code == currency.iso_code %}selected="selected"{% endif %}
                 >
                   {{ currency.iso_code }} {{ currency.symbol }}
                 </option>
-              {% endfor %}
+              {% liquid
+                  endunless
+                endfor
+              %}
             </select>
           </m-localization-form>
           <div class="m-select-custom js-selectCustom" aria-hidden="true">
@@ -45,9 +53,17 @@
               </span>
             </div>
             <div class="m-select-custom--options m-select-custom--options-{{ pos }}">
-              {% for currency in form.available_currencies %}
+              {% liquid
+                assign unique_currencies = ''
+                for currency in form.available_currencies
+                  unless unique_currencies contains currency.iso_code
+                    assign unique_currencies = unique_currencies | append: currency.iso_code | append: ','
+              %}
                 <div class="m-select-custom--option" data-value="{{ currency.iso_code }}">{{ currency.iso_code }} {{ currency.symbol }}</div>
-              {%- endfor -%}
+              {% liquid
+                  endunless
+                endfor
+              %}
             </div>
           </div>
         </m-select-component>
