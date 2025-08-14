@@ -26,20 +26,32 @@
     transition: all 0.25s ease;
   }
   
-  /* Hide the slide-out submenu behavior and make it inline */
+  /* Completely override slide-out submenu behavior and make it inline */
   .m-megamenu-mobile {
     position: static !important;
-    transform: none !important;
+    transform: translateX(0) !important;
     background: transparent !important;
     height: auto !important;
     visibility: visible !important;
+    width: 100% !important;
+    z-index: auto !important;
+    display: block !important;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
   }
   
   .m-megamenu-mobile.open {
-    max-height: 1000px;
+    max-height: 2000px;
+    opacity: 1;
+  }
+  
+  /* Ensure megamenu mobile wrapper doesn't cause issues */
+  .m-megamenu-mobile__wrapper {
+    overflow: visible !important;
+    display: block !important;
+    flex-direction: column !important;
   }
   
   /* Hide back buttons for inline accordion */
@@ -75,52 +87,89 @@
   .m-menu-drawer__content.open-submenu {
     /* Remove any transforms */
   }
+  
+  /* Ensure menu items don't get hidden or transformed */
+  .m-menu-mobile .m-menu-mobile__item {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Override any submenu open classes that might interfere */
+  .m-submenu-open .m-megamenu-mobile,
+  .m-submenu-open--level-1 .m-megamenu-mobile,
+  .m-submenu-open--level-2 .m-megamenu-mobile {
+    position: static !important;
+    transform: translateX(0) !important;
+  }
 </style>
 
 <script>
   // Inline accordion functionality for mobile menu
   document.addEventListener('DOMContentLoaded', function() {
-    // Override the existing mobile menu behavior with inline accordion
-    const toggleButtons = document.querySelectorAll('.m-menu-mobile__toggle-button[data-toggle-submenu]');
-    
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    // Wait for the page to fully load to ensure we override existing behavior
+    setTimeout(function() {
+      // Remove all existing event listeners by cloning and replacing elements
+      const toggleButtons = document.querySelectorAll('.m-menu-mobile__toggle-button[data-toggle-submenu]');
+      
+      toggleButtons.forEach(button => {
+        // Clone button to remove existing event listeners
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
         
-        const menuItem = this.closest('.m-menu-mobile__item');
-        const submenu = menuItem.querySelector('.m-megamenu-mobile');
-        
-        if (submenu) {
-          const isExpanded = submenu.classList.contains('open');
+        // Add our custom event listener
+        newButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
           
-          // Close all other open submenus at the same level
-          const allSubmenus = document.querySelectorAll('.m-megamenu-mobile');
-          const allMenuItems = document.querySelectorAll('.m-menu-mobile__item');
+          const menuItem = this.closest('.m-menu-mobile__item');
+          const submenu = menuItem.querySelector('.m-megamenu-mobile');
           
-          allSubmenus.forEach(sub => {
-            if (sub !== submenu) {
-              sub.classList.remove('open');
+          if (submenu) {
+            const isExpanded = submenu.classList.contains('open');
+            
+            // Close all other open submenus
+            const allSubmenus = document.querySelectorAll('.m-megamenu-mobile');
+            const allMenuItems = document.querySelectorAll('.m-menu-mobile__item');
+            
+            allSubmenus.forEach(sub => {
+              if (sub !== submenu) {
+                sub.classList.remove('open');
+              }
+            });
+            
+            allMenuItems.forEach(item => {
+              if (item !== menuItem) {
+                item.classList.remove('expanded');
+              }
+            });
+            
+            // Toggle current submenu
+            if (isExpanded) {
+              submenu.classList.remove('open');
+              menuItem.classList.remove('expanded');
+            } else {
+              submenu.classList.add('open');
+              menuItem.classList.add('expanded');
             }
-          });
-          
-          allMenuItems.forEach(item => {
-            if (item !== menuItem) {
-              item.classList.remove('expanded');
-            }
-          });
-          
-          // Toggle current submenu
-          if (isExpanded) {
-            submenu.classList.remove('open');
-            menuItem.classList.remove('expanded');
-          } else {
-            submenu.classList.add('open');
-            menuItem.classList.add('expanded');
           }
-        }
+          
+          return false;
+        });
       });
-    });
+      
+      // Override any clicks on menu links that might trigger the original behavior
+      const menuLinks = document.querySelectorAll('.m-menu-mobile__item > a[data-toggle-submenu]');
+      menuLinks.forEach(link => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+        
+        newLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          return false;
+        });
+      });
+    }, 100);
   });
 </script>
 <div id="m-menu-drawer" class="m-menu-drawer">
