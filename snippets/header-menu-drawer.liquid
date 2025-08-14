@@ -202,6 +202,48 @@
                       </div>
                     {% endif %}
                   {% endcapture %}
+                {% when 'mobile_collection_images' %}
+                  {% capture block_type %}
+                    <div class="m-mobile-collection-images">
+                      {% for i in (1..2) %}
+                        {% liquid
+                          assign collection_key = 'collection_' | append: i
+                          assign image_key = 'image_' | append: i
+                          assign title_key = 'title_' | append: i
+                          
+                          if block.settings[collection_key] != blank
+                            assign collection = collections[block.settings[collection_key]]
+                            assign collection_image = collection.featured_image
+                            assign collection_title = collection.title
+                            
+                            if block.settings[image_key] != blank
+                              assign collection_image = block.settings[image_key]
+                            endif
+                            
+                            if block.settings[title_key] != blank and block.settings[title_key] != ''
+                              assign collection_title = block.settings[title_key]
+                            endif
+                          endif
+                        %}
+                        {% if collection != blank and collection_image != blank %}
+                          <div class="m-mobile-collection-item">
+                            <a href="{{ collection.url }}" class="m-mobile-collection-link">
+                              <div class="m-mobile-collection-image">
+                                {% render 'responsive-image', 
+                                  image: collection_image, 
+                                  aspect_ratio: '4/5',
+                                  sizes: '200px'
+                                %}
+                              </div>
+                              <div class="m-mobile-collection-title">
+                                {{ collection_title | upcase }}
+                              </div>
+                            </a>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  {% endcapture %}
                 {% else %}
                   {%- capture block_type -%}
                   {%- endcapture -%}

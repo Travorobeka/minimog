@@ -109,6 +109,53 @@ const accordionStyles = `
     margin: 0 !important;
   }
   
+  /* Mobile Collection Images Styling */
+  .m-mobile-collection-images {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    justify-content: center;
+  }
+  
+  .m-mobile-collection-item {
+    flex: 1;
+    max-width: 160px;
+  }
+  
+  .m-mobile-collection-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .m-mobile-collection-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #f5f5f5;
+  }
+  
+  .m-mobile-collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .m-mobile-collection-link:hover .m-mobile-collection-image img {
+    transform: scale(1.05);
+  }
+  
+  .m-mobile-collection-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #333;
+    line-height: 1.2;
+  }
+  
   @keyframes slideDown {
     from {
       opacity: 0;
