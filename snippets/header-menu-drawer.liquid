@@ -209,46 +209,65 @@
             {% endif %}
           {% endfor %}
           {% if link.links != blank %}
-            <li class="m-menu-mobile__item m-accordion-item" data-url="{{ link.url }}" data-index="{{ forloop.index0 }}">
-              <div class="m-accordion-header" data-accordion-toggle>
-                <span class="m-accordion-title">{{ link.title }}</span>
-                <span class="m-accordion-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </div>
-              <div class="m-accordion-content">
-                <div class="m-accordion-body">
-                  <ul class="m-submenu-mobile m-accordion-submenu">
+            <li class="m-menu-mobile__item" data-url="{{ link.url }}" data-index="{{ forloop.index0 }}">
+              <a
+                href="{{ link.url }}"
+                class="m-menu-mobile__link"
+                {% if link.url contains '#' %}
+                  data-toggle-submenu="1"
+                {% endif %}
+              >
+                <span>{{ link.title }}</span>
+              </a>
+              <span class="m-menu-mobile__toggle-button" data-toggle-submenu="1">
+                <svg fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                  <path d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"/>
+                </svg>
+              </span>
+              <div class="m-megamenu-mobile m-megamenu-mobile--level-1">
+                <div class="m-megamenu-mobile__wrapper">
+                  <button class="m-menu-mobile__back-button" data-level="1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17">
+                      <path fill="currentColor" d="M8.12109 15.9141c-.21093.1875-.41015.1875-.59765 0L.175781 8.53125c-.210937-.1875-.210937-.375 0-.5625L7.52344.585938c.1875-.1875.38672-.1875.59765 0l.70313.703122c.1875.1875.1875.38672 0 .59766L3.375 7.33594h11.9883c.2812 0 .4219.14062.4219.42187v.98438c0 .28125-.1407.42187-.4219.42187H3.375l5.44922 5.44924c.1875.2109.1875.4101 0 .5976l-.70313.7032z"/>
+                    </svg>
+                    <span>{{ link.title }}</span>
+                  </button>
+                  <ul class="m-submenu-mobile">
                     {% for child in link.links %}
-                      <li class="m-menu-mobile__item m-accordion-child-item">
+                      <li class="m-menu-mobile__item" data-url="{{ link.url }}">
+                        <a
+                          href="{{ child.url }}"
+                          class="m-menu-mobile__link"
+                          {% if child.url contains '#' %}
+                            data-toggle-submenu="2"
+                          {% endif %}
+                        >
+                          <span>{{ child.title }}</span>
+                        </a>
                         {% if child.links != blank %}
-                          <div class="m-accordion-header m-accordion-header--level-2" data-accordion-toggle>
-                            <span class="m-accordion-title">{{ child.title }}</span>
-                            <span class="m-accordion-icon">
-                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                              </svg>
-                            </span>
-                          </div>
-                          <div class="m-accordion-content">
-                            <div class="m-accordion-body">
-                              <ul class="m-submenu-mobile m-accordion-submenu m-accordion-submenu--level-2">
-                                {% for grandchild in child.links %}
-                                  <li class="m-menu-mobile__item">
-                                    <a href="{{ grandchild.url }}" class="m-menu-mobile__link m-accordion-link">
-                                      <span>{{ grandchild.title }}</span>
-                                    </a>
-                                  </li>
-                                {% endfor %}
+                          <span class="m-menu-mobile__toggle-button" data-toggle-submenu="2">
+                            <svg
+                              fill="currentColor"
+                              stroke="currentColor"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 256 512"
+                            >
+                              <path d="M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"/>
+                            </svg>
+                          </span>
+                          <div class="m-megamenu-mobile m-megamenu-mobile--level-2">
+                            <div class="m-megamenu-mobile__wrapper">
+                              <button class="m-menu-mobile__back-button" data-level="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 17">
+                                  <path fill="currentColor" d="M8.12109 15.9141c-.21093.1875-.41015.1875-.59765 0L.175781 8.53125c-.210937-.1875-.210937-.375 0-.5625L7.52344.585938c.1875-.1875.38672-.1875.59765 0l.70313.703122c.1875.1875.1875.38672 0 .59766L3.375 7.33594h11.9883c.2812 0 .4219.14062.4219.42187v.98438c0 .28125-.1407.42187-.4219.42187H3.375l5.44922 5.44924c.1875.2109.1875.4101 0 .5976l-.70313.7032z"/>
+                                </svg>
+                                <span>{{ child.title }}</span>
+                              </button>
+                              <ul class="m-submenu-mobile">
+                                {% render 'mega-menu-link' for child.links as link %}
                               </ul>
                             </div>
                           </div>
-                        {% else %}
-                          <a href="{{ child.url }}" class="m-menu-mobile__link m-accordion-link">
-                            <span>{{ child.title }}</span>
-                          </a>
                         {% endif %}
                       </li>
                     {% endfor %}
