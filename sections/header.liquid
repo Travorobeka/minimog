@@ -1094,6 +1094,109 @@
       "default": false
     },
     {
+      "type": "header",
+      "content": "Image Size & Layout"
+    },
+    {
+      "type": "select",
+      "id": "mb_image_size",
+      "label": "Image size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small (120px)"
+        },
+        {
+          "value": "medium", 
+          "label": "Medium (160px)"
+        },
+        {
+          "value": "large",
+          "label": "Large (200px)"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mb_image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "default": "4_5",
+      "options": [
+        {
+          "value": "1_1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4_5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "3_4",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "5_4",
+          "label": "Landscape (5:4)"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text Settings"
+    },
+    {
+      "type": "select",
+      "id": "mb_text_position",
+      "label": "Text position",
+      "default": "below",
+      "options": [
+        {
+          "value": "below",
+          "label": "Below image"
+        },
+        {
+          "value": "overlay_bottom",
+          "label": "Overlay - Bottom"
+        },
+        {
+          "value": "overlay_center",
+          "label": "Overlay - Center"
+        },
+        {
+          "value": "overlay_top",
+          "label": "Overlay - Top"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "mb_text_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "mb_text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "mb_text_color_overlay",
+      "label": "Text color for overlay position",
+      "default": "#ffffff",
+      "info": "Used when text is positioned over the image"
+    },
+    {
+      "type": "header",
+      "content": "Collections"
+    },
+    {
       "type": "collection",
       "id": "mb_collection_1",
       "label": "Collection 1"

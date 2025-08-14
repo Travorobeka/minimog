@@ -170,16 +170,28 @@ const accordionStyles = `
     margin-top: auto;
   }
   
+  /* Image Size Variations */
+  .m-mobile-menu-collections[data-size="small"] .m-mobile-menu-collection-item {
+    max-width: 120px;
+  }
+  
+  .m-mobile-menu-collections[data-size="medium"] .m-mobile-menu-collection-item {
+    max-width: 160px;
+  }
+  
+  .m-mobile-menu-collections[data-size="large"] .m-mobile-menu-collection-item {
+    max-width: 200px;
+  }
+  
   .m-mobile-menu-collection-item {
     flex: 1;
-    max-width: 160px;
   }
   
   .m-mobile-menu-collection-link {
     display: block;
     text-decoration: none;
-    color: inherit;
-    font-size: inherit;
+    color: var(--mb-text-color, inherit);
+    font-size: var(--mb-text-size, inherit);
     font-weight: inherit;
     font-family: inherit;
   }
@@ -188,8 +200,12 @@ const accordionStyles = `
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    margin-bottom: 12px;
     background-color: #f5f5f5;
+  }
+  
+  /* Conditional margin for below text positioning */
+  .m-mobile-menu-collections[data-text-position="below"] .m-mobile-menu-collection-image {
+    margin-bottom: 12px;
   }
   
   .m-mobile-menu-collection-image img {
@@ -203,17 +219,59 @@ const accordionStyles = `
     transform: scale(1.05);
   }
   
+  /* Text Below Image */
   .m-mobile-menu-collection-title {
     text-align: center;
-    font-size: inherit;
+    font-size: var(--mb-text-size, inherit);
     font-weight: inherit;
     letter-spacing: inherit;
-    color: inherit;
+    color: var(--mb-text-color, inherit);
     line-height: inherit;
     font-family: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
+  }
+  
+  /* Text Overlay Styles */
+  .m-mobile-menu-collection-title.m-overlay-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: var(--mb-text-color-overlay, #ffffff);
+    font-size: var(--mb-text-size, 14px);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    z-index: 2;
+    padding: 0 8px;
+    text-decoration: none;
+  }
+  
+  /* Overlay Positioning */
+  .m-mobile-menu-collections[data-text-position="overlay_top"] .m-overlay-title {
+    top: 12px;
+  }
+  
+  .m-mobile-menu-collections[data-text-position="overlay_center"] .m-overlay-title {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .m-mobile-menu-collections[data-text-position="overlay_bottom"] .m-overlay-title {
+    bottom: 12px;
+  }
+  
+  /* Add overlay gradient for better text readability */
+  .m-mobile-menu-collections[data-text-position*="overlay"] .m-mobile-menu-collection-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
   
   /* Ensure drawer content uses flex layout */
