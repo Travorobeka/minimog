@@ -74,41 +74,52 @@ const accordionStyles = `
   
   /* Currency and Language Selector Plus/Minus Icons */
   .m-select-custom--trigger-icon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 18px !important;
+    height: 18px !important;
+    padding: 0 !important;
   }
   
   .m-select-custom--trigger-icon svg {
-    width: 18px;
-    height: 18px;
-    transition: all 0.3s ease;
-    stroke-width: 1.5;
+    width: 18px !important;
+    height: 18px !important;
+    transition: all 0.3s ease !important;
+    stroke-width: 1.5 !important;
+    display: block !important;
   }
   
   .m-select-custom--trigger-icon .plus-icon,
   .m-select-custom--trigger-icon .minus-icon {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
   
   /* Default state: show plus, hide minus */
   .m-select-custom--trigger-icon .plus-icon {
-    opacity: 1;
+    opacity: 1 !important;
+    z-index: 2 !important;
   }
   .m-select-custom--trigger-icon .minus-icon {
-    opacity: 0;
-    position: absolute;
+    opacity: 0 !important;
+    z-index: 1 !important;
   }
   
   /* Open state: hide plus, show minus */
-  .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon {
-    opacity: 0;
+  .m-select-custom.is-open .m-select-custom--trigger-icon .plus-icon,
+  .m-select-custom.isActive .m-select-custom--trigger-icon .plus-icon {
+    opacity: 0 !important;
+    z-index: 1 !important;
   }
-  .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon {
-    opacity: 1;
+  .m-select-custom.is-open .m-select-custom--trigger-icon .minus-icon,
+  .m-select-custom.isActive .m-select-custom--trigger-icon .minus-icon {
+    opacity: 1 !important;
+    z-index: 2 !important;
   }
   
   .m-submenu-mobile {

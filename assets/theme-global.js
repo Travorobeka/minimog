@@ -2078,11 +2078,11 @@ if (!customElements.get("m-select-component")) {
           select.closeSelect();
         });
       }
-      this.domNodes.elSelectCustom.classList.add("isActive");
+      this.domNodes.elSelectCustom.classList.add("isActive", "is-open");
     }
 
     closeSelect() {
-      this.domNodes.elSelectCustom.classList.remove("isActive");
+      this.domNodes.elSelectCustom.classList.remove("isActive", "is-open");
     }
 
     updateCustomSelectChecked(value, text) {
