@@ -155,6 +155,9 @@ const accordionStyles = `
     color: inherit;
     line-height: inherit;
     font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
   }
   
   /* Standalone Mobile Menu Collections (Footer Area) */
@@ -208,6 +211,9 @@ const accordionStyles = `
     color: inherit;
     line-height: inherit;
     font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
   }
   
   /* Ensure drawer content uses flex layout */
