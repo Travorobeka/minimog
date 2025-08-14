@@ -156,6 +156,66 @@ const accordionStyles = `
     line-height: 1.2;
   }
   
+  /* Standalone Mobile Menu Collections (Footer Area) */
+  .m-mobile-menu-collections {
+    display: flex;
+    gap: 16px;
+    padding: 24px 16px;
+    justify-content: center;
+    border-top: 1px solid #e5e5e5;
+    margin-top: auto;
+  }
+  
+  .m-mobile-menu-collection-item {
+    flex: 1;
+    max-width: 160px;
+  }
+  
+  .m-mobile-menu-collection-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .m-mobile-menu-collection-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #f5f5f5;
+  }
+  
+  .m-mobile-menu-collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .m-mobile-menu-collection-link:hover .m-mobile-menu-collection-image img {
+    transform: scale(1.05);
+  }
+  
+  .m-mobile-menu-collection-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  /* Ensure drawer content uses flex layout */
+  .m-menu-drawer__content {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+  
+  .m-menu-drawer__navigation {
+    flex: 1 !important;
+  }
+  
   @keyframes slideDown {
     from {
       opacity: 0;

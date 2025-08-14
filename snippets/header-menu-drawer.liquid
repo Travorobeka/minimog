@@ -313,6 +313,50 @@
           {% endif %}
         {% endfor %}
       </ul>
+      
+      {% comment %} Standalone Mobile Collection Images {% endcomment %}
+      {% if section.settings.mb_show_collection_images %}
+        <div class="m-mobile-menu-collections">
+          {% for i in (1..2) %}
+            {% liquid
+              assign collection_key = 'mb_collection_' | append: i
+              assign image_key = 'mb_image_' | append: i  
+              assign title_key = 'mb_title_' | append: i
+              
+              if section.settings[collection_key] != blank
+                assign collection = collections[section.settings[collection_key]]
+                assign collection_image = collection.featured_image
+                assign collection_title = collection.title
+                
+                if section.settings[image_key] != blank
+                  assign collection_image = section.settings[image_key]
+                endif
+                
+                if section.settings[title_key] != blank and section.settings[title_key] != ''
+                  assign collection_title = section.settings[title_key]
+                endif
+              endif
+            %}
+            {% if collection != blank and collection_image != blank %}
+              <div class="m-mobile-menu-collection-item">
+                <a href="{{ collection.url }}" class="m-mobile-menu-collection-link">
+                  <div class="m-mobile-menu-collection-image">
+                    {% render 'responsive-image', 
+                      image: collection_image, 
+                      aspect_ratio: '4/5',
+                      sizes: '200px'
+                    %}
+                  </div>
+                  <div class="m-mobile-menu-collection-title">
+                    {{ collection_title | upcase }}
+                  </div>
+                </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
       {% render 'mega-menu-customer', section: section %}
     </div>
   </div>
