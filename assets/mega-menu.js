@@ -78,9 +78,10 @@ const accordionStyles = `
     position: static !important;
     transform: none !important;
     background: transparent !important;
-    padding-left: 20px;
-    margin-top: 0;
+    padding: 0 !important;
+    margin: 0 !important;
     overflow: hidden;
+    list-style: none !important;
   }
   
   .m-menu-mobile__item.is-open > .m-submenu-mobile {
@@ -90,20 +91,22 @@ const accordionStyles = `
   
   .m-submenu-mobile .m-menu-mobile__item .m-menu-mobile__link,
   .m-submenu-mobile .m-menu-mobile__item .m-menu-item-header .m-menu-mobile__link {
-    padding: 8px 16px;
+    padding: 12px 16px !important;
     font-size: 14px;
     opacity: 0.8;
+    margin: 0 !important;
   }
   
   .m-submenu-mobile .m-menu-mobile__item {
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin-left: 10px;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .m-megamenu-block {
-    padding: 10px 16px;
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin-left: 10px;
+    padding: 12px 16px;
+    border: none !important;
+    margin: 0 !important;
   }
   
   @keyframes slideDown {
