@@ -471,8 +471,19 @@ const accordionStyles = `
     padding: 0 16px 16px !important;
   }
   .m-menu-customer__socials .m-svg-icon--medium {
-    width: var(--header-icon-size) !important;
-    height: var(--header-icon-size) !important;
+    width: var(--social-icon-size) !important;
+    height: var(--social-icon-size) !important;
+  }
+  .m-menu-customer__socials svg {
+    width: var(--social-icon-size) !important;
+    height: var(--social-icon-size) !important;
+    stroke-width: var(--social-icon-stroke-width) !important;
+    opacity: 0.85 !important;
+    transition: all 0.3s ease !important;
+  }
+  .m-menu-customer__socials a:hover svg {
+    opacity: 1 !important;
+    transform: scale(1.05) !important;
   }
   
   @keyframes slideDown {

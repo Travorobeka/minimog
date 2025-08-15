@@ -86,7 +86,8 @@
     --mobile-icon-horizontal-spacing: {{ section.settings.mobile_icon_horizontal_spacing | default: 8 }}px;
     --mobile-icon-vertical-padding: {{ section.settings.mobile_icon_vertical_padding | default: 14 }}px;
     --mobile-container-gap: {{ section.settings.mobile_container_gap | default: 12 }}px;
-    
+    --social-icon-size: {{ section.settings.social_icon_size | default: 18 }}px;
+    --social-icon-stroke-width: {{ section.settings.social_icon_stroke_width | default: 1.2 }};
 
   }
 {% endstyle %}
@@ -1045,6 +1046,32 @@
       "label": "Mobile container gap",
       "default": 12,
       "info": "Gap between left/right icon containers on mobile devices only"
+    },
+    {
+      "type": "header",
+      "content": "Social Media Icons (Mobile Menu)"
+    },
+    {
+      "type": "range",
+      "id": "social_icon_size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Social icon size",
+      "default": 18,
+      "info": "Size of social media icons in mobile menu"
+    },
+    {
+      "type": "range",
+      "id": "social_icon_stroke_width",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Social icon stroke width",
+      "default": 1.2,
+      "info": "Controls how thin or thick the social icon lines appear"
     },
 
     {
