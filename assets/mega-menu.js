@@ -470,10 +470,9 @@ const accordionStyles = `
     gap: 16px !important;
     padding: 0 16px 16px !important;
   }
-  .m-menu-customer__socials .social-media-links--item svg {
+  .m-menu-customer__socials .m-svg-icon--medium {
     width: var(--header-icon-size) !important;
     height: var(--header-icon-size) !important;
-    stroke-width: var(--header-icon-stroke-width) !important;
   }
   
   @keyframes slideDown {
