@@ -63,17 +63,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "menu_color_block_WaFnda": {
-          "type": "menu_color_block",
-          "settings": {
-            "menu_handle": "Shop",
-            "bg_color": "#e84e4e",
-            "text_color": "#ffffff",
-            "show_badge": true,
-            "badge_text": "New",
-            "badge_bg_color": "#ff0000"
-          }
-        },
         "5e153016-a9d7-46c9-a10e-30d16446793d": {
           "type": "topbar",
           "settings": {
@@ -110,7 +99,6 @@
         }
       },
       "block_order": [
-        "menu_color_block_WaFnda",
         "5e153016-a9d7-46c9-a10e-30d16446793d",
         "mobile_collection_images_8jEqAi"
       ],
