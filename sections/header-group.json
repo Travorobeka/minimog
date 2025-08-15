@@ -111,7 +111,7 @@
         "color_scheme_menu": "",
         "header_design": "logo-center-menu-left",
         "container": "container-fluid",
-        "sticky_header": "on_scroll_up",
+        "sticky_header": "always",
         "transparent_on_top": false,
         "transparent_text_color": "#ffffff",
         "logo_text": "LUXEWOMAN",
