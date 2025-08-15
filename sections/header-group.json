@@ -69,7 +69,7 @@
             "menu_handle": "Shop",
             "bg_color": "#e84e4e",
             "text_color": "#ffffff",
-            "show_badge": false,
+            "show_badge": true,
             "badge_text": "New",
             "badge_bg_color": "#ff0000"
           }
