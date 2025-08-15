@@ -66,10 +66,10 @@
         "menu_color_block_WaFnda": {
           "type": "menu_color_block",
           "settings": {
-            "menu_handle": "new in",
-            "bg_color": "#000000",
+            "menu_handle": "Shop",
+            "bg_color": "#e84e4e",
             "text_color": "#ffffff",
-            "show_badge": true,
+            "show_badge": false,
             "badge_text": "New",
             "badge_bg_color": "#ff0000"
           }
