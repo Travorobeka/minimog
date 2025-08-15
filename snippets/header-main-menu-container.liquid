@@ -277,6 +277,10 @@
       {% comment %} Check for menu color blocks {% endcomment %}
       <!-- Debug: Total blocks = {{ section.blocks.size }} -->
       {% for block in section.blocks %}
+        <!-- Debug: Block type = {{ block.type }} -->
+        {% if block.type == 'test_block' %}
+          <!-- Debug: Found test_block with text: {{ block.settings.test_text }} -->
+        {% endif %}
         {% if block.type == 'menu_color_block' %}
           <!-- Debug: Found menu_color_block for handle: {{ block.settings.menu_handle }} -->
           {% liquid
