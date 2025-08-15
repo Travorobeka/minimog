@@ -63,15 +63,10 @@
     "header": {
       "type": "header",
       "blocks": {
-        "menu_color_block_7x8b6H": {
-          "type": "menu_color_block",
+        "test_block_jeGDAC": {
+          "type": "test_block",
           "settings": {
-            "menu_handle": "SHOP",
-            "bg_color": "#000000",
-            "text_color": "#ffffff",
-            "show_badge": true,
-            "badge_text": "New",
-            "badge_bg_color": "#ff0000"
+            "test_text": "Test"
           }
         },
         "5e153016-a9d7-46c9-a10e-30d16446793d": {
@@ -110,7 +105,7 @@
         }
       },
       "block_order": [
-        "menu_color_block_7x8b6H",
+        "test_block_jeGDAC",
         "5e153016-a9d7-46c9-a10e-30d16446793d",
         "mobile_collection_images_8jEqAi"
       ],
