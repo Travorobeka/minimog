@@ -15,7 +15,6 @@
         "1621243260e1af0c20-0": {
           "type": "slider_item",
           "settings": {
-            "mb_background": "shopify://shop_images/womens-dress-wear-natural-4-middle.jpg",
             "content_in_container": false,
             "content_position": "left middle",
             "text_alignment": "left",
