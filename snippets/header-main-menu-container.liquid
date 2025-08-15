@@ -13,7 +13,8 @@
         assign is_mega = true
         assign stretch_width = false
 
-        assign title_handle = link.title | handleize
+        assign link_handle = link.handle | default: link.title | handleize
+        assign title_handle = link_handle
         assign has_mega_item = false
       %}
       {% for block in section.blocks %}
@@ -284,7 +285,6 @@
         {% if block.type == 'menu_color_block' %}
           <!-- Debug: Found menu_color_block for handle: {{ block.settings.menu_handle }} -->
           {% liquid
-            assign link_handle = link.title | handleize
             assign menu_handle = block.settings.menu_handle | handleize
             
             if link_handle == menu_handle
