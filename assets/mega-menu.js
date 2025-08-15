@@ -464,6 +464,18 @@ const accordionStyles = `
     flex: 1 !important;
   }
   
+  .m-menu-customer__socials {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    padding: 0 16px 16px !important;
+  }
+  .m-menu-customer__socials .social-media-links--item svg {
+    width: var(--header-icon-size) !important;
+    height: var(--header-icon-size) !important;
+    stroke-width: var(--header-icon-stroke-width) !important;
+  }
+  
   @keyframes slideDown {
     from {
       opacity: 0;
