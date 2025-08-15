@@ -248,6 +248,9 @@
 
       {% liquid
         assign has_child = false
+        assign custom_menu_styles = ''
+        assign has_custom_colors = false
+        assign badge_html = ''
 
         if has_mega_item == false
           assign is_mega = false
@@ -271,13 +274,34 @@
         endif
       %}
 
+      {% comment %} Check for menu color blocks {% endcomment %}
+      {% for block in section.blocks %}
+        {% if block.type == 'menu_color_block' %}
+          {% liquid
+            assign link_handle = link.title | handleize
+            assign menu_handle = block.settings.menu_handle | handleize
+            
+            if link_handle == menu_handle
+              assign has_custom_colors = true
+              assign li_class = li_class | append: ' m-menu__item--custom'
+              assign custom_menu_styles = '--block-bg: ' | append: block.settings.bg_color | append: '; --block-text: ' | append: block.settings.text_color | append: ';'
+              
+              if block.settings.show_badge and block.settings.badge_text != blank
+                assign badge_html = '<span class="m-menu__badge" style="--badge-bg: ' | append: block.settings.badge_bg_color | append: ';">' | append: block.settings.badge_text | append: '</span>'
+              endif
+            endif
+          %}
+        {% endif %}
+      {% endfor %}
+
       {% if link.links != blank %}
-        <li class="{{ li_class }}" data-index="{{ forloop.index0 }}">
+        <li class="{{ li_class }}" data-index="{{ forloop.index0 }}"{% if has_custom_colors %} style="{{ custom_menu_styles }}"{% endif %}>
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
           >
             {{ link.title }}
+            {{ badge_html }}
             <span class="m-menu__arrow">
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" class=""></path>
@@ -330,12 +354,13 @@
           </div>
         </li>
       {% else %}
-        <li class="{{ li_class }}" data-index="{{ forloop.index0 }}">
+        <li class="{{ li_class }}" data-index="{{ forloop.index0 }}"{% if has_custom_colors %} style="{{ custom_menu_styles }}"{% endif %}>
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
           >
             {{ link.title }}
+            {{ badge_html }}
             {% if is_mega and block_type != blank %}
               <span class="m-menu__arrow">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
