@@ -112,7 +112,7 @@
         "header_design": "logo-center-menu-left",
         "container": "container-fluid",
         "sticky_header": "always",
-        "transparent_on_top": false,
+        "transparent_on_top": true,
         "transparent_text_color": "#ffffff",
         "logo_text": "LUXEWOMAN",
         "logo": "shopify://shop_images/Luxe_Woman_Logo.svg",
