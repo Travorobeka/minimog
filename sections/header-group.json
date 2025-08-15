@@ -147,6 +147,8 @@
         "mobile_icon_horizontal_spacing": 6,
         "mobile_icon_vertical_padding": 8,
         "mobile_container_gap": 12,
+        "social_icon_size": 14,
+        "social_icon_stroke_width": 1.2,
         "mb_show_currency_switcher": false,
         "mb_show_country_selector": true,
         "mb_show_language_switcher": true,
