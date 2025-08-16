@@ -11,7 +11,7 @@
         {% when 'footer-1' %}
           {% comment %} Copyright and Payment Icons Row {% endcomment %}
           {% if section.settings.copyright != blank or section.settings.show_payment_icons %}
-            <div class="m-footer--bottom-copyright-payment m:flex m:flex-col xl:m:flex-row xl:m:justify-between xl:m:items-center m:w-full">
+            <div class="m-footer--bottom-copyright-payment m-footer--bottom-alignment-{{ section.settings.footer_bottom_alignment | default: 'space-between' }} m:flex m:flex-col xl:m:flex-row xl:m:items-center m:w-full">
               {% if section.settings.copyright != blank %}
                 <div class="m-footer--copyright-wrapper">
                   <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
