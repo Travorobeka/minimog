@@ -95,7 +95,7 @@
         "show_currency_selector": false,
         "show_language_selector": false,
         "show_social_links": false,
-        "enable_follow_on_shop": true,
+        "enable_follow_on_shop": false,
         "show_payment_icons": true,
         "payment_icons_width": 300,
         "payment_icon_size": 28,
@@ -107,6 +107,7 @@
     },
     "mobile-sticky-bar": {
       "type": "mobile-sticky-bar",
+      "disabled": true,
       "settings": {
         "show_mobile_sticky": true,
         "show_home_icon": true,
