@@ -103,7 +103,7 @@
         "footer_bottom_color_scheme": "",
         "footer_bottom_menu": "",
         "show_menu_item_divider": true,
-        "footer_bottom_alignment": "space-around"
+        "footer_bottom_alignment": "space-between"
       }
     },
     "mobile-sticky-bar": {
