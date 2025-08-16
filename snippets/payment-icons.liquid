@@ -1,5 +1,5 @@
 {% if section.settings.image_custom_payment == blank %}
-  <div class="m-payment-icons" style="--payment-icon-size: {{ section.settings.payment_icon_size | default: 'medium' }};">
+  <div class="m-payment-icons" style="--payment-icon-size: {{ section.settings.payment_icon_size | default: 38 }}px; --payment-icon-spacing: {{ section.settings.payment_icon_spacing | default: 20 }}px;">
     <span class="m:hidden">{{ 'general.payment.options' | t }}: </span>
     <ul class="m-payment-icons--list m:flex m:flex-wrap{{ classes | prepend: ' ' }}">
       {%- for type in shop.enabled_payment_types -%}

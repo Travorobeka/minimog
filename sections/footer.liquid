@@ -144,24 +144,22 @@
       "default": 300
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "payment_icon_size",
-      "label": "Payment icon size",
-      "default": "medium",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ]
+      "label": "Payment icon size (px)",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 38
+    },
+    {
+      "type": "range",
+      "id": "payment_icon_spacing",
+      "label": "Spacing between icons (px)",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 20
     },
     {
       "type": "header",
