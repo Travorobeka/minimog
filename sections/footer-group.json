@@ -102,7 +102,8 @@
         "payment_icon_spacing": 8,
         "footer_bottom_color_scheme": "",
         "footer_bottom_menu": "",
-        "show_menu_item_divider": true
+        "show_menu_item_divider": true,
+        "footer_bottom_alignment": "center"
       }
     },
     "mobile-sticky-bar": {
