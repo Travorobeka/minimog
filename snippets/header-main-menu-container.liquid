@@ -15,6 +15,7 @@
 
         assign link_handle = link.handle | default: link.title | handleize
         assign title_handle = link_handle
+        assign link_handle = link.object.handle | default: title_handle
         assign has_mega_item = false
       %}
       {% for block in section.blocks %}
