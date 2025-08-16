@@ -100,8 +100,8 @@
         "payment_icons_width": 300,
         "payment_icon_size": 28,
         "payment_icon_spacing": 8,
-        "footer_bottom_color_scheme": "",
-        "footer_bottom_menu": "",
+        "footer_bottom_color_scheme": "badge-new",
+        "footer_bottom_menu": "information",
         "show_menu_item_divider": true,
         "footer_bottom_alignment": "space-between"
       }
