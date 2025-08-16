@@ -9,17 +9,26 @@
     <div class="m-footer--bottom-inner m:flex m:flex-col xl:m:flex-row m:justify-between m:items-end">
       {% case section.settings.design %}
         {% when 'footer-1' %}
-          {% if section.settings.copyright != blank %}
-            <div class="m-footer--bottom-left m:flex-none m:text-left m:w-full xl:m:text-left">
-              <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
-              {%- if show_follow_on_shop -%}
-                <div class="m-follow-on-shop">
-                  {% comment %} TODO: enable theme-check once `login_button` is accepted as valid filter {% endcomment %}
-                  {% # theme-check-disable %}
-                  {{ shop | login_button: action: 'follow' }}
-                  {% # theme-check-enable %}
+          {% if section.settings.copyright != blank or section.settings.show_payment_icons %}
+            <div class="m-footer--bottom-copyright-payment m:flex m:flex-col xl:m:flex-row xl:m:justify-between xl:m:items-center m:w-full">
+              {% if section.settings.copyright != blank %}
+                <div class="m-footer--copyright-section m:flex-none m:text-left">
+                  <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
+                  {%- if show_follow_on_shop -%}
+                    <div class="m-follow-on-shop">
+                      {% comment %} TODO: enable theme-check once `login_button` is accepted as valid filter {% endcomment %}
+                      {% # theme-check-disable %}
+                      {{ shop | login_button: action: 'follow' }}
+                      {% # theme-check-enable %}
+                    </div>
+                  {%- endif -%}
                 </div>
-              {%- endif -%}
+              {% endif %}
+              {% if section.settings.show_payment_icons %}
+                <div class="m-footer--payment-section xl:m:ml-auto">
+                  {% render 'payment-icons', section: section, classes: 'xl:m:justify-end' %}
+                </div>
+              {% endif %}
             </div>
           {% endif %}
           <div class="m-footer--bottom-right m:w-full m:flex-col lg:m:flex-row m:flex m:flex-wrap xl:m:justify-end">
@@ -41,9 +50,9 @@
             {% if section.settings.show_social_links %}
               {% render 'social-media-links' %}
             {% endif %}
-            {% if section.settings.show_payment_icons %}
-              {% render 'payment-icons', section: section %}
-            {% endif %}
+            {% unless section.settings.show_payment_icons %}
+              {%- comment -%} Payment icons moved to copyright section for inline layout {%- endcomment -%}
+            {% endunless %}
             {% if section.settings.footer_bottom_menu != blank %}
               {% assign menu = section.settings.footer_bottom_menu %}
               <ul class="m-footer--bottom-menu m-link-lists m-link-lists--inline xl:m:justify-end{% if section.settings.show_menu_item_divider %} show-menu-item-divider{% endif %}">
