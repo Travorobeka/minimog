@@ -9,10 +9,11 @@
     <div class="m-footer--bottom-inner m:flex m:flex-col xl:m:flex-row m:justify-between m:items-end">
       {% case section.settings.design %}
         {% when 'footer-1' %}
+          {% comment %} Copyright and Payment Icons Row {% endcomment %}
           {% if section.settings.copyright != blank or section.settings.show_payment_icons %}
-            <div class="m-footer--copyright-payment-row m:flex m:flex-col xl:m:flex-row xl:m:justify-between xl:m:items-center m:w-full m:mb-6 xl:m:mb-0">
+            <div class="m-footer--bottom-copyright-payment m:flex m:flex-col xl:m:flex-row xl:m:justify-between xl:m:items-center m:w-full">
               {% if section.settings.copyright != blank %}
-                <div class="m-footer--copyright-section m:flex-none m:text-left">
+                <div class="m-footer--copyright-wrapper">
                   <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
                   {%- if show_follow_on_shop -%}
                     <div class="m-follow-on-shop">
@@ -25,7 +26,7 @@
                 </div>
               {% endif %}
               {% if section.settings.show_payment_icons %}
-                <div class="m-footer--payment-section">
+                <div class="m-footer--payment-wrapper">
                   {% render 'payment-icons', section: section, classes: 'xl:m:justify-end' %}
                 </div>
               {% endif %}
