@@ -273,14 +273,20 @@
 
       {% if link.links != blank %}
         {% liquid
-          assign badge_block = null
+          assign badge_data = null
           for block in section.blocks
-            assign is_badge_block = false
-            if block.type == 'menu_badge' or block.type == 'menu_badge_2' or block.type == 'menu_badge_3' or block.type == 'menu_badge_4' or block.type == 'menu_badge_5'
-              assign is_badge_block = true
+            if block.type == 'menu_badge'
+              for i in (1..5)
+                assign heading_key = 'heading_' | append: i
+                assign enable_key = 'enable_badge_' | append: i
+                if block.settings[heading_key] == link.title and block.settings[enable_key]
+                  assign badge_data = block.settings
+                  assign badge_data_index = i
+                  break
+                endif
+              endfor
             endif
-            if is_badge_block and block.settings.heading == link.title and block.settings.enable_badge
-              assign badge_block = block
+            if badge_data
               break
             endif
           endfor
@@ -289,15 +295,22 @@
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
-            {% if badge_block and badge_block.settings.menu_text_color != blank %}
-              style="color: {{ badge_block.settings.menu_text_color }}"
+            {% if badge_data %}
+              {% assign menu_text_color_key = 'menu_text_color_' | append: badge_data_index %}
+              {% if badge_data[menu_text_color_key] != blank %}
+                style="color: {{ badge_data[menu_text_color_key] }}"
+              {% endif %}
             {% endif %}
           >
             {{ link.title }}
-            {% if badge_block %}
-              <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
-                    style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
-                {{ badge_block.settings.badge_text | default: 'New' }}
+            {% if badge_data %}
+              {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
+              {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
+              {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
+              {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
+                {{ badge_data[badge_text_key] | default: 'New' }}
               </span>
             {% endif %}
             <span class="m-menu__arrow">
@@ -353,14 +366,20 @@
         </li>
       {% else %}
         {% liquid
-          assign badge_block = null
+          assign badge_data = null
           for block in section.blocks
-            assign is_badge_block = false
-            if block.type == 'menu_badge' or block.type == 'menu_badge_2' or block.type == 'menu_badge_3' or block.type == 'menu_badge_4' or block.type == 'menu_badge_5'
-              assign is_badge_block = true
+            if block.type == 'menu_badge'
+              for i in (1..5)
+                assign heading_key = 'heading_' | append: i
+                assign enable_key = 'enable_badge_' | append: i
+                if block.settings[heading_key] == link.title and block.settings[enable_key]
+                  assign badge_data = block.settings
+                  assign badge_data_index = i
+                  break
+                endif
+              endfor
             endif
-            if is_badge_block and block.settings.heading == link.title and block.settings.enable_badge
-              assign badge_block = block
+            if badge_data
               break
             endif
           endfor
@@ -369,15 +388,22 @@
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
-            {% if badge_block and badge_block.settings.menu_text_color != blank %}
-              style="color: {{ badge_block.settings.menu_text_color }}"
+            {% if badge_data %}
+              {% assign menu_text_color_key = 'menu_text_color_' | append: badge_data_index %}
+              {% if badge_data[menu_text_color_key] != blank %}
+                style="color: {{ badge_data[menu_text_color_key] }}"
+              {% endif %}
             {% endif %}
           >
             {{ link.title }}
-            {% if badge_block %}
-              <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
-                    style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
-                {{ badge_block.settings.badge_text | default: 'New' }}
+            {% if badge_data %}
+              {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
+              {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
+              {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
+              {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
+                {{ badge_data[badge_text_key] | default: 'New' }}
               </span>
             {% endif %}
             {% if is_mega and block_type != blank %}
