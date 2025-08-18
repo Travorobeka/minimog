@@ -96,11 +96,24 @@
             "text_color": "#333333",
             "text_color_overlay": "#ffffff"
           }
+        },
+        "mobile_menu_badge_dF7N4y": {
+          "type": "mobile_menu_badge",
+          "settings": {
+            "heading": "shop",
+            "enable_badge": true,
+            "badge_text": "New",
+            "badge_style": "pill",
+            "badge_color": "#ff0000",
+            "badge_text_color": "#ffffff",
+            "menu_text_color": ""
+          }
         }
       },
       "block_order": [
         "5e153016-a9d7-46c9-a10e-30d16446793d",
-        "mobile_collection_images_8jEqAi"
+        "mobile_collection_images_8jEqAi",
+        "mobile_menu_badge_dF7N4y"
       ],
       "custom_css": [
         ".m-topbar a[href*=\"facebook\"] {order: 2;}",
