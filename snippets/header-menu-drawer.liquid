@@ -309,12 +309,6 @@
                         {{ badge_block.settings.badge_text | default: 'New' }}
                       </span>
                     {% endif %}
-                    {% comment %}DEBUG: Test badge for first mobile menu item{% endcomment %}
-                    {% if forloop.first %}
-                      <span class="m-menu-badge m-menu-badge--pill" style="--badge-bg-color: #ff0000; --badge-text-color: #ffffff;">
-                        MOBILE
-                      </span>
-                    {% endif %}
                   </span>
                 </a>
                 <button class="m-accordion-toggle" data-accordion-toggle>
