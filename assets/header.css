@@ -76,3 +76,110 @@
   margin-left: 6px;
   min-width: 16px;
 }
+
+/* Desktop Chat Box Badge Styles */
+.m-menu__title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.m-menu-badge--chatbox {
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  animation: none;
+}
+
+/* Chat box tail/arrow pointing down */
+.m-menu-badge--chatbox::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--badge-bg-color, #ff0000);
+}
+
+/* Show chat box on hover */
+.m-menu__item:hover .m-menu-badge--chatbox {
+  opacity: 1;
+  visibility: visible;
+  top: -40px;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Override default badge styles for chat box */
+.m-menu-badge--chatbox.m-menu-badge--pill {
+  border-radius: 20px;
+}
+
+.m-menu-badge--chatbox.m-menu-badge--circle {
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+.m-menu-badge--chatbox.m-menu-badge--square {
+  border-radius: 8px;
+}
+
+.m-menu-badge--chatbox.m-menu-badge--outline::after {
+  border-top-color: var(--badge-bg-color, #ff0000);
+}
+
+/* Ensure proper spacing for header layouts */
+.m-header__desktop .m-menu__item {
+  overflow: visible;
+}
+
+/* Add subtle animation entrance */
+@keyframes chatboxSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.m-menu__item:hover .m-menu-badge--chatbox {
+  animation: chatboxSlideIn 0.3s ease forwards;
+}
+
+/* Mobile menu badges keep original inline style */
+.m-menu-mobile .m-menu-badge {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  display: inline-flex;
+  margin-left: 8px;
+  box-shadow: none;
+  animation: none;
+}
+
+.m-menu-mobile .m-menu-badge::after {
+  display: none;
+}
