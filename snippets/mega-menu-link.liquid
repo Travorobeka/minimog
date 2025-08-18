@@ -7,7 +7,7 @@
   assign badge_block = null
   if section
     for block in section.blocks
-      if block.type == 'menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+      if (block.type == 'menu_badge' or block.type == 'menu_badge_2' or block.type == 'menu_badge_3' or block.type == 'menu_badge_4' or block.type == 'menu_badge_5') and block.settings.heading == link.title and block.settings.enable_badge
         assign badge_block = block
         break
       endif
