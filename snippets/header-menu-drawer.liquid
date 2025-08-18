@@ -341,7 +341,7 @@
                         </button>
                       </div>
                       <ul class="m-submenu-mobile">
-                        {% render 'mega-menu-link' for child.links as link %}
+                        {% render 'mega-menu-link' for child.links as link, section: section %}
                       </ul>
                     {% else %}
                       <a
@@ -361,7 +361,7 @@
               </ul>
             </li>
           {% else %}
-            {% render 'mega-menu-link' with link as link, has_mega_item: has_mega_item, block_type: block_type %}
+            {% render 'mega-menu-link' with link as link, has_mega_item: has_mega_item, block_type: block_type, section: section %}
           {% endif %}
         {% endfor %}
       </ul>

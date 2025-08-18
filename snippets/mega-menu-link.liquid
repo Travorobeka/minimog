@@ -3,11 +3,29 @@
   if has_mega_item and block_type != blank
     assign is_mega = true
   endif
+  
+  assign badge_block = null
+  if section
+    for block in section.blocks
+      if block.type == 'mobile_menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+        assign badge_block = block
+        break
+      endif
+    endfor
+  endif
 %}
 
 <li class="m-menu-mobile__item m-menu-mobile__item--no-submenu" data-url="{{ link.url }}">
-  <a href="{{ link.url }}" class="m-menu-mobile__link"{% if is_mega %} data-toggle-submenu="1"{% endif %}>
-    {{ link.title }}
+  <a href="{{ link.url }}" class="m-menu-mobile__link"{% if is_mega %} data-toggle-submenu="1"{% endif %}{% if badge_block and badge_block.settings.menu_text_color != blank %} style="color: {{ badge_block.settings.menu_text_color }}"{% endif %}>
+    <span class="m-menu-mobile__title">
+      {{ link.title }}
+      {% if badge_block %}
+        <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
+              style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
+          {{ badge_block.settings.badge_text | default: 'New' }}
+        </span>
+      {% endif %}
+    </span>
   </a>
   {% if is_mega %}
     <span class="m-menu-mobile__toggle-button" data-toggle-submenu="1">
