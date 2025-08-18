@@ -25,6 +25,10 @@
           {{ badge_block.settings.badge_text | default: 'New' }}
         </span>
       {% endif %}
+      {% comment %}DEBUG: Test badge for single menu items{% endcomment %}
+      <span class="m-menu-badge m-menu-badge--pill" style="--badge-bg-color: #00ff00; --badge-text-color: #000000;">
+        SINGLE
+      </span>
     </span>
   </a>
   {% if is_mega %}
