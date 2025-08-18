@@ -302,19 +302,17 @@
               {% endif %}
             {% endif %}
           >
-            <span class="m-menu__title-wrapper">
-              {% if badge_data %}
-                {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
-                {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
-                {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
-                {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
-                <span class="m-menu-badge m-menu-badge--chatbox m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
-                      style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
-                  {{ badge_data[badge_text_key] | default: 'New' }}
-                </span>
-              {% endif %}
-              <span class="m-menu__title">{{ link.title }}</span>
-            </span>
+            {{ link.title }}
+            {% if badge_data %}
+              {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
+              {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
+              {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
+              {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
+                {{ badge_data[badge_text_key] | default: 'New' }}
+              </span>
+            {% endif %}
             <span class="m-menu__arrow">
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" class=""></path>
@@ -397,19 +395,17 @@
               {% endif %}
             {% endif %}
           >
-            <span class="m-menu__title-wrapper">
-              {% if badge_data %}
-                {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
-                {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
-                {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
-                {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
-                <span class="m-menu-badge m-menu-badge--chatbox m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
-                      style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
-                  {{ badge_data[badge_text_key] | default: 'New' }}
-                </span>
-              {% endif %}
-              <span class="m-menu__title">{{ link.title }}</span>
-            </span>
+            {{ link.title }}
+            {% if badge_data %}
+              {% assign badge_style_key = 'badge_style_' | append: badge_data_index %}
+              {% assign badge_color_key = 'badge_color_' | append: badge_data_index %}
+              {% assign badge_text_color_key = 'badge_text_color_' | append: badge_data_index %}
+              {% assign badge_text_key = 'badge_text_' | append: badge_data_index %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_data[badge_style_key] | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_data[badge_color_key] | default: '#ff0000' }}; --badge-text-color: {{ badge_data[badge_text_color_key] | default: '#ffffff' }}">
+                {{ badge_data[badge_text_key] | default: 'New' }}
+              </span>
+            {% endif %}
             {% if is_mega and block_type != blank %}
               <span class="m-menu__arrow">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
