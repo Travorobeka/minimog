@@ -292,15 +292,6 @@
                 endif
               endfor
             %}
-            {% comment %}Debug: Show all mobile_menu_badge blocks{% endcomment %}
-            {% if link.title == 'Home' %}
-              <!-- Debug: Looking for badges on {{ link.title }} -->
-              {% for block in section.blocks %}
-                {% if block.type == 'mobile_menu_badge' %}
-                  <!-- Debug: Found badge block for "{{ block.settings.heading }}" with text "{{ block.settings.badge_text }}" -->
-                {% endif %}
-              {% endfor %}
-            {% endif %}
             <li class="m-menu-mobile__item" data-url="{{ link.url }}" data-index="{{ forloop.index0 }}">
               <div class="m-menu-item-header">
                 <a
@@ -316,12 +307,6 @@
                       <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
                             style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
                         {{ badge_block.settings.badge_text | default: 'New' }}
-                      </span>
-                    {% endif %}
-                    {% comment %}Test badge - remove after testing{% endcomment %}
-                    {% if forloop.first %}
-                      <span class="m-menu-badge m-menu-badge--pill" style="--badge-bg-color: #ff0000; --badge-text-color: #ffffff;">
-                        TEST
                       </span>
                     {% endif %}
                   </span>

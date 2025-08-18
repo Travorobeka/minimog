@@ -7,13 +7,7 @@
 
 <li class="m-menu-mobile__item m-menu-mobile__item--no-submenu" data-url="{{ link.url }}">
   <a href="{{ link.url }}" class="m-menu-mobile__link"{% if is_mega %} data-toggle-submenu="1"{% endif %}>
-    <span class="m-menu-mobile__title">
-      {{ link.title }}
-      {% comment %}Test badge for single items{% endcomment %}
-      <span class="m-menu-badge m-menu-badge--pill" style="--badge-bg-color: #00ff00; --badge-text-color: #000000;">
-        SINGLE
-      </span>
-    </span>
+    {{ link.title }}
   </a>
   {% if is_mega %}
     <span class="m-menu-mobile__toggle-button" data-toggle-submenu="1">
