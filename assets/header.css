@@ -83,73 +83,92 @@
   display: inline-block;
 }
 
-.m-menu-badge--chatbox {
-  position: absolute;
-  top: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  animation: none;
+/* Desktop-only badge styles */
+@media (min-width: 1024px) {
+  .m-header__desktop .m-menu-badge--chatbox {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    animation: none;
+    background-color: var(--badge-bg-color, #ff0000);
+    color: var(--badge-text-color, #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    min-width: 20px;
+    text-align: center;
+  }
 }
 
-/* Chat box tail/arrow pointing down */
-.m-menu-badge--chatbox::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid var(--badge-bg-color, #ff0000);
-}
+@media (min-width: 1024px) {
+  /* Chat box tail/arrow pointing down */
+  .m-header__desktop .m-menu-badge--chatbox::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--badge-bg-color, #ff0000);
+  }
 
-/* Show chat box on hover */
-.m-menu__item:hover .m-menu-badge--chatbox {
-  opacity: 1;
-  visibility: visible;
-  top: -40px;
-  transform: translateX(-50%) translateY(-5px);
-}
+  /* Show chat box on hover - Desktop only */
+  .m-header__desktop .m-menu__item:hover .m-menu-badge--chatbox {
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: -40px;
+    transform: translateX(-50%) translateY(-5px);
+  }
 
-/* Override default badge styles for chat box */
-.m-menu-badge--chatbox.m-menu-badge--pill {
-  border-radius: 20px;
-}
+  /* Temporary debug - always show badges for testing */
+  .m-header__desktop .m-menu-badge--chatbox {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
-.m-menu-badge--chatbox.m-menu-badge--circle {
-  border-radius: 20px;
-  width: auto;
-  height: auto;
-  padding: 6px 12px;
-  font-size: 11px;
-}
+  /* Override default badge styles for chat box */
+  .m-header__desktop .m-menu-badge--chatbox.m-menu-badge--pill {
+    border-radius: 20px;
+  }
 
-.m-menu-badge--chatbox.m-menu-badge--square {
-  border-radius: 8px;
-}
+  .m-header__desktop .m-menu-badge--chatbox.m-menu-badge--circle {
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
 
-.m-menu-badge--chatbox.m-menu-badge--outline::after {
-  border-top-color: var(--badge-bg-color, #ff0000);
-}
+  .m-header__desktop .m-menu-badge--chatbox.m-menu-badge--square {
+    border-radius: 8px;
+  }
 
-/* Ensure proper spacing for header layouts */
-.m-header__desktop .m-menu__item {
-  overflow: visible;
+  .m-header__desktop .m-menu-badge--chatbox.m-menu-badge--outline::after {
+    border-top-color: var(--badge-bg-color, #ff0000);
+  }
+
+  /* Ensure proper spacing for header layouts */
+  .m-header__desktop .m-menu__item {
+    overflow: visible;
+  }
 }
 
 /* Add subtle animation entrance */
@@ -164,22 +183,40 @@
   }
 }
 
-.m-menu__item:hover .m-menu-badge--chatbox {
-  animation: chatboxSlideIn 0.3s ease forwards;
-}
 
 /* Mobile menu badges keep original inline style */
 .m-menu-mobile .m-menu-badge {
-  position: static;
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-  display: inline-flex;
-  margin-left: 8px;
-  box-shadow: none;
-  animation: none;
+  position: static !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: inline-flex !important;
+  margin-left: 8px !important;
+  box-shadow: none !important;
+  animation: none !important;
+  top: auto !important;
+  left: auto !important;
 }
 
 .m-menu-mobile .m-menu-badge::after {
-  display: none;
+  display: none !important;
+}
+
+/* Ensure desktop badges only work on desktop menus */
+@media (max-width: 1023px) {
+  .m-menu-badge--chatbox {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    display: inline-flex !important;
+    margin-left: 8px !important;
+    box-shadow: none !important;
+    top: auto !important;
+    left: auto !important;
+  }
+  
+  .m-menu-badge--chatbox::after {
+    display: none !important;
+  }
 }
