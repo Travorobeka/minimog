@@ -272,12 +272,30 @@
       %}
 
       {% if link.links != blank %}
+        {% liquid
+          assign badge_block = null
+          for block in section.blocks
+            if block.type == 'mobile_menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+              assign badge_block = block
+              break
+            endif
+          endfor
+        %}
         <li class="{{ li_class }}" data-index="{{ forloop.index0 }}">
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
+            {% if badge_block and badge_block.settings.menu_text_color != blank %}
+              style="color: {{ badge_block.settings.menu_text_color }}"
+            {% endif %}
           >
             {{ link.title }}
+            {% if badge_block %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
+                {{ badge_block.settings.badge_text | default: 'New' }}
+              </span>
+            {% endif %}
             <span class="m-menu__arrow">
               <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" class=""></path>
@@ -330,12 +348,30 @@
           </div>
         </li>
       {% else %}
+        {% liquid
+          assign badge_block = null
+          for block in section.blocks
+            if block.type == 'mobile_menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+              assign badge_block = block
+              break
+            endif
+          endfor
+        %}
         <li class="{{ li_class }}" data-index="{{ forloop.index0 }}">
           <a
             href="{{ link.url }}"
             class="m-menu__link m-menu__link--main{% if section.settings.uppercase_parent_level %} m:uppercase{% endif %}"
+            {% if badge_block and badge_block.settings.menu_text_color != blank %}
+              style="color: {{ badge_block.settings.menu_text_color }}"
+            {% endif %}
           >
             {{ link.title }}
+            {% if badge_block %}
+              <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
+                    style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
+                {{ badge_block.settings.badge_text | default: 'New' }}
+              </span>
+            {% endif %}
             {% if is_mega and block_type != blank %}
               <span class="m-menu__arrow">
                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

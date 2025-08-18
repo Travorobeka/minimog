@@ -283,13 +283,33 @@
             {% endif %}
           {% endfor %}
           {% if link.links != blank %}
+            {% liquid
+              assign badge_block = null
+              for block in section.blocks
+                if block.type == 'mobile_menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+                  assign badge_block = block
+                  break
+                endif
+              endfor
+            %}
             <li class="m-menu-mobile__item" data-url="{{ link.url }}" data-index="{{ forloop.index0 }}">
               <div class="m-menu-item-header">
                 <a
                   href="{{ link.url }}"
                   class="m-menu-mobile__link"
+                  {% if badge_block and badge_block.settings.menu_text_color != blank %}
+                    style="color: {{ badge_block.settings.menu_text_color }}"
+                  {% endif %}
                 >
-                  <span>{{ link.title }}</span>
+                  <span class="m-menu-mobile__title">
+                    {{ link.title }}
+                    {% if badge_block %}
+                      <span class="m-menu-badge m-menu-badge--{{ badge_block.settings.badge_style | default: 'pill' }}" 
+                            style="--badge-bg-color: {{ badge_block.settings.badge_color | default: '#ff0000' }}; --badge-text-color: {{ badge_block.settings.badge_text_color | default: '#ffffff' }}">
+                        {{ badge_block.settings.badge_text | default: 'New' }}
+                      </span>
+                    {% endif %}
+                  </span>
                 </a>
                 <button class="m-accordion-toggle" data-accordion-toggle>
                   <svg fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="plus-icon">
