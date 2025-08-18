@@ -286,7 +286,7 @@
             {% liquid
               assign badge_block = null
               for block in section.blocks
-                if block.type == 'mobile_menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
+                if block.type == 'menu_badge' and block.settings.heading == link.title and block.settings.enable_badge
                   assign badge_block = block
                   break
                 endif
