@@ -264,6 +264,28 @@
           "tooltip_label": "#ffffff",
           "border": "#eeeeee"
         }
+      },
+      "scheme-f42d2db8-666f-450e-9df9-487e9cf7472f": {
+        "settings": {
+          "background": "#f1ede7",
+          "background_secondary": "#f5f5f5",
+          "background_gradient": "",
+          "text": "#222222",
+          "subtext": "#666666",
+          "heading_text": "#222222",
+          "button": "#f1ede7",
+          "button_label": "#222222",
+          "outline_button_label": "#000000",
+          "button_hover": "#222222",
+          "button_text_hover": "#f1ede7",
+          "price_sale": "#e84e4e",
+          "price_regular": "#000000",
+          "form_field": "#ffffff",
+          "form_field_label": "#000000",
+          "tooltip": "#222222",
+          "tooltip_label": "#ffffff",
+          "border": "#eeeeee"
+        }
       }
     }
   },
