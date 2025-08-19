@@ -40,6 +40,7 @@
             "terms_font_weight": "normal",
             "terms_line_height": 1.4,
             "terms_text_color": "",
+            "terms_spacing": 12,
             "form_style": "bordered",
             "show_social": false,
             "show_agree_checkbox": true,
@@ -48,10 +49,17 @@
             "open_default": true
           }
         },
-        "spacing_4d6agY": {
-          "type": "spacing",
+        "container_control_yqicQq": {
+          "type": "container_control",
           "settings": {
-            "width": "33%"
+            "desktop_width": "25%",
+            "tablet_width": "50%",
+            "margin_top": 0,
+            "margin_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0,
+            "hide_on_mobile": false,
+            "order_first_mobile": false
           }
         },
         "7ebc2f78-975b-4a81-b874-103c3355a866": {
@@ -99,7 +107,7 @@
       },
       "block_order": [
         "7b0bf4c6-3873-4222-b8d6-ce009e710078",
-        "spacing_4d6agY",
+        "container_control_yqicQq",
         "7ebc2f78-975b-4a81-b874-103c3355a866",
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb"
       ],
