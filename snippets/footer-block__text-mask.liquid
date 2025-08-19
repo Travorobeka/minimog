@@ -1,0 +1,116 @@
+{% comment %}
+  Text Mask Block
+  Displays text with an image mask effect
+{% endcomment %}
+
+{% liquid
+  assign animation_effect = settings.animations
+  assign animated = false
+  if animation_effect != 'none'
+    assign animated = true
+  endif
+%}
+
+<div class="{% if block.settings.title != blank %}m-accordion--item-content{% endif %} m-footer--block-content">
+  {% if block.settings.title != blank %}
+    <div class="m-text-mask-wrapper"
+         style="text-align: {{ block.settings.text_alignment | default: 'center' }};">
+      
+      <h2 class="m-text-mask" 
+          style="
+            font-size: {{ block.settings.font_size | default: 72 }}px;
+            font-weight: {{ block.settings.font_weight | default: '900' }};
+            text-transform: {{ block.settings.text_transform | default: 'uppercase' }};
+            letter-spacing: {{ block.settings.letter_spacing | default: 2 }}px;
+            line-height: {{ block.settings.line_height | default: 0.9 }};
+            margin: 0;
+            padding: 0;
+            {% if block.settings.mask_image %}
+              background-image: url('{{ block.settings.mask_image | image_url }}');
+              background-size: cover;
+              background-position: center;
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              color: transparent;
+            {% else %}
+              background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+              background-size: 400% 400%;
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              color: transparent;
+              animation: gradientShift 8s ease-in-out infinite;
+            {% endif %}
+          ">
+        {{ block.settings.title }}
+      </h2>
+      
+      <!-- Fallback for browsers that don't support background-clip: text -->
+      <h2 class="m-text-mask-fallback"
+          style="
+            font-size: {{ block.settings.font_size | default: 72 }}px;
+            font-weight: {{ block.settings.font_weight | default: '900' }};
+            text-transform: {{ block.settings.text_transform | default: 'uppercase' }};
+            letter-spacing: {{ block.settings.letter_spacing | default: 2 }}px;
+            line-height: {{ block.settings.line_height | default: 0.9 }};
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            color: rgb(var(--color-foreground));
+            opacity: 0.1;
+          ">
+        {{ block.settings.title }}
+      </h2>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .m-text-mask-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .m-text-mask {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Animated gradient fallback */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 767px) {
+    .m-text-mask,
+    .m-text-mask-fallback {
+      font-size: {{ block.settings.mobile_font_size | default: 36 }}px !important;
+    }
+  }
+
+  /* Browser support detection */
+  @supports not (-webkit-background-clip: text) {
+    .m-text-mask {
+      display: none;
+    }
+    .m-text-mask-fallback {
+      position: static;
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+
+  @supports (-webkit-background-clip: text) {
+    .m-text-mask-fallback {
+      display: none;
+    }
+  }
+</style>
