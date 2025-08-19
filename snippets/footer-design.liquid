@@ -4,13 +4,22 @@
     assign show_follow_on_shop = true
   endif
 %}
-<div class="m-footer--bottom m-footer--bottom-{{ section.settings.design }} m-gradient m-color-{{ section.settings.footer_bottom_color_scheme }}">
+<div class="m-footer--bottom m-footer--bottom-{{ section.settings.design }} m-gradient m-color-{{ section.settings.footer_bottom_color_scheme }}"
+     style="padding-top: {{ section.settings.footer_bottom_padding_top | default: 20 }}px; padding-bottom: {{ section.settings.footer_bottom_padding_bottom | default: 32 }}px;">
   <div class="{{ container }}">
-    <div class="m-footer--bottom-inner m:flex m:flex-col xl:m:flex-row m:justify-between m:items-end">
+    <div class="m-footer--bottom-inner m:flex m:flex-col md:m:flex-row m:justify-between m:items-end"
+         style="gap: {{ section.settings.footer_bottom_gap | default: 24 }}px; text-align: {{ section.settings.footer_bottom_alignment | default: 'center' }};">
+      <style>
+        @media screen and (min-width: 768px) {
+          .m-footer--bottom-inner {
+            text-align: left !important;
+          }
+        }
+      </style>
       {% case section.settings.design %}
         {% when 'footer-1' %}
           {% if section.settings.copyright != blank %}
-            <div class="m-footer--bottom-left m:flex-none m:text-left m:w-full xl:m:text-left">
+            <div class="m-footer--bottom-left m:flex-none m:text-left m:w-full md:m:w-auto md:m:text-left">
               <span class="m-footer__copyright">{{ section.settings.copyright }}</span>
               {%- if show_follow_on_shop -%}
                 <div class="m-follow-on-shop">
@@ -22,7 +31,7 @@
               {%- endif -%}
             </div>
           {% endif %}
-          <div class="m-footer--bottom-right m:w-full m:flex-col lg:m:flex-row m:flex m:flex-wrap xl:m:justify-end">
+          <div class="m-footer--bottom-right m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-end">
             {% if section.settings.show_currency_selector or section.settings.show_language_selector %}
               <div class="m-footer--currency-language m:display-flex">
                 {% liquid
