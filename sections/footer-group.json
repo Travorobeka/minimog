@@ -92,15 +92,15 @@
         "bordered": false,
         "copyright": "© MINIMOG 2024",
         "show_country_selector": false,
-        "show_currency_selector": true,
-        "show_language_selector": true,
+        "show_currency_selector": false,
+        "show_language_selector": false,
         "show_social_links": false,
         "enable_follow_on_shop": false,
         "show_payment_icons": true,
         "payment_icons_width": 300,
         "footer_bottom_color_scheme": "",
         "footer_bottom_menu": "",
-        "show_menu_item_divider": true
+        "show_menu_item_divider": false
       }
     },
     "mobile-sticky-bar": {
