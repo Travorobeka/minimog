@@ -131,7 +131,13 @@
         "footer_bottom_padding_top": 80,
         "footer_bottom_padding_bottom": 10,
         "footer_bottom_gap": 10,
-        "footer_bottom_alignment": "center"
+        "footer_bottom_alignment": "center",
+        "copyright_font_size": 12,
+        "copyright_font_weight": "300",
+        "copyright_text_transform": "none",
+        "copyright_line_height": 1.4,
+        "copyright_letter_spacing": -0.2,
+        "copyright_text_color": ""
       }
     },
     "mobile-sticky-bar": {
