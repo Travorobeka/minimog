@@ -64,6 +64,8 @@
                 <h3 class="m-accordion--item-button m-footer--block-title" 
                     {% if block.type == 'menu' %}
                       style="font-size: {{ block.settings.title_font_size | default: 16 }}px; font-weight: {{ block.settings.title_font_weight | default: 'normal' }}; text-transform: {{ block.settings.title_text_transform | default: 'none' }};"
+                    {% elsif block.type == 'newsletter' %}
+                      style="font-size: {{ block.settings.title_font_size | default: 24 }}px; font-weight: {{ block.settings.title_font_weight | default: '600' }}; text-transform: {{ block.settings.title_text_transform | default: 'none' }};{% if block.settings.title_text_color != blank %} color: {{ block.settings.title_text_color }};{% endif %}"
                     {% endif %}>
                   {{ block_title }}
                   {% unless block.settings.open_default %}
@@ -125,7 +127,8 @@
                   </div>
                 {% when 'newsletter' %}
                   <div class="{% if block.settings.title != blank %}m-accordion--item-content{% endif %} m-footer--block-content">
-                    <p class="m-footer--block-newsletter-desc">{{ block.settings.description }}</p>
+                    <p class="m-footer--block-newsletter-desc" 
+                       style="font-size: {{ block.settings.description_font_size | default: 14 }}px; font-weight: {{ block.settings.description_font_weight | default: 'normal' }}; line-height: {{ block.settings.description_line_height | default: 1.5 }};{% if block.settings.description_text_color != blank %} color: {{ block.settings.description_text_color }};{% endif %}">{{ block.settings.description }}</p>
                     {% liquid
                       assign button_type = 'icon'
                       if block.settings.button_label != blank
@@ -143,7 +146,14 @@
                       has_icon: block.settings.show_icon_input,
                       button_position: block.settings.button_position,
                       button_style: block.settings.button_style,
-                      button_icon: block.settings.button_icon
+                      button_icon: block.settings.button_icon,
+                      placeholder_font_size: block.settings.placeholder_font_size,
+                      placeholder_font_weight: block.settings.placeholder_font_weight,
+                      placeholder_text_color: block.settings.placeholder_text_color,
+                      terms_font_size: block.settings.terms_font_size,
+                      terms_font_weight: block.settings.terms_font_weight,
+                      terms_line_height: block.settings.terms_line_height,
+                      terms_text_color: block.settings.terms_text_color
                     %}
                     {% if block.settings.show_social %}
                       {% render 'social-media-links' %}
