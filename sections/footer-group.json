@@ -30,7 +30,7 @@
             "title_text_transform": "none",
             "title_text_color": "",
             "description_font_size": 13,
-            "description_font_weight": "500",
+            "description_font_weight": "normal",
             "description_line_height": 1.5,
             "description_text_color": "",
             "placeholder_font_size": 14,
