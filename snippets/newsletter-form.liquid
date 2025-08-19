@@ -97,9 +97,9 @@
     {% if show_agreement and agree_text %}
       <div class="m-newsletter-form__agreement-text" 
            style="margin-top: {{ terms_spacing | default: 12 }}px; font-size: {{ terms_font_size | default: 12 }}px; font-weight: {{ terms_font_weight | default: 'normal' }}; color: {{ terms_text_color | default: 'rgb(var(--color-foreground-secondary))' }}; line-height: {{ terms_line_height | default: 1.4 }}; width: 100%; padding: 0; box-sizing: border-box;">
-        <div class="m-terms-conditons" style="display: flex; align-items: flex-start; justify-content: center; gap: 8px; width: 100%; box-sizing: border-box;">
-          <label class="form-field--checkbox" style="display: flex; align-items: flex-start; gap: 8px; width: 100%; cursor: pointer; box-sizing: border-box;">
-            <input type="checkbox" name="agree_terms" value="yes" required style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px; margin: 2px 0 0 0; flex-shrink: 0; cursor: pointer;">
+        <div class="m-terms-conditons" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-sizing: border-box;">
+          <label class="form-field--checkbox" style="display: flex; align-items: center; gap: 8px; width: 100%; cursor: pointer; box-sizing: border-box;">
+            <input type="checkbox" name="agree_terms" value="yes" required style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px; margin: 0; flex-shrink: 0; cursor: pointer;">
             <span class="form-field--checkbox__label" style="flex: 1; text-align: left; word-wrap: break-word; overflow-wrap: break-word; hyphens: auto; width: 100%; max-width: 100%; box-sizing: border-box;">{{ agree_text }}</span>
             <span class="form-field--checkbox__icon" style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px; flex-shrink: 0;">
               <svg
