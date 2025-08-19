@@ -65,10 +65,10 @@
                   {{ block_title }}
                   <span class="m-accordion--item-icon md:m:hidden">
                     <svg class="m-accordion--plus-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     </svg>
                     <svg class="m-accordion--minus-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      <path d="M2 8H14" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                     </svg>
                   </span>
                 </h3>
@@ -86,7 +86,7 @@
                     <ul class="m-footer--block-content list-unstyled m-link-lists{{ accordion_content_class }}">
                       {% for link in menu.links %}
                         <li class="m-link-lists--item m:block">
-                          <a href="{{ link.url }}" class="m-link">
+                          <a href="{{ link.url }}" class="m-link m-footer--submenu-link">
                             {{ link.title }}
                           </a>
                         </li>
