@@ -47,8 +47,8 @@
             "title_font_size": 16,
             "title_font_weight": "300",
             "title_text_transform": "uppercase",
-            "menu_font_size": 10,
-            "menu_font_weight": "300",
+            "menu_font_size": 14,
+            "menu_font_weight": "normal",
             "menu_line_height": 1,
             "order_first": false,
             "open_default": false
@@ -57,7 +57,7 @@
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "footer",
             "title": "Company",
             "width": "25%",
             "title_font_size": 16,
