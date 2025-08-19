@@ -40,7 +40,7 @@
             "terms_font_weight": "normal",
             "terms_line_height": 1.4,
             "terms_text_color": "",
-            "terms_spacing": 12,
+            "terms_spacing": 4,
             "form_style": "bordered",
             "show_social": false,
             "show_agree_checkbox": true,
