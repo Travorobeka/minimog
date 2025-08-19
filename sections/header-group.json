@@ -118,31 +118,11 @@
             "show_language_switcher": true,
             "alert_message": "<span>Open Doors To A World Of Fashion  |  <a class=\"m-link-underline\" href=\"#\">Discover More</a><span></span></span>"
           }
-        },
-        "mobile_collection_images_8jEqAi": {
-          "type": "mobile_collection_images",
-          "disabled": true,
-          "settings": {
-            "heading": "new in",
-            "collection_1": "frontpage",
-            "image_1": "shopify://shop_images/womens-dress-wear-minimal-4-middle.jpg",
-            "title_1": "SHOP NOW",
-            "collection_2": "frontpage",
-            "image_2": "shopify://shop_images/womens-dress-wear-natural-4-middle.jpg",
-            "title_2": "buy now",
-            "image_size": "small",
-            "aspect_ratio": "5_4",
-            "text_position": "below",
-            "text_size": 10,
-            "text_color": "#333333",
-            "text_color_overlay": "#ffffff"
-          }
         }
       },
       "block_order": [
         "menu_badge_tw68td",
-        "5e153016-a9d7-46c9-a10e-30d16446793d",
-        "mobile_collection_images_8jEqAi"
+        "5e153016-a9d7-46c9-a10e-30d16446793d"
       ],
       "custom_css": [
         ".m-topbar a[href*=\"facebook\"] {order: 2;}",
