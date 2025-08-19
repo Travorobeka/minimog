@@ -61,7 +61,10 @@
               {% endif %}
             >
               {% if block_title != blank %}
-                <h3 class="m-accordion--item-button m-footer--block-title">
+                <h3 class="m-accordion--item-button m-footer--block-title" 
+                    {% if block.type == 'menu' %}
+                      style="font-size: {{ block.settings.title_font_size | default: 16 }}px; font-weight: {{ block.settings.title_font_weight | default: 'normal' }}; text-transform: {{ block.settings.title_text_transform | default: 'none' }};"
+                    {% endif %}>
                   {{ block_title }}
                   <span class="m-accordion--item-icon md:m:hidden">
                     <svg class="m-accordion--plus-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +86,8 @@
                     endif
                   -%}
                   {% if menu.links != blank %}
-                    <ul class="m-footer--block-content list-unstyled m-link-lists{{ accordion_content_class }}">
+                    <ul class="m-footer--block-content list-unstyled m-link-lists{{ accordion_content_class }}"
+                        style="font-size: {{ block.settings.menu_font_size | default: 14 }}px; font-weight: {{ block.settings.menu_font_weight | default: 'normal' }}; line-height: {{ block.settings.menu_line_height | default: 1.6 }};">
                       {% for link in menu.links %}
                         <li class="m-link-lists--item m:block">
                           <a href="{{ link.url }}" class="m-link m-footer--submenu-link">
