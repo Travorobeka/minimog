@@ -121,6 +121,7 @@
         },
         "mobile_collection_images_8jEqAi": {
           "type": "mobile_collection_images",
+          "disabled": true,
           "settings": {
             "heading": "new in",
             "collection_1": "frontpage",
