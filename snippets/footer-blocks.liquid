@@ -11,26 +11,75 @@
       <div class="m-footer--accordion">
         {% for block in blocks %}
           {% liquid
-            case block.settings.width
-              when '16%'
-                assign block_width = 'lg:m:w-2/12'
-              when '20%'
-                assign block_width = 'lg:m:w-1/5'
-              when '25%'
-                assign block_width = 'lg:m:w-1/4'
-              when '33%'
-                assign block_width = 'lg:m:w-1/3'
-              when '50%'
-                assign block_width = 'lg:m:w-1/2'
-              when '66%'
-                assign block_width = 'lg:m:w-8/12'
-              when '75%'
-                assign block_width = 'lg:m:w-9/12'
-              when '83%'
-                assign block_width = 'lg:m:w-10/12'
-              when '100%'
-                assign block_width = 'lg:m:w-full'
-            endcase
+            if block.type == 'container_control'
+              case block.settings.desktop_width
+                when '8%'
+                  assign block_width = 'lg:m:w-1/12'
+                when '16%'
+                  assign block_width = 'lg:m:w-2/12'
+                when '20%'
+                  assign block_width = 'lg:m:w-1/5'
+                when '25%'
+                  assign block_width = 'lg:m:w-1/4'
+                when '33%'
+                  assign block_width = 'lg:m:w-1/3'
+                when '41%'
+                  assign block_width = 'lg:m:w-5/12'
+                when '50%'
+                  assign block_width = 'lg:m:w-1/2'
+                when '58%'
+                  assign block_width = 'lg:m:w-7/12'
+                when '66%'
+                  assign block_width = 'lg:m:w-2/3'
+                when '75%'
+                  assign block_width = 'lg:m:w-3/4'
+                when '83%'
+                  assign block_width = 'lg:m:w-5/6'
+                when '100%'
+                  assign block_width = 'lg:m:w-full'
+                else
+                  assign block_width = 'lg:m:w-1/4'
+              endcase
+
+              case block.settings.tablet_width
+                when '25%'
+                  assign tablet_width = 'md:m:w-1/4'
+                when '33%'
+                  assign tablet_width = 'md:m:w-1/3'
+                when '50%'
+                  assign tablet_width = 'md:m:w-1/2'
+                when '66%'
+                  assign tablet_width = 'md:m:w-2/3'
+                when '75%'
+                  assign tablet_width = 'md:m:w-3/4'
+                when '100%'
+                  assign tablet_width = 'md:m:w-full'
+                else
+                  assign tablet_width = 'md:m:w-1/2'
+              endcase
+            else
+              case block.settings.width
+                when '16%'
+                  assign block_width = 'lg:m:w-2/12'
+                when '20%'
+                  assign block_width = 'lg:m:w-1/5'
+                when '25%'
+                  assign block_width = 'lg:m:w-1/4'
+                when '33%'
+                  assign block_width = 'lg:m:w-1/3'
+                when '50%'
+                  assign block_width = 'lg:m:w-1/2'
+                when '66%'
+                  assign block_width = 'lg:m:w-8/12'
+                when '75%'
+                  assign block_width = 'lg:m:w-9/12'
+                when '83%'
+                  assign block_width = 'lg:m:w-10/12'
+                when '100%'
+                  assign block_width = 'lg:m:w-full'
+              endcase
+              assign tablet_width = ''
+            endif
 
             assign block_title = block.settings.title
             if block.type == 'menu' and block_title == blank
@@ -50,9 +99,33 @@
             if block.settings.order_first
               assign accordion_class = accordion_class | append: ' order-first'
             endif
+            if block.settings.order_first_mobile
+              assign accordion_class = accordion_class | append: ' order-first'
+            endif
+
+            assign container_style = ''
+            if block.type == 'container_control'
+              if block.settings.margin_top > 0
+                assign container_style = container_style | append: 'margin-top: ' | append: block.settings.margin_top | append: 'px; '
+              endif
+              if block.settings.margin_bottom > 0
+                assign container_style = container_style | append: 'margin-bottom: ' | append: block.settings.margin_bottom | append: 'px; '
+              endif
+              if block.settings.padding_left > 0
+                assign container_style = container_style | append: 'padding-left: ' | append: block.settings.padding_left | append: 'px; '
+              endif
+              if block.settings.padding_right > 0
+                assign container_style = container_style | append: 'padding-right: ' | append: block.settings.padding_right | append: 'px; '
+              endif
+              if block.settings.hide_on_mobile
+                assign accordion_class = accordion_class | append: ' m:hidden md:m:block'
+              endif
+            endif
           %}
 
-          <div class="m-footer--block m-footer--block-{{ block.type }}{{ accordion_class }} m:w-full {{ block_width }}">
+          {% unless block.type == 'container_control' and block.settings.hide_on_mobile %}
+          <div class="m-footer--block m-footer--block-{{ block.type }}{{ accordion_class }} m:w-full {{ block_width }} {{ tablet_width }}"
+               {% if container_style != blank %}style="{{ container_style }}"{% endif %}>
             <div
               class="m-footer--block-inner{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
               {% if animated %}
@@ -166,9 +239,13 @@
                   {% render 'footer-block__html', block: block %}
                 {% else %}
 
+              {% when 'container_control' %}
+                <!-- Container control block - used for spacing and layout only -->
+                <div style="{% if container_style != blank %}{{ container_style }}{% else %}height: 1px;{% endif %}"></div>
               {% endcase %}
             </div>
           </div>
+          {% endunless %}
         {% endfor %}
       </div>
     </div>
