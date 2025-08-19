@@ -11,6 +11,17 @@
     bordered: section.settings.bordered,
     container: section.settings.container
   %}
+  {% if section.settings.enable_text_mask and section.settings.text_mask_content != blank %}
+    {% render 'footer-text-mask', 
+      text_content: section.settings.text_mask_content,
+      mask_image: section.settings.text_mask_image,
+      font_size: section.settings.text_mask_font_size,
+      font_weight: section.settings.text_mask_font_weight,
+      alignment: section.settings.text_mask_alignment,
+      mobile_font_size: section.settings.text_mask_mobile_font_size,
+      container: section.settings.container
+    %}
+  {% endif %}
   {% render 'footer-design', container: section.settings.container %}
 </m-footer>
 <script src="{{ 'footer.js' | asset_url }}" defer="defer"></script>
@@ -293,6 +304,92 @@
       "step": 1,
       "unit": "px",
       "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Text Mask Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_text_mask",
+      "label": "Enable text mask",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "text_mask_content",
+      "label": "Text mask content",
+      "default": "THE SWIM EDIT"
+    },
+    {
+      "type": "image_picker",
+      "id": "text_mask_image",
+      "label": "Text mask image",
+      "info": "Image that will show through the text"
+    },
+    {
+      "type": "range",
+      "id": "text_mask_font_size",
+      "label": "Font size",
+      "min": 24,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "select",
+      "id": "text_mask_font_weight",
+      "label": "Font weight",
+      "default": "900",
+      "options": [
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "800",
+          "label": "Extra Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_mask_alignment",
+      "label": "Text alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "text_mask_mobile_font_size",
+      "label": "Mobile font size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
     },
     {
       "type": "header",
@@ -1318,189 +1415,6 @@
           "default": false
         }
       ]
-    },
-    {
-      "type": "text_mask",
-      "name": "Text Mask",
-      "limit": 3,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Text",
-          "default": "THE SWIM EDIT"
-        },
-        {
-          "type": "image_picker",
-          "id": "mask_image",
-          "label": "Mask image",
-          "info": "Image that will show through the text"
-        },
-        {
-          "type": "header",
-          "content": "Text styling"
-        },
-        {
-          "type": "range",
-          "id": "font_size",
-          "label": "Font size",
-          "min": 24,
-          "max": 120,
-          "step": 2,
-          "unit": "px",
-          "default": 72
-        },
-        {
-          "type": "select",
-          "id": "font_weight",
-          "label": "Font weight",
-          "default": "900",
-          "options": [
-            {
-              "value": "600",
-              "label": "Semi Bold"
-            },
-            {
-              "value": "700",
-              "label": "Bold"
-            },
-            {
-              "value": "800",
-              "label": "Extra Bold"
-            },
-            {
-              "value": "900",
-              "label": "Black"
-            }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "text_transform",
-          "label": "Text transform",
-          "default": "uppercase",
-          "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "uppercase",
-              "label": "Uppercase"
-            },
-            {
-              "value": "lowercase",
-              "label": "Lowercase"
-            },
-            {
-              "value": "capitalize",
-              "label": "Capitalize"
-            }
-          ]
-        },
-        {
-          "type": "range",
-          "id": "letter_spacing",
-          "label": "Letter spacing",
-          "min": -2,
-          "max": 10,
-          "step": 0.5,
-          "unit": "px",
-          "default": 2
-        },
-        {
-          "type": "range",
-          "id": "line_height",
-          "label": "Line height",
-          "min": 0.8,
-          "max": 1.5,
-          "step": 0.1,
-          "default": 0.9
-        },
-        {
-          "type": "header",
-          "content": "Layout"
-        },
-        {
-          "type": "select",
-          "id": "text_alignment",
-          "label": "Text alignment",
-          "default": "center",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ]
-        },
-        {
-          "type": "select",
-          "id": "width",
-          "label": "Container width",
-          "default": "100%",
-          "options": [
-            {
-              "value": "25%",
-              "label": "25%"
-            },
-            {
-              "value": "33%",
-              "label": "33%"
-            },
-            {
-              "value": "50%",
-              "label": "50%"
-            },
-            {
-              "value": "66%",
-              "label": "66%"
-            },
-            {
-              "value": "75%",
-              "label": "75%"
-            },
-            {
-              "value": "100%",
-              "label": "100%"
-            }
-          ]
-        },
-        {
-          "type": "header",
-          "content": "Mobile settings"
-        },
-        {
-          "type": "range",
-          "id": "mobile_font_size",
-          "label": "Mobile font size",
-          "min": 16,
-          "max": 60,
-          "step": 2,
-          "unit": "px",
-          "default": 36
-        },
-        {
-          "type": "checkbox",
-          "id": "order_first",
-          "label": "Order first",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "open_default",
-          "label": "Open by default",
-          "default": false
-        }
-      ]
-    },
     {
       "type": "container_control",
       "name": "Container Control",
