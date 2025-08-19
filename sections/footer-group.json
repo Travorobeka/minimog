@@ -128,7 +128,7 @@
         "footer_bottom_color_scheme": "",
         "footer_bottom_menu": "",
         "show_menu_item_divider": false,
-        "footer_bottom_padding_top": 20,
+        "footer_bottom_padding_top": 80,
         "footer_bottom_padding_bottom": 10,
         "footer_bottom_gap": 10,
         "footer_bottom_alignment": "center"
