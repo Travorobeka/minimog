@@ -96,12 +96,12 @@
     </div>
     {% if show_agreement and agree_text %}
       <div class="m-newsletter-form__agreement-text" 
-           style="text-align: center; margin-top: 16px; font-size: {{ terms_font_size | default: 12 }}px; font-weight: {{ terms_font_weight | default: 'normal' }}; color: {{ terms_text_color | default: 'rgb(var(--color-foreground-secondary))' }}; line-height: {{ terms_line_height | default: 1.4 }};">
+           style="text-align: center; margin-top: 12px; font-size: {{ terms_font_size | default: 12 }}px; font-weight: {{ terms_font_weight | default: 'normal' }}; color: {{ terms_text_color | default: 'rgb(var(--color-foreground-secondary))' }}; line-height: {{ terms_line_height | default: 1.4 }};">
         <div class="m-terms-conditons">
-          <label class="form-field--checkbox">
-            <input type="checkbox" name="agree_terms" value="yes" required>
+          <label class="form-field--checkbox" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <input type="checkbox" name="agree_terms" value="yes" required style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px; margin: 0;">
             <span class="form-field--checkbox__label">{{ agree_text }}</span>
-            <span class="form-field--checkbox__icon">
+            <span class="form-field--checkbox__icon" style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px;">
               <svg
                 class="m-svg-icon--medium"
                 xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +109,7 @@
                 focusable="false"
                 fill="none"
                 viewBox="0 0 20 20"
+                style="width: 100%; height: 100%;"
               >
                 <path d="M18.5 1.5H1.5L1.5 18.5H18.5V1.5ZM1.5 0.5C0.947715 0.5 0.5 0.947715 0.5 1.5V18.5C0.5 19.0523 0.947715 19.5 1.5 19.5H18.5C19.0523 19.5 19.5 19.0523 19.5 18.5V1.5C19.5 0.947715 19.0523 0.5 18.5 0.5H1.5Z" fill-rule="evenodd" fill="currentColor"/>
                 <path d="M14.9975 6.09084C15.201 6.27746 15.2147 6.59375 15.0281 6.79728L8.91631 13.4627C8.82231 13.5652 8.68987 13.6239 8.55079 13.6247C8.41172 13.6256 8.27857 13.5684 8.18335 13.4671L4.99513 10.0731C4.80606 9.87179 4.81596 9.55536 5.01723 9.3663C5.21849 9.17723 5.53492 9.18713 5.72399 9.3884L8.54335 12.3897L14.291 6.12145C14.4776 5.91791 14.7939 5.90421 14.9975 6.09084Z" fill="currentColor"/>
