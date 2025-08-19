@@ -50,6 +50,11 @@
             "menu_font_size": 14,
             "menu_font_weight": "normal",
             "menu_line_height": 1,
+            "submenu_font_size": 13,
+            "submenu_font_weight": "300",
+            "submenu_line_height": 1.5,
+            "submenu_text_transform": "capitalize",
+            "submenu_indent": 12,
             "order_first": false,
             "open_default": false
           }
@@ -66,6 +71,11 @@
             "menu_font_size": 14,
             "menu_font_weight": "300",
             "menu_line_height": 1,
+            "submenu_font_size": 13,
+            "submenu_font_weight": "normal",
+            "submenu_line_height": 1.5,
+            "submenu_text_transform": "none",
+            "submenu_indent": 20,
             "order_first": false,
             "open_default": false
           }
