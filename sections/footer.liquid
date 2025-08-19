@@ -82,6 +82,97 @@
     },
     {
       "type": "header",
+      "content": "Copyright text styling"
+    },
+    {
+      "type": "range",
+      "id": "copyright_font_size",
+      "label": "Copyright font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "copyright_font_weight",
+      "label": "Copyright font weight",
+      "default": "normal",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "copyright_text_transform",
+      "label": "Copyright text transform",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "copyright_line_height",
+      "label": "Copyright line height",
+      "min": 1.0,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "copyright_letter_spacing",
+      "label": "Copyright letter spacing",
+      "min": -2,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "copyright_text_color",
+      "label": "Copyright text color",
+      "info": "Leave blank to use theme default"
+    },
+    {
+      "type": "header",
       "content": "Addons"
     },
     {
@@ -276,97 +367,6 @@
           "label": "Right"
         }
       ]
-    },
-    {
-      "type": "header",
-      "content": "Copyright text customization"
-    },
-    {
-      "type": "range",
-      "id": "copyright_font_size",
-      "label": "Copyright font size",
-      "min": 10,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 14
-    },
-    {
-      "type": "select",
-      "id": "copyright_font_weight",
-      "label": "Copyright font weight",
-      "default": "normal",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "normal",
-          "label": "Normal"
-        },
-        {
-          "value": "500",
-          "label": "Medium"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "bold",
-          "label": "Bold"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "copyright_text_transform",
-      "label": "Copyright text transform",
-      "default": "none",
-      "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "uppercase",
-          "label": "Uppercase"
-        },
-        {
-          "value": "lowercase",
-          "label": "Lowercase"
-        },
-        {
-          "value": "capitalize",
-          "label": "Capitalize"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "copyright_line_height",
-      "label": "Copyright line height",
-      "min": 1.0,
-      "max": 2.5,
-      "step": 0.1,
-      "default": 1.5
-    },
-    {
-      "type": "range",
-      "id": "copyright_letter_spacing",
-      "label": "Copyright letter spacing",
-      "min": -2,
-      "max": 5,
-      "step": 0.1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "color",
-      "id": "copyright_text_color",
-      "label": "Copyright text color",
-      "info": "Leave blank to use theme default"
     }
   ],
   "max_blocks": 5,
