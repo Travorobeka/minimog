@@ -59,7 +59,7 @@
           "settings": {
             "menu": "main-menu",
             "title": "Quick link",
-            "width": "25%",
+            "width": "16%",
             "title_font_size": 16,
             "title_font_weight": "300",
             "title_text_transform": "uppercase",
@@ -80,7 +80,7 @@
           "settings": {
             "menu": "footer",
             "title": "Company",
-            "width": "25%",
+            "width": "16%",
             "title_font_size": 16,
             "title_font_weight": "300",
             "title_text_transform": "uppercase",
