@@ -74,7 +74,7 @@
             "submenu_font_size": 13,
             "submenu_font_weight": "normal",
             "submenu_line_height": 1.5,
-            "submenu_text_transform": "none",
+            "submenu_text_transform": "uppercase",
             "submenu_indent": 20,
             "order_first": false,
             "open_default": false
