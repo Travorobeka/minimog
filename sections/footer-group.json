@@ -43,7 +43,7 @@
             "form_style": "bordered",
             "show_social": false,
             "show_agree_checkbox": true,
-            "width": "50%",
+            "width": "33%",
             "order_first": true,
             "open_default": true
           }
