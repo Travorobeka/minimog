@@ -11,10 +11,10 @@
   endif
 %}
 
-<div class="m-footer--text-mask m-gradient m-color-{{ section.settings.color_scheme }}" style="padding: 40px 0;">
-  <div class="{{ container }}">
+<div class="m-footer--text-mask m-gradient m-color-{{ section.settings.color_scheme }}" style="padding: 40px 0; display: block; width: 100%; box-sizing: border-box;">
+  <div class="{{ container }}" style="width: 100%; max-width: none; padding-left: 15px; padding-right: 15px; box-sizing: border-box;">
     <div class="m-text-mask-wrapper"
-         style="text-align: {{ alignment | default: 'center' }}; position: relative;">
+         style="text-align: {{ alignment | default: 'center' }}; position: relative; width: 100%; overflow: visible;">
       
       <h2 class="m-text-mask" 
           style="
@@ -25,10 +25,14 @@
             line-height: 0.9;
             margin: 0;
             padding: 0;
+            width: 100%;
+            word-wrap: break-word;
+            hyphens: auto;
             {% if mask_image %}
               background-image: url('{{ mask_image | image_url }}');
               background-size: cover;
               background-position: center;
+              background-repeat: no-repeat;
               background-clip: text;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
@@ -62,7 +66,10 @@
             right: 0;
             z-index: -1;
             color: rgb(var(--color-foreground));
-            opacity: 0.1;
+            opacity: 0.2;
+            width: 100%;
+            word-wrap: break-word;
+            hyphens: auto;
           ">
         {{ text_content }}
       </h2>
@@ -73,16 +80,28 @@
 <style>
   .m-footer--text-mask {
     border-top: 1px solid rgba(var(--color-border), 0.2);
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .m-text-mask-wrapper {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    width: 100%;
+    min-height: 1px;
   }
 
   .m-text-mask {
     position: relative;
     z-index: 2;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .m-text-mask-fallback {
+    display: block;
   }
 
   /* Animated gradient fallback */
@@ -92,33 +111,80 @@
     100% { background-position: 0% 50%; }
   }
 
+  /* Tablet responsive */
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    .m-footer--text-mask {
+      padding: 32px 0;
+    }
+    
+    .m-text-mask,
+    .m-text-mask-fallback {
+      font-size: {{ font_size | default: 72 | times: 0.8 }}px !important;
+      letter-spacing: 1.5px !important;
+    }
+  }
+
   /* Mobile responsive */
   @media screen and (max-width: 767px) {
     .m-footer--text-mask {
-      padding: 24px 0;
+      padding: 20px 0 !important;
+      display: block !important;
+    }
+    
+    .m-footer--text-mask .{{ container }} {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
     }
     
     .m-text-mask,
     .m-text-mask-fallback {
       font-size: {{ mobile_font_size | default: 36 }}px !important;
+      letter-spacing: 1px !important;
+      line-height: 1.1 !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      hyphens: auto !important;
+    }
+
+    .m-text-mask-wrapper {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+
+  /* Extra small mobile */
+  @media screen and (max-width: 480px) {
+    .m-text-mask,
+    .m-text-mask-fallback {
+      font-size: {{ mobile_font_size | default: 36 | times: 0.85 }}px !important;
+      letter-spacing: 0.5px !important;
     }
   }
 
   /* Browser support detection */
   @supports not (-webkit-background-clip: text) {
     .m-text-mask {
-      display: none;
+      display: none !important;
     }
     .m-text-mask-fallback {
-      position: static;
-      z-index: 1;
-      opacity: 1;
+      position: static !important;
+      z-index: 1 !important;
+      opacity: 1 !important;
+      display: block !important;
     }
   }
 
   @supports (-webkit-background-clip: text) {
     .m-text-mask-fallback {
-      display: none;
+      display: none !important;
+    }
+  }
+
+  /* Force visibility on all devices */
+  @media screen {
+    .m-footer--text-mask {
+      display: block !important;
+      visibility: visible !important;
     }
   }
 </style>
