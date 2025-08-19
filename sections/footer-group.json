@@ -61,11 +61,11 @@
             "title": "Company",
             "width": "25%",
             "title_font_size": 16,
-            "title_font_weight": "normal",
-            "title_text_transform": "none",
+            "title_font_weight": "300",
+            "title_text_transform": "uppercase",
             "menu_font_size": 14,
-            "menu_font_weight": "normal",
-            "menu_line_height": 1.6,
+            "menu_font_weight": "300",
+            "menu_line_height": 1,
             "order_first": false,
             "open_default": false
           }
