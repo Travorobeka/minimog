@@ -38,7 +38,7 @@
             "placeholder_text_color": "",
             "terms_font_size": 11,
             "terms_font_weight": "normal",
-            "terms_line_height": 1,
+            "terms_line_height": 1.4,
             "terms_text_color": "",
             "form_style": "bordered",
             "show_social": false,
@@ -95,28 +95,13 @@
             "order_first": false,
             "open_default": false
           }
-        },
-        "93571032-b171-4c66-8b3e-96cd91946363": {
-          "type": "our_store",
-          "disabled": true,
-          "settings": {
-            "title": "Our store",
-            "description": "",
-            "show_email": false,
-            "show_phone": false,
-            "show_socials_link": true,
-            "width": "33%",
-            "order_first": false,
-            "open_default": false
-          }
         }
       },
       "block_order": [
         "7b0bf4c6-3873-4222-b8d6-ce009e710078",
         "spacing_4d6agY",
         "7ebc2f78-975b-4a81-b874-103c3355a866",
-        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
-        "93571032-b171-4c66-8b3e-96cd91946363"
+        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb"
       ],
       "custom_css": [
         ".m-footer--block-spacing {width: 10%;}",
