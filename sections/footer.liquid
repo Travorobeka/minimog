@@ -782,6 +782,10 @@
             {
               "value": "below",
               "label": "Under input field"
+            },
+            {
+              "value": "inside",
+              "label": "Inside input field"
             }
           ],
           "default": "inline",
@@ -794,18 +798,55 @@
           "options": [
             {
               "value": "m-button--primary",
-              "label": "Primary button"
+              "label": "Filled (Primary)"
             },
             {
               "value": "m-button--secondary",
-              "label": "Secondary button"
+              "label": "Filled (Secondary)"
+            },
+            {
+              "value": "m-button--outline",
+              "label": "Outline"
             },
             {
               "value": "m-button--blank",
-              "label": "Plain button"
+              "label": "Minimal"
             }
           ],
           "default": "m-button--blank"
+        },
+        {
+          "type": "select",
+          "id": "button_icon",
+          "label": "Button icon",
+          "options": [
+            {
+              "value": "arrow",
+              "label": "Arrow →"
+            },
+            {
+              "value": "plus",
+              "label": "Plus +"
+            },
+            {
+              "value": "send",
+              "label": "Send ↗"
+            },
+            {
+              "value": "check",
+              "label": "Check ✓"
+            },
+            {
+              "value": "chevron",
+              "label": "Chevron >"
+            },
+            {
+              "value": "mail",
+              "label": "Mail ✉"
+            }
+          ],
+          "default": "arrow",
+          "info": "Only applies when using icon button"
         },
         {
           "type": "select",
