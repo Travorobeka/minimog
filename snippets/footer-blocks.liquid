@@ -90,7 +90,8 @@
                         style="font-size: {{ block.settings.menu_font_size | default: 14 }}px; font-weight: {{ block.settings.menu_font_weight | default: 'normal' }}; line-height: {{ block.settings.menu_line_height | default: 1.6 }};">
                       {% for link in menu.links %}
                         <li class="m-link-lists--item m:block">
-                          <a href="{{ link.url }}" class="m-link m-footer--submenu-link">
+                          <a href="{{ link.url }}" class="m-link m-footer--submenu-link"
+                             style="font-size: {{ block.settings.submenu_font_size | default: 13 }}px; font-weight: {{ block.settings.submenu_font_weight | default: 'normal' }}; line-height: {{ block.settings.submenu_line_height | default: 1.5 }}; text-transform: {{ block.settings.submenu_text_transform | default: 'none' }}; padding-left: {{ block.settings.submenu_indent | default: 20 }}px;">
                             {{ link.title }}
                           </a>
                         </li>
