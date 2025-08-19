@@ -96,9 +96,9 @@
     </div>
     {% if show_agreement and agree_text %}
       <div class="m-newsletter-form__agreement-text" 
-           style="text-align: center; margin-top: 12px; font-size: {{ terms_font_size | default: 12 }}px; font-weight: {{ terms_font_weight | default: 'normal' }}; color: {{ terms_text_color | default: 'rgb(var(--color-foreground-secondary))' }}; line-height: {{ terms_line_height | default: 1.4 }};">
+           style="text-align: center; margin-top: {{ terms_spacing | default: 12 }}px; font-size: {{ terms_font_size | default: 12 }}px; font-weight: {{ terms_font_weight | default: 'normal' }}; color: {{ terms_text_color | default: 'rgb(var(--color-foreground-secondary))' }}; line-height: {{ terms_line_height | default: 1.4 }};">
         <div class="m-terms-conditons">
-          <label class="form-field--checkbox" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <label class="form-field--checkbox" style="display: flex; align-items: center; justify-content: center; gap: 4px;">
             <input type="checkbox" name="agree_terms" value="yes" required style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px; margin: 0;">
             <span class="form-field--checkbox__label">{{ agree_text }}</span>
             <span class="form-field--checkbox__icon" style="width: {{ terms_font_size | default: 12 | times: 1.2 }}px; height: {{ terms_font_size | default: 12 | times: 1.2 }}px;">
