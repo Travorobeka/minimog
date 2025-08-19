@@ -172,7 +172,7 @@
         "mb_show_currency_switcher": false,
         "mb_show_country_selector": true,
         "mb_show_language_switcher": true,
-        "mb_show_collection_images": true,
+        "mb_show_collection_images": false,
         "mb_image_size": "small",
         "mb_image_aspect_ratio": "4_5",
         "mb_text_position": "below",
