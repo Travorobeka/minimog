@@ -120,7 +120,7 @@
         "enable_follow_on_shop": false,
         "show_payment_icons": true,
         "payment_icons_width": 300,
-        "payment_icon_size": 24,
+        "payment_icon_size": 26,
         "payment_icon_spacing": 10,
         "payment_icon_alignment": "center",
         "payment_icon_grayscale": false,
