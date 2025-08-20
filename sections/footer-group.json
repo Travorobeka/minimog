@@ -147,7 +147,7 @@
         "footer_bottom_menu": "",
         "show_menu_item_divider": false,
         "footer_bottom_padding_top": 80,
-        "footer_bottom_padding_bottom": 10,
+        "footer_bottom_padding_bottom": 0,
         "footer_bottom_gap": 1,
         "footer_bottom_alignment": "center"
       }
