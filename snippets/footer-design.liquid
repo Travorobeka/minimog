@@ -31,6 +31,10 @@
           .m-footer--currency-language {
             justify-content: center !important;
           }
+          .m-footer--mobile-addon-padding {
+            padding-top: {{ section.settings.addons_padding_top | default: 0 }}px !important;
+            padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px !important;
+          }
           /* Footer-2 layout: payment icons should be last */
           .m-footer--bottom-footer-2 .m-footer--bottom-left {
             order: 3;
@@ -41,6 +45,12 @@
           }
           .m-footer--bottom-footer-3 .m-footer--bottom-right {
             order: 3;
+          }
+        }
+        @media screen and (min-width: 768px) {
+          .m-footer--mobile-addon-padding {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
           }
         }
       </style>
@@ -62,8 +72,7 @@
           {% endif %}
           <div class="m-footer--bottom-center m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-center">
             {% if section.settings.show_currency_selector or section.settings.show_language_selector %}
-              <div class="m-footer--currency-language m:display-flex" 
-                   style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+              <div class="m-footer--currency-language m:display-flex m-footer--mobile-addon-padding">
                 {% liquid
                   if section.settings.show_country_selector
                     render 'country-selector', pos: 'top'
@@ -92,7 +101,7 @@
               {% endif %}
             </div>
             {% if section.settings.show_social_links %}
-              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+              <div class="m-footer--mobile-addon-padding">
                 {% render 'social-media-links' %}
               </div>
             {% endif %}
@@ -109,15 +118,14 @@
           </div>
           {% if section.settings.show_payment_icons %}
             <div class="m-footer--bottom-right m:w-full md:m:w-auto md:m:flex-none md:m:justify-end">
-              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+              <div class="m-footer--mobile-addon-padding">
                 {% render 'payment-icons', section: section %}
               </div>
             </div>
           {% endif %}
         {% when 'footer-2' %}
           {% if section.settings.show_payment_icons %}
-            <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}" 
-                 style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+            <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto m-footer--mobile-addon-padding{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% render 'payment-icons', section: section %}
             </div>
           {% endif %}
@@ -144,7 +152,7 @@
           %}
             <div class="m-footer--bottom-right m:flex-1 m:flex m:flex-wrap m:items-left m:justify-left xl:m:w-auto m:w-full xl:m:justify-end m:flex-col md:m:flex-row{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_social_links %}
-                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                <div class="m-footer--mobile-addon-padding">
                   {% render 'social-media-links', extra_classes: 'justify-center md:justify-end' %}
                 </div>
               {% endif %}
@@ -152,8 +160,7 @@
                 or section.settings.show_language_selector
                 or section.settings.show_country_selector
               %}
-                <div class="m-footer--currency-language m:display-flex" 
-                     style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                <div class="m-footer--currency-language m:display-flex m-footer--mobile-addon-padding">
                   {% liquid
                     if section.settings.show_country_selector
                       render 'country-selector', pos: 'top'
@@ -188,12 +195,11 @@
           %}
             <div class="m-footer--bottom-left m:flex-1 m:flex-col m:display-flex m:flex-wrap m:items-left m:justify-left xl:m:justify-start xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_social_links %}
-                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                <div class="m-footer--mobile-addon-padding">
                   {% render 'social-media-links' %}
                 </div>
               {% endif %}
-              <div class="m-footer--currency-language m:display-flex" 
-                   style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+              <div class="m-footer--currency-language m:display-flex m-footer--mobile-addon-padding">
                 {% liquid
                   if section.settings.show_country_selector
                     render 'country-selector', pos: 'top'
@@ -227,7 +233,7 @@
           {% if section.settings.show_payment_icons or section.settings.footer_bottom_menu %}
             <div class="m-footer--bottom-right m:flex-1 m:display-flex m:flex-col m:justify-center xl:m:justify-end xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_payment_icons %}
-                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                <div class="m-footer--mobile-addon-padding">
                   {% render 'payment-icons', section: section, classes: 'xl:m:justify-end' %}
                 </div>
               {% endif %}
