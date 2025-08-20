@@ -20,12 +20,12 @@
             order: 2;
             text-align: center !important;
           }
-          .m-footer--bottom-right {
+          .m-footer--bottom-center {
             order: 1;
             text-align: center !important;
           }
-          .m-footer--bottom-center {
-            order: 2;
+          .m-footer--bottom-right {
+            order: 3;
             text-align: center !important;
           }
           .m-footer--currency-language {
@@ -60,7 +60,7 @@
               {%- endif -%}
             </div>
           {% endif %}
-          <div class="m-footer--bottom-right m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-end">
+          <div class="m-footer--bottom-center m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-center">
             {% if section.settings.show_currency_selector or section.settings.show_language_selector %}
               <div class="m-footer--currency-language m:display-flex" 
                    style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
@@ -96,14 +96,9 @@
                 {% render 'social-media-links' %}
               </div>
             {% endif %}
-            {% if section.settings.show_payment_icons %}
-              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
-                {% render 'payment-icons', section: section %}
-              </div>
-            {% endif %}
             {% if section.settings.footer_bottom_menu != blank %}
               {% assign menu = section.settings.footer_bottom_menu %}
-              <ul class="m-footer--bottom-menu m-link-lists m-link-lists--inline xl:m:justify-end{% if section.settings.show_menu_item_divider %} show-menu-item-divider{% endif %}">
+              <ul class="m-footer--bottom-menu m-link-lists m-link-lists--inline xl:m:justify-center{% if section.settings.show_menu_item_divider %} show-menu-item-divider{% endif %}">
                 {% for link in linklists[menu].links %}
                   <li class="m-footer--bottom-menu-item m-link-lists--item">
                     <a class="m-link" href="{{ link.url }}">{{ link.title }}</a>
@@ -112,6 +107,13 @@
               </ul>
             {% endif %}
           </div>
+          {% if section.settings.show_payment_icons %}
+            <div class="m-footer--bottom-right m:w-full md:m:w-auto md:m:flex-none md:m:justify-end">
+              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                {% render 'payment-icons', section: section %}
+              </div>
+            </div>
+          {% endif %}
         {% when 'footer-2' %}
           {% if section.settings.show_payment_icons %}
             <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}" 
