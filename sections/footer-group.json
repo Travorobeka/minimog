@@ -108,6 +108,7 @@
           "type": "text_mask",
           "settings": {
             "title": "THE SWIM EDIT",
+            "mask_image": "shopify://shop_images/womens-dress-wear-natural-1-middle.jpg",
             "font_size": 72,
             "font_weight": "900",
             "text_transform": "uppercase",
