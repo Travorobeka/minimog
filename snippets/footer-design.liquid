@@ -15,6 +15,17 @@
             text-align: left !important;
           }
         }
+        @media screen and (max-width: 767px) {
+          .m-footer--bottom-left {
+            order: 2;
+          }
+          .m-footer--bottom-right {
+            order: 1;
+          }
+          .m-footer--bottom-center {
+            order: 3;
+          }
+        }
       </style>
       {% case section.settings.design %}
         {% when 'footer-1' %}
