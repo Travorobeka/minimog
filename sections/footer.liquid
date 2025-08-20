@@ -11,17 +11,6 @@
     bordered: section.settings.bordered,
     container: section.settings.container
   %}
-  {% if section.settings.enable_text_mask and section.settings.text_mask_content != blank %}
-    {% render 'footer-text-mask', 
-      text_content: section.settings.text_mask_content,
-      mask_image: section.settings.text_mask_image,
-      font_size: section.settings.text_mask_font_size,
-      font_weight: section.settings.text_mask_font_weight,
-      alignment: section.settings.text_mask_alignment,
-      mobile_font_size: section.settings.text_mask_mobile_font_size,
-      container: section.settings.container
-    %}
-  {% endif %}
   {% render 'footer-design', container: section.settings.container %}
 </m-footer>
 <script src="{{ 'footer.js' | asset_url }}" defer="defer"></script>
@@ -307,92 +296,6 @@
     },
     {
       "type": "header",
-      "content": "Text Mask Section"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_text_mask",
-      "label": "Enable text mask",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "text_mask_content",
-      "label": "Text mask content",
-      "default": "THE SWIM EDIT"
-    },
-    {
-      "type": "image_picker",
-      "id": "text_mask_image",
-      "label": "Text mask image",
-      "info": "Image that will show through the text"
-    },
-    {
-      "type": "range",
-      "id": "text_mask_font_size",
-      "label": "Font size",
-      "min": 24,
-      "max": 120,
-      "step": 2,
-      "unit": "px",
-      "default": 72
-    },
-    {
-      "type": "select",
-      "id": "text_mask_font_weight",
-      "label": "Font weight",
-      "default": "900",
-      "options": [
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        },
-        {
-          "value": "800",
-          "label": "Extra Bold"
-        },
-        {
-          "value": "900",
-          "label": "Black"
-        }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "text_mask_alignment",
-      "label": "Text alignment",
-      "default": "center",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "text_mask_mobile_font_size",
-      "label": "Mobile font size",
-      "min": 16,
-      "max": 60,
-      "step": 2,
-      "unit": "px",
-      "default": 36
-    },
-    {
-      "type": "header",
       "content": "Footer bottom"
     },
     {
@@ -439,9 +342,9 @@
       "type": "range",
       "id": "footer_bottom_gap",
       "label": "Element spacing",
-      "min": 10,
+      "min": 1,
       "max": 50,
-      "step": 2,
+      "step": 1,
       "unit": "px",
       "default": 24
     },
