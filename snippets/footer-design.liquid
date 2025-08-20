@@ -62,7 +62,8 @@
           {% endif %}
           <div class="m-footer--bottom-right m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-end">
             {% if section.settings.show_currency_selector or section.settings.show_language_selector %}
-              <div class="m-footer--currency-language m:display-flex">
+              <div class="m-footer--currency-language m:display-flex" 
+                   style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
                 {% liquid
                   if section.settings.show_country_selector
                     render 'country-selector', pos: 'top'
@@ -91,10 +92,14 @@
               {% endif %}
             </div>
             {% if section.settings.show_social_links %}
-              {% render 'social-media-links' %}
+              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                {% render 'social-media-links' %}
+              </div>
             {% endif %}
             {% if section.settings.show_payment_icons %}
-              {% render 'payment-icons', section: section %}
+              <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                {% render 'payment-icons', section: section %}
+              </div>
             {% endif %}
             {% if section.settings.footer_bottom_menu != blank %}
               {% assign menu = section.settings.footer_bottom_menu %}
@@ -109,7 +114,8 @@
           </div>
         {% when 'footer-2' %}
           {% if section.settings.show_payment_icons %}
-            <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+            <div class="m-footer--bottom-left m:w-full m:flex-1 xl:m:w-auto{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}" 
+                 style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
               {% render 'payment-icons', section: section %}
             </div>
           {% endif %}
@@ -136,13 +142,16 @@
           %}
             <div class="m-footer--bottom-right m:flex-1 m:flex m:flex-wrap m:items-left m:justify-left xl:m:w-auto m:w-full xl:m:justify-end m:flex-col md:m:flex-row{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_social_links %}
-                {% render 'social-media-links', extra_classes: 'justify-center md:justify-end' %}
+                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                  {% render 'social-media-links', extra_classes: 'justify-center md:justify-end' %}
+                </div>
               {% endif %}
               {% if section.settings.show_currency_selector
                 or section.settings.show_language_selector
                 or section.settings.show_country_selector
               %}
-                <div class="m-footer--currency-language m:display-flex">
+                <div class="m-footer--currency-language m:display-flex" 
+                     style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
                   {% liquid
                     if section.settings.show_country_selector
                       render 'country-selector', pos: 'top'
@@ -177,9 +186,12 @@
           %}
             <div class="m-footer--bottom-left m:flex-1 m:flex-col m:display-flex m:flex-wrap m:items-left m:justify-left xl:m:justify-start xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_social_links %}
-                {% render 'social-media-links' %}
+                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                  {% render 'social-media-links' %}
+                </div>
               {% endif %}
-              <div class="m-footer--currency-language m:display-flex">
+              <div class="m-footer--currency-language m:display-flex" 
+                   style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
                 {% liquid
                   if section.settings.show_country_selector
                     render 'country-selector', pos: 'top'
@@ -213,7 +225,9 @@
           {% if section.settings.show_payment_icons or section.settings.footer_bottom_menu %}
             <div class="m-footer--bottom-right m:flex-1 m:display-flex m:flex-col m:justify-center xl:m:justify-end xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_payment_icons %}
-                {% render 'payment-icons', section: section, classes: 'xl:m:justify-end' %}
+                <div style="padding-top: {{ section.settings.addons_padding_top | default: 0 }}px; padding-bottom: {{ section.settings.addons_padding_bottom | default: 0 }}px;">
+                  {% render 'payment-icons', section: section, classes: 'xl:m:justify-end' %}
+                </div>
               {% endif %}
               {% if section.settings.footer_bottom_menu != blank %}
                 {% assign menu = section.settings.footer_bottom_menu %}
