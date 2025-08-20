@@ -133,6 +133,8 @@
         "show_currency_selector": true,
         "show_language_selector": true,
         "show_social_links": false,
+        "addons_padding_top": 0,
+        "addons_padding_bottom": 32,
         "enable_follow_on_shop": false,
         "show_payment_icons": true,
         "payment_icons_width": 300,
