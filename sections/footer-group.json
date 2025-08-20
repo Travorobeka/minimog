@@ -103,13 +103,30 @@
             "order_first": false,
             "open_default": false
           }
+        },
+        "text_mask_B7z97p": {
+          "type": "text_mask",
+          "settings": {
+            "title": "THE SWIM EDIT",
+            "font_size": 72,
+            "font_weight": "900",
+            "text_transform": "uppercase",
+            "letter_spacing": 2,
+            "line_height": 0.9,
+            "text_alignment": "center",
+            "width": "100%",
+            "mobile_font_size": 36,
+            "order_first": false,
+            "open_default": false
+          }
         }
       },
       "block_order": [
         "7b0bf4c6-3873-4222-b8d6-ce009e710078",
         "container_control_yqicQq",
         "7ebc2f78-975b-4a81-b874-103c3355a866",
-        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb"
+        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
+        "text_mask_B7z97p"
       ],
       "custom_css": [
         ".m-footer--block-spacing {width: 10%;}",
