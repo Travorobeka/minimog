@@ -78,9 +78,9 @@
             "submenu_font_weight": "300",
             "submenu_line_height": 1.4,
             "submenu_text_transform": "uppercase",
-            "submenu_indent": 12,
+            "submenu_indent": 8,
             "order_first": false,
-            "open_default": false
+            "open_default": true
           }
         },
         "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
