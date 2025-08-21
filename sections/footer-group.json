@@ -97,7 +97,7 @@
             "menu_line_height": 1,
             "submenu_font_size": 12,
             "submenu_font_weight": "normal",
-            "submenu_line_height": 2,
+            "submenu_line_height": 1.4,
             "submenu_text_transform": "uppercase",
             "submenu_indent": 12,
             "order_first": false,
