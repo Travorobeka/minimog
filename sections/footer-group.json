@@ -65,7 +65,7 @@
         "7ebc2f78-975b-4a81-b874-103c3355a866": {
           "type": "menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "information",
             "title": "HELP",
             "width": "16%",
             "title_font_size": 16,
