@@ -17,20 +17,15 @@
         }
         @media screen and (max-width: 767px) {
           .m-footer--bottom-left {
-            order: 3;
-            text-align: center !important;
-          }
-          .m-footer--bottom-logo {
-            order: 1;
-            text-align: center !important;
-            margin-bottom: 20px !important;
-          }
-          .m-footer--bottom-center {
             order: 2;
             text-align: center !important;
           }
+          .m-footer--bottom-center {
+            order: 1;
+            text-align: center !important;
+          }
           .m-footer--bottom-right {
-            order: 4;
+            order: 3;
             text-align: center !important;
           }
           .m-footer--currency-language {
@@ -42,17 +37,14 @@
           }
           /* Footer-2 layout: payment icons should be last */
           .m-footer--bottom-footer-2 .m-footer--bottom-left {
-            order: 4;
-          }
-          .m-footer--bottom-footer-2 .m-footer--bottom-center {
             order: 3;
           }
           /* Footer-3 layout: reorder center and right */
           .m-footer--bottom-footer-3 .m-footer--bottom-center {
-            order: 3;
+            order: 2;
           }
           .m-footer--bottom-footer-3 .m-footer--bottom-right {
-            order: 4;
+            order: 3;
           }
         }
         @media screen and (min-width: 768px) {
@@ -76,16 +68,6 @@
                   {% # theme-check-enable %}
                 </div>
               {%- endif -%}
-            </div>
-          {% endif %}
-          {% if section.settings.footer_logo != blank %}
-            <div class="m-footer--bottom-logo m:w-full md:m:w-auto md:m:flex-none">
-              <div class="m-footer--logo m:text-center">
-                <img src="{{ section.settings.footer_logo | image_url: width: section.settings.footer_logo_width | default: 150 }}" 
-                     alt="{{ shop.name }}" 
-                     loading="lazy"
-                     style="width: {{ section.settings.footer_logo_width | default: 150 }}px; max-width: 100%; height: auto;">
-              </div>
             </div>
           {% endif %}
           <div class="m-footer--bottom-center m:w-full md:m:w-auto m:flex-col md:m:flex-row m:flex m:flex-wrap md:m:justify-center">
@@ -148,18 +130,8 @@
             </div>
           {% endif %}
 
-          {% if section.settings.footer_logo != blank %}
-            <div class="m-footer--bottom-logo m:flex-1 m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-              <div class="m-footer--logo">
-                <img src="{{ section.settings.footer_logo | image_url: width: section.settings.footer_logo_width | default: 150 }}" 
-                     alt="{{ shop.name }}" 
-                     loading="lazy"
-                     style="width: {{ section.settings.footer_logo_width | default: 150 }}px; max-width: 100%; height: auto;">
-              </div>
-            </div>
-          {% endif %}
-          <div class="m-footer--bottom-center m:flex-1 m:text-left xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-            {% if section.settings.copyright != blank %}
+          {% if section.settings.copyright != blank %}
+            <div class="m-footer--bottom-center m:flex-1 m:text-left xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               <span class="m-footer__copyright" 
                     style="font-size: {{ section.settings.copyright_font_size | default: 14 }}px; font-weight: {{ section.settings.copyright_font_weight | default: 'normal' }}; text-transform: {{ section.settings.copyright_text_transform | default: 'none' }}; line-height: {{ section.settings.copyright_line_height | default: 1.5 }}; letter-spacing: {{ section.settings.copyright_letter_spacing | default: 0 }}px;{% if section.settings.copyright_text_color != blank %} color: {{ section.settings.copyright_text_color }};{% endif %}">{{ section.settings.copyright }}</span>
               {%- if show_follow_on_shop -%}
@@ -170,8 +142,8 @@
                   {% # theme-check-enable %}
                 </div>
               {%- endif -%}
-            {% endif %}
-          </div>
+            </div>
+          {% endif %}
           {% if section.settings.show_social_links
             or section.settings.show_currency_selector
             or section.settings.show_language_selector
@@ -244,18 +216,8 @@
               </div>
             </div>
           {% endif %}
-          {% if section.settings.footer_logo != blank %}
-            <div class="m-footer--bottom-logo m:flex-1 xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-              <div class="m-footer--logo m:text-center">
-                <img src="{{ section.settings.footer_logo | image_url: width: section.settings.footer_logo_width | default: 150 }}" 
-                     alt="{{ shop.name }}" 
-                     loading="lazy"
-                     style="width: {{ section.settings.footer_logo_width | default: 150 }}px; max-width: 100%; height: auto;">
-              </div>
-            </div>
-          {% endif %}
-          <div class="m-footer--bottom-center m:flex-1 xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-            {% if section.settings.copyright != blank %}
+          {% if section.settings.copyright != blank %}
+            <div class="m-footer--bottom-center m:flex-1 xl:m:text-center xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               <span class="m-footer__copyright" 
                     style="font-size: {{ section.settings.copyright_font_size | default: 14 }}px; font-weight: {{ section.settings.copyright_font_weight | default: 'normal' }}; text-transform: {{ section.settings.copyright_text_transform | default: 'none' }}; line-height: {{ section.settings.copyright_line_height | default: 1.5 }}; letter-spacing: {{ section.settings.copyright_letter_spacing | default: 0 }}px;{% if section.settings.copyright_text_color != blank %} color: {{ section.settings.copyright_text_color }};{% endif %}">{{ section.settings.copyright }}</span>
               {%- if show_follow_on_shop -%}
@@ -266,8 +228,8 @@
                   {% # theme-check-enable %}
                 </div>
               {%- endif -%}
-            {% endif %}
-          </div>
+            </div>
+          {% endif %}
           {% if section.settings.show_payment_icons or section.settings.footer_bottom_menu %}
             <div class="m-footer--bottom-right m:flex-1 m:display-flex m:flex-col m:justify-center xl:m:justify-end xl:m:w-auto m:w-full{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
               {% if section.settings.show_payment_icons %}
