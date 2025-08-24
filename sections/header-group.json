@@ -129,8 +129,8 @@
         ".social-media-links {column-gap: 30px;}"
       ],
       "settings": {
-        "color_scheme": "",
-        "color_scheme_menu": "badge-hot",
+        "color_scheme": "default",
+        "color_scheme_menu": "",
         "header_design": "logo-center-menu-left",
         "container": "container-fluid",
         "sticky_header": "always",
