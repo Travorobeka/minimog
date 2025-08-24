@@ -130,7 +130,7 @@
       ],
       "settings": {
         "color_scheme": "",
-        "color_scheme_menu": "",
+        "color_scheme_menu": "badge-hot",
         "header_design": "logo-center-menu-left",
         "container": "container-fluid",
         "sticky_header": "always",
