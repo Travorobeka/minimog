@@ -161,7 +161,7 @@
         "icon_stroke_width": 1.5,
         "icon_size": 21,
         "icon_style": "minimal",
-        "search_icon_type": "find",
+        "search_icon_type": "magnifying_glass",
         "cart_icon_type": "basket",
         "account_icon_type": "user_profile",
         "wishlist_icon_type": "bookmark",
