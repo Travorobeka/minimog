@@ -32,9 +32,9 @@
         "f5e88f1f-ff68-4d03-b686-0cb9fe62fab1": {
           "type": "text",
           "settings": {
-            "title": "<h4 class=\"about__block-heading\">We believe that when a woman wears Luxewoman, she embodies confidence, elegance, and the undeniable power of her own story.</h4>",
+            "title": "",
             "subheading": "",
-            "text": "",
+            "text": "<p>Every piece is crafted to outlast trends and become part of a personal legacy. Collections focus on precision, craftsmanship, and refined simplicity<em>. <br/></em></p><p><em><br/>“When a woman wears </em><em><strong>LUXEWOMAN</strong></em><em>, she embodies confidence, elegance, and the power of her own story.”</em></p>",
             "width": "100%",
             "alignment": "center",
             "align_text": "center",
