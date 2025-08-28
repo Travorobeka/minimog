@@ -209,10 +209,68 @@
         "enable_preload_image": false,
         "custom_class": "m-about-page"
       }
+    },
+    "collection_tabs_jqeyex": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_kNJ9RE": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": "",
+            "heading_size": "h4",
+            "text": ""
+          }
+        },
+        "collection_iGbCLF": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": "",
+            "heading_size": "h4",
+            "text": ""
+          }
+        },
+        "collection_kPK7tf": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": "",
+            "heading_size": "h4",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_kNJ9RE",
+        "collection_iGbCLF",
+        "collection_kPK7tf"
+      ],
+      "name": "Collection tabs",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "header_alignment": "center",
+        "heading": "Collection tabs",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "image_position": "left",
+        "image_ratio": "1/1",
+        "prefix_header": "ordinal_number",
+        "trigger_behavior": "hover",
+        "autoplay": false,
+        "autoplay_duration": 5,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
     }
   },
   "order": [
     "main",
-    "custom-content"
+    "custom-content",
+    "collection_tabs_jqeyex"
   ]
 }
