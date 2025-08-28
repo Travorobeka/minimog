@@ -13,6 +13,55 @@
       "type": "page-about-us",
       "settings": {}
     },
+    "announcement_bar_ticker_9EYx8L": {
+      "type": "announcement-bar-ticker",
+      "blocks": {
+        "ticker_item_mNkWNg": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "<h2>TIMELESS </h2>",
+            "link": ""
+          }
+        },
+        "ticker_item_6HiDnc": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "30-day returns on all items",
+            "link": ""
+          }
+        },
+        "ticker_item_CqHJ3J": {
+          "type": "ticker_item",
+          "settings": {
+            "message": "24/7 customer support",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ticker_item_mNkWNg",
+        "ticker_item_6HiDnc",
+        "ticker_item_CqHJ3J"
+      ],
+      "name": "Announcement Ticker",
+      "settings": {
+        "show_ticker": true,
+        "homepage_only": false,
+        "show_close": true,
+        "container": "container-fluid",
+        "color_scheme": "",
+        "direction": "left",
+        "speed": 30,
+        "height": 50,
+        "text_size": 14,
+        "text_size_mobile": 12,
+        "separator_type": "dot",
+        "separator_custom": "•",
+        "separator_spacing": 32,
+        "separator_color": "",
+        "custom_class": ""
+      }
+    },
     "custom-content": {
       "type": "custom-content",
       "blocks": {
@@ -271,6 +320,7 @@
   },
   "order": [
     "main",
+    "announcement_bar_ticker_9EYx8L",
     "custom-content",
     "collection_tabs_jqeyex"
   ]
