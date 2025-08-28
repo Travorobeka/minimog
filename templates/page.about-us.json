@@ -19,21 +19,21 @@
         "ticker_item_mNkWNg": {
           "type": "ticker_item",
           "settings": {
-            "message": "<h2>TIMELESS </h2>",
+            "message": "TIMELESS",
             "link": ""
           }
         },
         "ticker_item_6HiDnc": {
           "type": "ticker_item",
           "settings": {
-            "message": "30-day returns on all items",
+            "message": "EMPOWERING",
             "link": ""
           }
         },
         "ticker_item_CqHJ3J": {
           "type": "ticker_item",
           "settings": {
-            "message": "24/7 customer support",
+            "message": "ELEGANT",
             "link": ""
           }
         }
@@ -47,18 +47,18 @@
       "settings": {
         "show_ticker": true,
         "homepage_only": false,
-        "show_close": true,
+        "show_close": false,
         "container": "container-fluid",
         "color_scheme": "",
         "direction": "left",
-        "speed": 30,
+        "speed": 80,
         "height": 50,
         "text_size": 14,
-        "text_size_mobile": 12,
+        "text_size_mobile": 18,
         "separator_type": "dot",
         "separator_custom": "•",
         "separator_spacing": 32,
-        "separator_color": "",
+        "separator_color": "#9a84c8",
         "custom_class": ""
       }
     },
@@ -112,7 +112,7 @@
         "9a3a8077-de29-4141-9162-b9484d4a85f8": {
           "type": "html",
           "settings": {
-            "code": "<div class=\"sf__about-custom-list\">\n  <h3>We are proudly<br> Australian.</h3>\n  <ul>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon1.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Soft Fabric</h4>\n          <p class=\"text-color-subtext\">Get complimentary ground shipping on every<br> order.Don’t love it? Send it back, on us.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Lightweight</h4>\n          <p class=\"text-color-subtext\">Join Minimog Rewards to earn gift cards<br>\nand enjoy exclusive member benefits.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon3.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>All Day Comfort</h4>\n          <p class=\"text-color-subtext\">We believe getting dressed should be the<br> easiest part of your day.</p>\n      </div>\n    </li>\n  </ul>\n</div>",
+            "code": "<div class=\"sf__about-custom-list\">\n  <h3>Our<br> Values.</h3>\n  <ul>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon1.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Timelessness</h4>\n          <p class=\"text-color-subtext\">We design beyond seasons<br> so pieces endure.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Empowerment</h4>\n          <p class=\"text-color-subtext\">Every piece reminds a woman<br>\nof her strength and confidence.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon3.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Elegance</h4>\n          <p class=\"text-color-subtext\">Refined design where<br> minimalism meets sophistication.</p>\n      </div>\n    </li>\n  </ul>\n</div>",
             "width": "50%",
             "block_custom_class": "sf__about-custom-html",
             "animations": "inherit"
