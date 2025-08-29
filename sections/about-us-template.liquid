@@ -1,0 +1,98 @@
+{{ 'about-us.css' | asset_url | stylesheet_tag }}
+
+<section class="about-us-template">
+  <div class="about-us__intro">
+    {{ section.settings.intro_text }}
+    <div class="about-us__links">
+      {% if section.settings.link_1_label != blank and section.settings.link_1_url != blank %}
+        <a href="{{ section.settings.link_1_url }}" class="about-us__link">{{ section.settings.link_1_label }}</a>
+      {% endif %}
+      {% if section.settings.link_2_label != blank and section.settings.link_2_url != blank %}
+        <a href="{{ section.settings.link_2_url }}" class="about-us__link">{{ section.settings.link_2_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if section.settings.hero_image != blank %}
+    <div class="about-us__image">
+      <img src="{{ section.settings.hero_image | image_url: width: 2000 }}" alt="" loading="lazy">
+    </div>
+  {% endif %}
+
+  {% assign has_values = false %}
+  {% for block in section.blocks %}
+    {% if block.type == 'value' %}
+      {% assign has_values = true %}
+    {% endif %}
+  {% endfor %}
+  {% if has_values %}
+    <div class="about-us__values">
+      <h2>Our Values</h2>
+      <div class="about-us__value-cards">
+        {% for block in section.blocks %}
+          {% if block.type == 'value' %}
+            <div class="value-card" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p>{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% assign has_beliefs = false %}
+  {% for block in section.blocks %}
+    {% if block.type == 'belief' %}
+      {% assign has_beliefs = true %}
+    {% endif %}
+  {% endfor %}
+  {% if has_beliefs %}
+    <div class="about-us__beliefs">
+      <h2>Our Beliefs</h2>
+      <ul class="beliefs-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'belief' %}
+            <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "About Us",
+  "settings": [
+    { "type": "richtext", "id": "intro_text", "label": "Intro text" },
+    { "type": "text", "id": "link_1_label", "label": "First link label" },
+    { "type": "url", "id": "link_1_url", "label": "First link URL" },
+    { "type": "text", "id": "link_2_label", "label": "Second link label" },
+    { "type": "url", "id": "link_2_url", "label": "Second link URL" },
+    { "type": "image_picker", "id": "hero_image", "label": "Main image" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Value title" },
+        { "type": "textarea", "id": "text", "label": "Value description" }
+      ]
+    },
+    {
+      "type": "belief",
+      "name": "Belief",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Belief text" }
+      ]
+    }
+  ],
+  "max_blocks": 20
+}
+{% endschema %}
