@@ -112,7 +112,7 @@
         "9a3a8077-de29-4141-9162-b9484d4a85f8": {
           "type": "html",
           "settings": {
-            "code": "<div class=\"sf__about-custom-list\">\n  <h3>Our<br> Values.</h3>\n  <ul>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon1.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Timelessness</h4>\n          <p class=\"text-color-subtext\">We design beyond seasons<br> so pieces endure.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Empowerment</h4>\n          <p class=\"text-color-subtext\">Every piece reminds a woman<br>\nof her strength and confidence.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon3.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Elegance</h4>\n          <p class=\"text-color-subtext\">Refined design where<br> minimalism meets sophistication.</p>\n      </div>\n    </li>\n  </ul>\n</div>",
+            "code": "<div class=\"sf__about-custom-list\">\n  <h3>Our<br> Values.</h3>\n  <ul>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon1.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Timelessness</h4>\n          <p class=\"text-color-subtext\">We design beyond seasons<br> so pieces endure.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Empowerment</h4>\n          <p class=\"text-color-subtext\">Every piece reminds a woman<br>\nof her strength and confidence.</p>\n      </div>\n    </li>\n    <li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon3.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Elegance</h4>\n          <p class=\"text-color-subtext\">Refined design where<br> minimalism meets sophistication.</p>\n      </div>\n    </li>\n<li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Craftsmanship</h4>\n          <p class=\"text-color-subtext\">Heritage quality and meticulous<br>\nattention to detail.</p>\n      </div>\n    </li>\n\n<li>\n      <span><img src=\"https://cdn.shopify.com/s/files/1/0561/2742/2636/files/icon2_daf1b6c2-ef2e-416c-ae6a-a7ddd145b6c5.svg?v=1627616411\"></span>\n      <div class=\"rte\">\n          <h4>Individual Worth</h4>\n          <p class=\"text-color-subtext\">We honour women who define<br>\nthemselves on their own terms.</p>\n      </div>\n    </li>\n\n  </ul>\n</div>",
             "width": "50%",
             "block_custom_class": "sf__about-custom-html",
             "animations": "inherit"
@@ -120,6 +120,7 @@
         },
         "28e3ce35-e364-43f3-ba87-18b633233063": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "<h4 class=\"about__block-heading\">The world needs to move fast to make a meaningful<br> difference in the fight against climate change.</h4>",
             "subheading": "",
@@ -139,6 +140,7 @@
         },
         "c6a8b57f-c54c-43f1-9771-9ea5d88a2f36": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "Our Team",
             "subheading": "",
@@ -158,6 +160,7 @@
         },
         "859f4ef2-676f-4587-9ae8-3a19ffa439dd": {
           "type": "image_card",
+          "disabled": true,
           "settings": {
             "width": "33%",
             "color_scheme": "",
@@ -181,6 +184,7 @@
         },
         "a1a4a67f-c83f-4629-a006-e44f56c80bf5": {
           "type": "image_card",
+          "disabled": true,
           "settings": {
             "width": "33%",
             "color_scheme": "",
@@ -204,6 +208,7 @@
         },
         "dc4597e9-ca80-4d0f-9e30-ff28c96dd3aa": {
           "type": "image_card",
+          "disabled": true,
           "settings": {
             "width": "33%",
             "color_scheme": "",
@@ -267,41 +272,61 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "heading": "",
+            "heading": "A vision of worth",
             "heading_size": "h4",
-            "text": ""
+            "text": "<p>LUXEWOMAN began with a clear belief. A woman's worth is timeless. From the start we set out to build more than a brand. We celebrate confidence, elegance, and legacy.</p>"
           }
         },
         "collection_iGbCLF": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "heading": "",
+            "heading": "Beyond Trends",
             "heading_size": "h4",
-            "text": ""
+            "text": "<p>We choose longevity over cycles. Each collection is designed to last, crafted with restraint, minimalism, and quality that respects the wearer.</p>"
           }
         },
         "collection_kPK7tf": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "heading": "",
+            "heading": "Luxury in the details",
             "heading_size": "h4",
-            "text": ""
+            "text": "<p>From the line of a silhouette to the precision of a seam, every piece carries our devotion to craft. We merge couture tradition with modern sensibility.</p>"
+          }
+        },
+        "collection_cQWcXb": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": "A movement of Elegance",
+            "heading_size": "h4",
+            "text": "<p>LUXEWOMAN is more than a fashion house. It is a community of women who define their worth on their own terms. Each piece becomes part of a personal story.</p>"
+          }
+        },
+        "collection_9yXCzc": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "heading": "A legacy of luxury",
+            "heading_size": "h4",
+            "text": "<p>Our vision is to become a global symbol of timeless feminine luxury. From ready-to-wear to accessories, each collection reflects elegance, empowerment, and legacy.</p>"
           }
         }
       },
       "block_order": [
         "collection_kNJ9RE",
         "collection_iGbCLF",
-        "collection_kPK7tf"
+        "collection_kPK7tf",
+        "collection_cQWcXb",
+        "collection_9yXCzc"
       ],
       "name": "Collection tabs",
       "settings": {
         "container": "container-fluid",
         "color_scheme": "",
         "header_alignment": "center",
-        "heading": "Collection tabs",
+        "heading": "Our Story",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
