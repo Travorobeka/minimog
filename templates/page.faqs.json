@@ -49,6 +49,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Orders & Payments",
+            "short_title": "Orders",
             "anchor": "orders-payments",
             "icon": "credit-card"
           }
@@ -57,6 +58,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Shipping & Delivery",
+            "short_title": "Shipping",
             "anchor": "shipping-delivery",
             "icon": "truck"
           }
@@ -65,6 +67,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Returns & Exchanges",
+            "short_title": "Returns",
             "anchor": "returns-exchanges",
             "icon": "returns"
           }
@@ -73,6 +76,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Craftsmanship & Philosophy",
+            "short_title": "Craft",
             "anchor": "craftsmanship-philosophy",
             "icon": "diamond"
           }
@@ -81,6 +85,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Community & Programs",
+            "short_title": "Community",
             "anchor": "community-programs",
             "icon": "users"
           }
@@ -89,6 +94,7 @@
           "type": "menu_item",
           "settings": {
             "title": "Contact",
+            "short_title": "Contact",
             "anchor": "contact",
             "icon": "mail"
           }
