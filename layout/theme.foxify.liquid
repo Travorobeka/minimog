@@ -96,19 +96,19 @@
     {% if template.name == 'product' %}
       data-product-id="{{ product.id }}"
     {% endif %}
-  >   {% sections 'foxify-header-group' %} 
+  >    
     {%- liquid
       render 'page-transition'
       render 'scroll-top-button'
-      sections 'header-group'
+      sections 'foxify-header-group'
     -%}
 
     <main role="main" id="MainContent">
-      {{ content_for_layout }}
+      <div class="foxify-container">{{ content_for_layout }}</div>
     </main>
 
     {%- liquid
-      sections 'footer-group'
+      sections 'foxify-footer-group'
       render 'script-tags'
       render 'cookie-banner'
       render 'custom-code-body'
@@ -135,5 +135,5 @@
     {%- if settings.enable_cart_drawer and template != 'cart' -%}
       {% render 'cart-drawer' %}
     {%- endif -%}
-  {%- render 'foxify-footer' -%} {% sections 'foxify-footer-group' %}   </body>
+  {%- render 'foxify-footer' -%}    </body>
 </html>
