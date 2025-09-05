@@ -16,7 +16,15 @@
   assign classes = classes | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
   assign menu_items = section.blocks | where: 'type', 'menu_item'
 -%}
-<section class="{{ classes }}" data-section-id="{{ section.id }}" data-section-type="page-faqs">
+<section id="faqs--{{ section.id }}" class="{{ classes }}" data-section-id="{{ section.id }}" data-section-type="page-faqs">
+  <style>
+    #faqs--{{ section.id }} .m-faqs-section__menu {position: sticky; top: 100px; align-self: start;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link {display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; transition: background-color .2s ease, opacity .2s ease;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link:hover {background: rgba(var(--color-foreground), .06); opacity: 1;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link[aria-current="true"] {background: rgba(var(--color-foreground), .1); opacity: 1;}
+    #faqs--{{ section.id }} .m-faqs-section__menu svg {width: 18px; height: 18px; min-width: 18px; color: currentColor;}
+    #faqs--{{ section.id }} .m-faqs-section__content [id] {scroll-margin-top: 110px;}
+  </style>
   <div class="{{ container }}">
     <div class="m-row">
       {% if section.settings.menu != blank or menu_items.size > 0 %}
@@ -83,7 +91,7 @@
                   </collapsible-tab>
                 {% endif %}
               {% when 'menu_item' %}
-                {# Intentionally not rendered in content area #}
+                {% comment %} Intentionally not rendered in content area {% endcomment %}
               {% else %}
                 {# Unknown block type - no render #}
             {% endcase %}
@@ -92,6 +100,44 @@
       </div>
     </div>
   </div>
+  <script>
+    (function() {
+      const root = document.getElementById('faqs--{{ section.id }}');
+      if (!root) return;
+      const links = root.querySelectorAll('.m-faqs-section__menu a[href^="#"]');
+      function setActive(hash) {
+        links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === hash ? 'true' : 'false'));
+      }
+      function onHashChange() {
+        if (!location.hash) return;
+        setActive(location.hash);
+      }
+      links.forEach(a => {
+        a.addEventListener('click', function(e) {
+          const id = this.getAttribute('href').slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', '#' + id);
+            setActive('#' + id);
+          }
+        });
+      });
+      const io = ('IntersectionObserver' in window) ? new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.target.id) {
+            const hash = '#' + entry.target.id;
+            setActive(hash);
+          }
+        });
+      }, { rootMargin: '-120px 0px -70% 0px', threshold: 0.1 }) : null;
+      if (io) {
+        root.querySelectorAll('.m-faqs-section__content [id]').forEach(el => io.observe(el));
+      }
+      onHashChange();
+    })();
+  </script>
 </section>
 {% schema %}
 {
