@@ -25,18 +25,20 @@
         "heading": "Luxewoman FAQs",
         "heading_size": "h2",
         "subheading": "",
-        "description": "At Luxewoman, we believe clarity is part of luxury. Every detail matters — from how your order arrives, to how we stand by our craft.",
+        "description": "At LUXEWOMAN, we believe clarity is part of luxury. Every detail matters  from how your order arrives, to how we stand by our craft.",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
+        "container": "container",
+        "color_scheme": "scheme-f42d2db8-666f-450e-9df9-487e9cf7472f",
+        "content_color_scheme": "default",
+        "background_image": "shopify://shop_images/IMG_0099.jpg",
+        "enable_parallax": true,
+        "parallax_direction": "zoom",
+        "gap": 50,
         "gap_mobile": 16,
         "use_scroll_mobile": false,
         "padding_top": 30,
         "padding_bottom": 30,
+        "enable_preload_image": true,
         "custom_class": ""
       }
     },
@@ -94,14 +96,14 @@
         "content_orders": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"orders-payments\" class=\"h4 mb-4\">Orders &amp; Payments<\/h2>"
+            "content": "<h2 id=\"orders-payments\" class=\"h4 mb-4\">Orders &amp; Payments</h2>"
           }
         },
         "acc_payments_methods": {
           "type": "accordion",
           "settings": {
             "title": "What payment methods do you accept?",
-            "content": "<p>We use Shopify Payments, accepting all major credit cards, PayPal, and Apple Pay.<\/p>",
+            "content": "<p>We use Shopify Payments, accepting all major credit cards, PayPal, and Apple Pay.</p>",
             "open": false
           }
         },
@@ -109,7 +111,7 @@
           "type": "accordion",
           "settings": {
             "title": "Do you offer gift cards?",
-            "content": "<p>Yes. A Luxewoman gift card is an invitation into timeless elegance, available in multiple denominations.<\/p>",
+            "content": "<p>Yes. A Luxewoman gift card is an invitation into timeless elegance, available in multiple denominations.</p>",
             "open": false
           }
         },
@@ -117,7 +119,7 @@
           "type": "accordion",
           "settings": {
             "title": "Can I modify or cancel an order after placing it?",
-            "content": "<p>To honor fast processing, we cannot guarantee changes once your order is confirmed. Contact us immediately if you need assistance — we’ll do our best to accommodate.<\/p>",
+            "content": "<p>To honor fast processing, we cannot guarantee changes once your order is confirmed. Contact us immediately if you need assistance — we’ll do our best to accommodate.</p>",
             "open": false
           }
         },
@@ -125,7 +127,7 @@
           "type": "accordion",
           "settings": {
             "title": "Will I be charged duties or taxes?",
-            "content": "<p>Depending on your shipping destination, customs duties or local taxes may apply. These are the responsibility of the client. We provide clear invoices to ensure smooth customs processing.<\/p>",
+            "content": "<p>Depending on your shipping destination, customs duties or local taxes may apply. These are the responsibility of the client. We provide clear invoices to ensure smooth customs processing.</p>",
             "open": false
           }
         },
@@ -133,22 +135,21 @@
           "type": "accordion",
           "settings": {
             "title": "Do you offer discounts or sales?",
-            "content": "<p>Our philosophy is timeless, not seasonal. Luxewoman does not participate in fast-fashion discounts. Occasionally, we may extend private offers to members of the Luxe Circle.<\/p>",
+            "content": "<p>Our philosophy is timeless, not seasonal. Luxewoman does not participate in fast-fashion discounts. Occasionally, we may extend private offers to members of the Luxe Circle.</p>",
             "open": false
           }
         },
-
         "content_shipping": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"shipping-delivery\" class=\"h4 mt-8 mb-4\">Shipping &amp; Delivery<\/h2>"
+            "content": "<h2 id=\"shipping-delivery\" class=\"h4 mt-8 mb-4\">Shipping &amp; Delivery</h2>"
           }
         },
         "acc_where_ship": {
           "type": "accordion",
           "settings": {
             "title": "Where do you ship?",
-            "content": "<p>We deliver worldwide, bringing Luxewoman to women across the globe.<\/p>",
+            "content": "<p>We deliver worldwide, bringing Luxewoman to women across the globe.</p>",
             "open": false
           }
         },
@@ -156,7 +157,7 @@
           "type": "accordion",
           "settings": {
             "title": "Which carriers do you use?",
-            "content": "<p>We partner with trusted global networks:<\/p><ul><li>USPS (U.S.) — 7–12 days<\/li><li>Canada Post — 8–15 days<\/li><li>Australia Post — 7–9 days<\/li><li>UK Express — 6–10 days<\/li><\/ul>",
+            "content": "<p>We partner with trusted global networks:</p><ul><li>USPS (U.S.) — 7–12 days</li><li>Canada Post — 8–15 days</li><li>Australia Post — 7–9 days</li><li>UK Express — 6–10 days</li></ul>",
             "open": false
           }
         },
@@ -164,7 +165,7 @@
           "type": "accordion",
           "settings": {
             "title": "How long will my order take to arrive?",
-            "content": "<p>Most orders arrive within 30 days, and never later than 40 days.<\/p><p>For the U.S., Europe, Canada, New Zealand: full refund if delivery exceeds 30 days.<\/p><p>For South America, Middle East, India, Africa: refund applies if delivery exceeds 60 days.<\/p><p><strong>Exceptions:<\/strong> customs delays, incomplete addresses, unclaimed parcels, or force majeure.<\/p>",
+            "content": "<p>Most orders arrive within 30 days, and never later than 40 days.</p><p>For the U.S., Europe, Canada, New Zealand: full refund if delivery exceeds 30 days.</p><p>For South America, Middle East, India, Africa: refund applies if delivery exceeds 60 days.</p><p><strong>Exceptions:</strong> customs delays, incomplete addresses, unclaimed parcels, or force majeure.</p>",
             "open": false
           }
         },
@@ -172,7 +173,7 @@
           "type": "accordion",
           "settings": {
             "title": "Will I receive tracking?",
-            "content": "<p>Yes. Once dispatched, your order includes full tracking details.<\/p>",
+            "content": "<p>Yes. Once dispatched, your order includes full tracking details.</p>",
             "open": false
           }
         },
@@ -180,7 +181,7 @@
           "type": "accordion",
           "settings": {
             "title": "Do you ship to PO boxes?",
-            "content": "<p>For security, we recommend a physical address. PO box deliveries may not be available in all regions.<\/p>",
+            "content": "<p>For security, we recommend a physical address. PO box deliveries may not be available in all regions.</p>",
             "open": false
           }
         },
@@ -188,22 +189,21 @@
           "type": "accordion",
           "settings": {
             "title": "What if my parcel is delayed?",
-            "content": "<p>We stand by our delivery promises. If your order is delayed beyond the guaranteed timeframe, you are entitled to a full refund.<\/p>",
+            "content": "<p>We stand by our delivery promises. If your order is delayed beyond the guaranteed timeframe, you are entitled to a full refund.</p>",
             "open": false
           }
         },
-
         "content_returns": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"returns-exchanges\" class=\"h4 mt-8 mb-4\">Returns &amp; Exchanges<\/h2>"
+            "content": "<h2 id=\"returns-exchanges\" class=\"h4 mt-8 mb-4\">Returns &amp; Exchanges</h2>"
           }
         },
         "acc_accept_returns": {
           "type": "accordion",
           "settings": {
             "title": "Do you accept returns?",
-            "content": "<p>Yes, but always in alignment with our values:<\/p><ul><li>Returns must be unworn, unwashed, in original condition with tags and packaging.<\/li><li>Change-of-mind returns require the customer to cover return shipping.<\/li><\/ul>",
+            "content": "<p>Yes, but always in alignment with our values:</p><ul><li>Returns must be unworn, unwashed, in original condition with tags and packaging.</li><li>Change-of-mind returns require the customer to cover return shipping.</li></ul>",
             "open": false
           }
         },
@@ -211,7 +211,7 @@
           "type": "accordion",
           "settings": {
             "title": "What if my item is incorrect or damaged?",
-            "content": "<p>We stand behind our craftsmanship. Damaged or incorrect items qualify for a full refund or replacement — no return shipping required.<\/p>",
+            "content": "<p>We stand behind our craftsmanship. Damaged or incorrect items qualify for a full refund or replacement — no return shipping required.</p>",
             "open": false
           }
         },
@@ -219,7 +219,7 @@
           "type": "accordion",
           "settings": {
             "title": "Do you offer exchanges?",
-            "content": "<p>Yes. Apparel includes a 7-day no-questions-asked return policy. Exchange process:<\/p><ol><li>Submit a return request.<\/li><li>Return item in original condition.<\/li><li>Place a new order once approved.<\/li><\/ol>",
+            "content": "<p>Yes. Apparel includes a 7-day no-questions-asked return policy. Exchange process:</p><ol><li>Submit a return request.</li><li>Return item in original condition.</li><li>Place a new order once approved.</li></ol>",
             "open": false
           }
         },
@@ -227,7 +227,7 @@
           "type": "accordion",
           "settings": {
             "title": "How long do refunds take?",
-            "content": "<p>Refunds are usually processed within 24–48 hours once approved.<\/p>",
+            "content": "<p>Refunds are usually processed within 24–48 hours once approved.</p>",
             "open": false
           }
         },
@@ -235,22 +235,21 @@
           "type": "accordion",
           "settings": {
             "title": "Can I return accessories or final sale pieces?",
-            "content": "<p>Certain intimate items and final sale pieces cannot be returned for hygiene and exclusivity reasons. Each product page notes this clearly.<\/p>",
+            "content": "<p>Certain intimate items and final sale pieces cannot be returned for hygiene and exclusivity reasons. Each product page notes this clearly.</p>",
             "open": false
           }
         },
-
         "content_craft": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"craftsmanship-philosophy\" class=\"h4 mt-8 mb-4\">Craftsmanship &amp; Philosophy<\/h2>"
+            "content": "<h2 id=\"craftsmanship-philosophy\" class=\"h4 mt-8 mb-4\">Craftsmanship &amp; Philosophy</h2>"
           }
         },
         "acc_where_made": {
           "type": "accordion",
           "settings": {
             "title": "Where are Luxewoman pieces made?",
-            "content": "<p>We work with carefully selected ateliers and suppliers who align with our standards of precision and heritage craftsmanship.<\/p>",
+            "content": "<p>We work with carefully selected ateliers and suppliers who align with our standards of precision and heritage craftsmanship.</p>",
             "open": false
           }
         },
@@ -258,7 +257,7 @@
           "type": "accordion",
           "settings": {
             "title": "Do you produce limited collections?",
-            "content": "<p>Yes. Each release is crafted in limited quantities to ensure exclusivity and minimize waste.<\/p>",
+            "content": "<p>Yes. Each release is crafted in limited quantities to ensure exclusivity and minimize waste.</p>",
             "open": false
           }
         },
@@ -266,7 +265,7 @@
           "type": "accordion",
           "settings": {
             "title": "Why don’t you follow traditional sales seasons?",
-            "content": "<p>Because we believe luxury is timeless, not seasonal. Our designs are created to endure, not to expire.<\/p>",
+            "content": "<p>Because we believe luxury is timeless, not seasonal. Our designs are created to endure, not to expire.</p>",
             "open": false
           }
         },
@@ -274,22 +273,21 @@
           "type": "accordion",
           "settings": {
             "title": "Do you practice sustainability?",
-            "content": "<p>Yes. By focusing on fewer, better pieces, limiting wasteful returns, and working with suppliers who share our values, we honor both the planet and our clients.<\/p>",
+            "content": "<p>Yes. By focusing on fewer, better pieces, limiting wasteful returns, and working with suppliers who share our values, we honor both the planet and our clients.</p>",
             "open": false
           }
         },
-
         "content_community": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"community-programs\" class=\"h4 mt-8 mb-4\">Community &amp; Programs<\/h2>"
+            "content": "<h2 id=\"community-programs\" class=\"h4 mt-8 mb-4\">Community &amp; Programs</h2>"
           }
         },
         "acc_luxe_circle": {
           "type": "accordion",
           "settings": {
             "title": "What is the Luxe Circle?",
-            "content": "<p>An exclusive inner circle for our most loyal clients — offering early access, private events, and curated experiences.<\/p>",
+            "content": "<p>An exclusive inner circle for our most loyal clients — offering early access, private events, and curated experiences.</p>",
             "open": false
           }
         },
@@ -297,7 +295,7 @@
           "type": "accordion",
           "settings": {
             "title": "Who are the Luxe Icons?",
-            "content": "<p>Our ambassadors: women who embody confidence, elegance, and timeless worth.<\/p>",
+            "content": "<p>Our ambassadors: women who embody confidence, elegance, and timeless worth.</p>",
             "open": false
           }
         },
@@ -305,22 +303,21 @@
           "type": "accordion",
           "settings": {
             "title": "What is The Luxe Collective?",
-            "content": "<p>Our editorial platform — sharing stories of elegance, craftsmanship, and legacy.<\/p>",
+            "content": "<p>Our editorial platform — sharing stories of elegance, craftsmanship, and legacy.</p>",
             "open": false
           }
         },
-
         "content_contact": {
           "type": "content",
           "settings": {
-            "content": "<h2 id=\"contact\" class=\"h4 mt-8 mb-4\">Contact<\/h2>"
+            "content": "<h2 id=\"contact\" class=\"h4 mt-8 mb-4\">Contact</h2>"
           }
         },
         "acc_contact": {
           "type": "accordion",
           "settings": {
             "title": "How can I reach Luxewoman?",
-            "content": "<p>Our team is here to assist. Email <a href=\"mailto:support@luxewoman.com\">support@luxewoman.com<\/a> and we’ll respond with care.<\/p>",
+            "content": "<p>Our team is here to assist. Email <a href=\"mailto:support@luxewoman.com\">support@luxewoman.com</a> and we’ll respond with care.</p>",
             "open": false
           }
         }
@@ -366,7 +363,7 @@
       "settings": {
         "container": "container",
         "color_scheme": "",
-        "menu": "faqs-menu",
+        "menu": "",
         "custom_class": ""
       }
     }
