@@ -14,20 +14,45 @@
     assign classes = classes | append: ' ' | append: section.settings.custom_class
   endif
   assign classes = classes | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
+  assign menu_items = section.blocks | where: 'type', 'menu_item'
 -%}
 <section class="{{ classes }}" data-section-id="{{ section.id }}" data-section-type="page-faqs">
   <div class="{{ container }}">
     <div class="m-row">
-      {% if section.settings.menu != blank %}
+      {% if section.settings.menu != blank or menu_items.size > 0 %}
         <div class="m-faqs-section__menu lg:m:w-3/12{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
           <ul class="m-link-lists--border">
-            {%- for link in linklists[section.settings.menu].links -%}
-            <li class="m-link-lists--item"><a class="m-link{% if link.active %} active{% endif %}" href="{{ link.url }}">{{ link.title }}</a></li>
-            {%- endfor -%}
+            {% if menu_items.size > 0 %}
+              {%- for block in menu_items -%}
+                <li class="m-link-lists--item">
+                  <a class="m-link" href="#{{ block.settings.anchor | escape }}">
+                    {%- case block.settings.icon -%}
+                      {%- when 'credit-card' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                      {%- when 'truck' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16,8 20,8 23,11 23,16 16,16"/><circle cx="5.5" cy="18.5" r="1.75"/><circle cx="18.5" cy="18.5" r="1.75"/><line x1="1" y1="16" x2="16" y2="16"/></svg>
+                      {%- when 'returns' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.708"/><polyline points="3 3 3 9 9 9"/></svg>
+                      {%- when 'diamond' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 19 9 12 22 5 9 12 2"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+                      {%- when 'users' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      {%- when 'mail' -%}
+                        <svg class="m-svg-icon--medium-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
+                    {%- endcase -%}
+                    <span style="margin-left:8px">{{ block.settings.title }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            {% elsif section.settings.menu != blank %}
+              {%- for link in linklists[section.settings.menu].links -%}
+                <li class="m-link-lists--item"><a class="m-link{% if link.active %} active{% endif %}" href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            {% endif %}
           </ul>
         </div>
       {% endif %}
-      <div class="m-faqs-section__content{% if section.settings.menu != blank %} lg:m:w-9/12{% else %} m:w-full{% endif %}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+      <div class="m-faqs-section__content{% if section.settings.menu != blank or menu_items.size > 0 %} lg:m:w-9/12{% else %} m:w-full{% endif %}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
         {% for block in section.blocks %}
           <div class="m-faqs-section__block m-faqs-section__block-{{ block.type }}">
             {% case block.type %}
@@ -35,7 +60,7 @@
                 {% if block.settings.content != blank %}
                   {{ block.settings.content }}
                 {% endif %}
-              {% else %}
+              {% when 'accordion' %}
                 {% if block.settings.title != blank and block.settings.content != blank %}
                   <collapsible-tab
                     class="m-collapsible no-js-hidden"
@@ -57,6 +82,10 @@
                     </div>
                   </collapsible-tab>
                 {% endif %}
+              {% when 'menu_item' %}
+                {# Intentionally not rendered in content area #}
+              {% else %}
+                {# Unknown block type - no render #}
             {% endcase %}
           </div>
         {% endfor %}
@@ -123,6 +152,22 @@
     }
   ],
   "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Left menu item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Shipping & Delivery" },
+        { "type": "text", "id": "anchor", "label": "Anchor ID (without #)", "default": "shipping-delivery" },
+        { "type": "select", "id": "icon", "label": "Icon", "default": "truck", "options": [
+          {"value":"credit-card","label":"Credit card"},
+          {"value":"truck","label":"Truck"},
+          {"value":"returns","label":"Returns"},
+          {"value":"diamond","label":"Craftsmanship"},
+          {"value":"users","label":"Community"},
+          {"value":"mail","label":"Mail"}
+        ] }
+      ]
+    },
     {
       "type": "content",
       "name": "Custom content",

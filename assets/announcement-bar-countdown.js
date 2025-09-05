@@ -34,7 +34,7 @@ if (!customElements.get("m-announcement-countdown")) {
     }
 
     updateCountdown() {
-      const now = new Date().getTime();
+      const now = Date.now();
       const timeLeft = this.targetTime - now;
 
       if (timeLeft <= 0) {
