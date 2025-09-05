@@ -363,7 +363,8 @@
       "settings": {
         "container": "container",
         "color_scheme": "",
-        "menu": "",
+        "heading_transform": "uppercase",
+        "menu": "footer",
         "custom_class": ""
       }
     }
