@@ -19,11 +19,26 @@
 <section id="faqs--{{ section.id }}" class="{{ classes }}" data-section-id="{{ section.id }}" data-section-type="page-faqs">
   <style>
     #faqs--{{ section.id }} .m-faqs-section__menu {position: sticky; top: 100px; align-self: start;}
-    #faqs--{{ section.id }} .m-faqs-section__menu .m-link {display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; transition: background-color .2s ease, opacity .2s ease;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link {position: relative; display: flex; align-items: center; gap: 10px; padding: 12px 12px; border-radius: 8px; transition: background-color .2s ease, opacity .2s ease;}
     #faqs--{{ section.id }} .m-faqs-section__menu .m-link:hover {background: rgba(var(--color-foreground), .06); opacity: 1;}
     #faqs--{{ section.id }} .m-faqs-section__menu .m-link[aria-current="true"] {background: rgba(var(--color-foreground), .1); opacity: 1;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link::before {content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: rgba(0,0,0,.65); opacity: 0; transition: opacity .2s ease;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link[aria-current="true"]::before {opacity: .8;}
+    #faqs--{{ section.id }} .m-faqs-section__menu .m-link-lists--item + .m-link-lists--item {border-top: 1px solid rgba(0,0,0,.06);} /* subtle divider */
     #faqs--{{ section.id }} .m-faqs-section__menu svg {width: 18px; height: 18px; min-width: 18px; color: currentColor;}
     #faqs--{{ section.id }} .m-faqs-section__content [id] {scroll-margin-top: 110px;}
+    /* Accordion icon toggle (+ / -) */
+    #faqs--{{ section.id }} .m-collapsible--icon .icon-minus {display: none;}
+    #faqs--{{ section.id }} collapsible-tab[open] .m-collapsible--icon .icon-plus {display: none;}
+    #faqs--{{ section.id }} collapsible-tab[open] .m-collapsible--icon .icon-minus {display: inline;}
+    /* Section headings customisations */
+    {% if section.settings.heading_transform == 'uppercase' %}
+    #faqs--{{ section.id }} .m-faqs-section__content h2[id] {text-transform: uppercase; letter-spacing: .02em;}
+    {% endif %}
+    /* Thin black line on section in view */
+    #faqs--{{ section.id }} .m-faqs-section__content h2[id] {position: relative; padding-left: 12px;}
+    #faqs--{{ section.id }} .m-faqs-section__content h2[id]::before {content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 1px; background: rgba(0,0,0,0); transition: background-color .2s ease;}
+    #faqs--{{ section.id }} .m-faqs-section__content h2[id].is-inview::before {background: rgba(0,0,0,.85);}    
   </style>
   <div class="{{ container }}">
     <div class="m-row">
@@ -77,10 +92,9 @@
                   >
                     <h3 class="m-collapsible--button" data-trigger>
                       <span>{{ block.settings.title }}</span>
-                      <span class="m-collapsible--icon">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M13.5306 6.53073L8.5306 11.5307C8.46092 11.6007 8.37813 11.6561 8.28696 11.694C8.1958 11.7318 8.09806 11.7513 7.99935 11.7513C7.90064 11.7513 7.8029 11.7318 7.71173 11.694C7.62057 11.6561 7.53778 11.6007 7.4681 11.5307L2.4681 6.53073C2.3272 6.38984 2.24805 6.19874 2.24805 5.99948C2.24805 5.80023 2.3272 5.60913 2.4681 5.46823C2.60899 5.32734 2.80009 5.24818 2.99935 5.24818C3.19861 5.24818 3.3897 5.32734 3.5306 5.46823L7.99997 9.93761L12.4693 5.46761C12.6102 5.32671 12.8013 5.24756 13.0006 5.24756C13.1999 5.24756 13.391 5.32671 13.5318 5.46761C13.6727 5.60851 13.7519 5.7996 13.7519 5.99886C13.7519 6.19812 13.6727 6.38921 13.5318 6.53011L13.5306 6.53073Z" fill="currentColor"/>
-                        </svg>
+                      <span class="m-collapsible--icon" aria-hidden="true">
+                        <svg class="icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        <svg class="icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
                       </span>
                     </h3>
                     <div class="m-collapsible--content" data-content hidden>
@@ -126,12 +140,15 @@
       });
       const io = ('IntersectionObserver' in window) ? new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target.id) {
-            const hash = '#' + entry.target.id;
-            setActive(hash);
+          if (entry.target && entry.target.id) {
+            entry.target.classList.toggle('is-inview', entry.isIntersecting);
+            if (entry.isIntersecting) {
+              const hash = '#' + entry.target.id;
+              setActive(hash);
+            }
           }
         });
-      }, { rootMargin: '-120px 0px -70% 0px', threshold: 0.1 }) : null;
+      }, { rootMargin: '-120px 0px -70% 0px', threshold: 0.3 }) : null;
       if (io) {
         root.querySelectorAll('.m-faqs-section__content [id]').forEach(el => io.observe(el));
       }
@@ -177,6 +194,20 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Headings"
+    },
+    {
+      "type": "select",
+      "id": "heading_transform",
+      "label": "Section heading transform",
+      "default": "uppercase",
+      "options": [
+        {"value":"inherit","label":"Inherit"},
+        {"value":"uppercase","label":"Uppercase"}
+      ]
     },
     {
       "type": "header",
