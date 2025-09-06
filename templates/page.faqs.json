@@ -319,12 +319,12 @@
             "content": "<h2 id=\"contact\" class=\"h4 mt-8 mb-4\">Contact</h2>"
           }
         },
-        "contact_cta": {
-          "type": "faqs_cta",
+        "acc_contact": {
+          "type": "accordion",
           "settings": {
-            "title": "Got any questions?",
-            "label": "Contact us",
-            "link": "/pages/contact"
+            "title": "How can I reach Luxewoman?",
+            "content": "<p>Our team is here to assist. Email <a href=\"mailto:support@luxewoman.com\">support@luxewoman.com<\/a> and we’ll respond with care.<\/p>",
+            "open": false
           }
         }
       },
@@ -364,7 +364,7 @@
         "acc_luxe_icons",
         "acc_luxe_collective",
         "content_contact",
-        "contact_cta"
+        "acc_contact"
       ],
       "settings": {
         "container": "container",
