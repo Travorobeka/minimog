@@ -37,7 +37,7 @@
         "gap_mobile": 16,
         "use_scroll_mobile": false,
         "padding_top": 30,
-        "padding_bottom": 30,
+        "padding_bottom": 100,
         "enable_preload_image": true,
         "custom_class": ""
       }
