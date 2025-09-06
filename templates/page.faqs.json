@@ -320,9 +320,11 @@
           }
         },
         "contact_cta": {
-          "type": "content",
+          "type": "faqs_cta",
           "settings": {
-            "content": "<div class=\"mb-6\"><p class=\"mb-2\">Got any questions?<\/p><a href=\"{{ routes.contact_url }}\" class=\"m-button m-button--link\">Contact us<\/a><\/div>"
+            "title": "Got any questions?",
+            "label": "Contact us",
+            "link": "/pages/contact"
           }
         }
       },

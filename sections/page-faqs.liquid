@@ -126,6 +126,15 @@
                 {% endif %}
               {% when 'menu_item' %}
                 {% comment %} Intentionally not rendered in content area {% endcomment %}
+              {% when 'faqs_cta' %}
+                <div class="m-faqs-cta">
+                  {% if block.settings.title != blank %}
+                    <p class="mb-2">{{ block.settings.title }}</p>
+                  {% endif %}
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="m-button m-button--link">{{ block.settings.label | default: 'Contact us' }}</a>
+                  {% endif %}
+                </div>
               {% else %}
                 {# Unknown block type - no render #}
             {% endcase %}
@@ -264,6 +273,15 @@
           {"value":"users","label":"Community"},
           {"value":"mail","label":"Mail"}
         ] }
+      ]
+    },
+    {
+      "type": "faqs_cta",
+      "name": "Contact CTA",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Got any questions?" },
+        { "type": "text", "id": "label", "label": "Button label", "default": "Contact us" },
+        { "type": "url", "id": "link", "label": "Link" }
       ]
     },
     {
