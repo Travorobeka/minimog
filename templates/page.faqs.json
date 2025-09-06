@@ -319,14 +319,10 @@
             "content": "<h2 id=\"contact\" class=\"h4 mt-8 mb-4\">Contact</h2>"
           }
         },
-        "contact_form_block": {
-          "type": "faqs_contact_form",
+        "contact_cta": {
+          "type": "content",
           "settings": {
-            "title": "Got any questions?",
-            "description": "<p>We’re here to help. Share your query and our team will respond with care.</p>",
-            "show_name": true,
-            "show_phone": false,
-            "show_signup_email": true
+            "content": "<div class=\"mb-6\"><p class=\"mb-2\">Got any questions?<\/p><a href=\"{{ routes.contact_url }}\" class=\"m-button m-button--link\">Contact us<\/a><\/div>"
           }
         }
       },
@@ -366,7 +362,7 @@
         "acc_luxe_icons",
         "acc_luxe_collective",
         "content_contact",
-        "contact_form_block"
+        "contact_cta"
       ],
       "settings": {
         "container": "container",
