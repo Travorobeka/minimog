@@ -320,7 +320,7 @@
           }
         },
         "contact_form_block": {
-          "type": "contact_form",
+          "type": "faqs_contact_form",
           "settings": {
             "title": "Got any questions?",
             "description": "<p>We’re here to help. Share your query and our team will respond with care.</p>",

@@ -126,7 +126,7 @@
                 {% endif %}
               {% when 'menu_item' %}
                 {% comment %} Intentionally not rendered in content area {% endcomment %}
-              {% when 'contact_form' %}
+              {% when 'faqs_contact_form' %}
                 <div class="m-contact-form__inline">
                   {% if block.settings.title != blank %}
                     <h3 class="m-contact-form__heading">{{ block.settings.title }}</h3>
@@ -313,7 +313,7 @@
       ]
     },
     {
-      "type": "contact_form",
+      "type": "faqs_contact_form",
       "name": "Contact form",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Got any questions?" },
