@@ -9,17 +9,6 @@
  */
 {
   "sections": {
-    "breadcrumb": {
-      "type": "breadcrumb",
-      "disabled": true,
-      "settings": {
-        "container": "container",
-        "text_alignment": "center",
-        "hide_current": false,
-        "hide_on_mb": false,
-        "animations": "inherit"
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -47,7 +36,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_quantity_selector": true,
+            "show_quantity_selector": false,
             "show_atc_button": true,
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
@@ -56,9 +45,9 @@
         "addons": {
           "type": "addons",
           "settings": {
-            "show_atcp": true,
-            "show_ask_a_question": true,
-            "show_social": true
+            "show_atcp": false,
+            "show_ask_a_question": false,
+            "show_social": false
           }
         },
         "shipping_VBJFtx": {
@@ -69,11 +58,12 @@
             "deliver_days": "7",
             "date_format": "%b %d",
             "show_shipping_text": true,
-            "shipping_text": "<p><strong>Free Shipping & Returns: </strong>On all orders over $75</p>"
+            "shipping_text": "<p><strong>Free 7 days return on all orders</strong></p>"
           }
         },
         "trust_badge_NyBMd4": {
           "type": "trust_badge",
+          "disabled": true,
           "settings": {
             "trust_badges_text": "<p>Guarantee safe & secure checkout</p>",
             "trust_badges_image_width": "60%",
@@ -93,13 +83,13 @@
       ],
       "settings": {
         "container": "container",
-        "layout": "layout-4",
-        "show_atwl": true,
+        "layout": "layout-3",
+        "show_atwl": false,
         "enable_history_state": true,
         "enable_variant_group_images": false,
         "disable_selected_variant_default": false,
         "show_featured_media": true,
-        "show_zoom_button": true,
+        "show_zoom_button": false,
         "enable_video_autoplay": true,
         "show_nav_media_mobile": false,
         "show_pagination_mobile": true,
@@ -426,7 +416,6 @@
     }
   },
   "order": [
-    "breadcrumb",
     "main",
     "product-details-tabs",
     "scrolling_promotion_MVNN6Q",
