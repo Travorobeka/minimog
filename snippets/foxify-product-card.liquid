@@ -142,6 +142,10 @@
   else
     assign quick_add_class = prefix_class | append: 'gs-primary-button'
   endif
+
+  # Color swatch
+  assign colorSwatch = shop.metafields.foxify['product-options-swatches'].value
+  assign colorSwatchTrigger = colorSwatch.color_swatch_trigger
 %}
 {% capture cart_icon %}
   <svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' focusable='false' role='presentation' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='{{ prefix_class }}icon-svg {{ prefix_class }}icon-shopping-cart'><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -398,84 +402,6 @@
       {% endunless %}
       {% if cardStyle == '3' %}<div class='{{ prefix_class }}product-card__expand'></div>{% endif %}
     </div>
-    {% if show_product_option %}
-      <div class='{{ prefix_class }}product-card__options {{ prefix_class }}relative'>
-        {%- if settings.pcard_show_color_swatch -%}
-          {% liquid
-            assign color_swatches_trigger = settings.color_swatches_trigger | downcase
-            assign options_with_values = product.options_with_values
-            assign color_option = ''
-            assign limit_values = 4
-            assign rest_values = 0
-
-            for option in options_with_values
-              assign option_name = option.name | downcase
-              if color_swatches_trigger contains option_name
-                assign color_option = option
-                break
-              endif
-            endfor
-          %}
-
-          {% if color_option != blank %}
-            <color-swatch class='{{ prefix_class }}product-card__swatch {{ prefix_class }}color-swatch' tabIn>
-              {%- liquid
-                if color_option.values.size > limit_values
-                  assign rest_values = color_option.values.size | minus: limit_values
-                endif
-              -%}
-              {% for value in color_option.values %}
-                {% liquid
-                  if forloop.index > limit_values
-                    break
-                  endif
-                  assign selected = false
-                  if product.selected_variant != blank and color_option.selected_value == value
-                    assign selected = true
-                  endif
-                  assign img_file_name = value | handle | append: '.png'
-                  assign image_url = img_file_name | file_img_url: '60x60' | prepend: 'https:' | split: '?' | first
-                  assign value_fallback = value | split: ' ' | last | handle
-                %}
-                <a
-                  class='{{ prefix_class }}color-swatch__item focus-inset {{ prefix_class }}tooltip-activator'
-                  data-option-position='{{ color_option.position }}'
-                  data-option-type='color'
-                  data-value='{{- value | escape -}}'
-                  data-fallback-value='{{- value_fallback | downcase -}}'
-                  aria-label='{{- value -}}'
-                  role='button'
-                  tabindex='-1'
-                  href='{{ product.url }}'
-                  {% if selected %}
-                    aria-selected='true'
-                  {% endif %}
-                  {% if images[img_file_name] != blank %}
-                    data-option-image='{{ image_url }}'
-                  {% endif %}
-                >
-                  <span class='{{ prefix_class }}visually-hidden'>{{- value -}}</span>
-                  <span class='{{ prefix_class }}tooltip'>{{- value -}}</span>
-                </a>
-              {% endfor %}
-              {% if rest_values > 0 %}
-                <a
-                  class='{{ prefix_class }}color-swatch__item {{ prefix_class }}tooltip-activator {{ prefix_class }}focus-inset {{ button_class }} {{ button_class }}--plain {{ button_class }}-rest'
-                  href='{{ product.url }}'
-                  tabindex='-1'
-                >
-                  <span>+{{ rest_values }}</span>
-                  <span class='{{ prefix_class }}tooltip'>{{ translation.products.product.view_more_options }}</span>
-                </a>
-              {% endif %}
-            </color-swatch>
-            <script type='application/json'>
-              {{ product.variants | json }}
-            </script>
-          {% endif %}
-        {%- endif -%}
-      </div>
-    {% endif %}
   </div>
 {% else %}
   <div class='{{ prefix_class }}product-card {{ prefix_class }}product-card--align-{{ textAlign }}'>
