@@ -34,6 +34,8 @@
   if product.selected_or_first_available_variant.available == false or quantity_rule_soldout or product.selected_or_first_available_variant == null
     assign variant_available = false
   endif
+
+  assign rating_chip_markup = ''
 %}
 {% comment %} Fallback for case not show block price, buy buttons {% endcomment %}
 <input type="hidden" name="id" value="{{ variant_id }}" data-selected-variant="{{ selected_variant_id }}" disabled>
@@ -94,14 +96,19 @@
           <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
         {% endif %}
       {%- when 'price' -%}
-        <div class="product-block-group--price" id="Price-{{ section.id }}" role="status">
-          {% render 'product-prices',
-            use_variant: true,
-            product: product,
-            show_sale_badge: block.settings.show_saving,
-            price_text_size: 'm:text-xl md:m:text-2xl',
-            sale_badge_type: block.settings.sale_badge_type
-          %}
+        <div class="product-block-group product-block-group--pricing">
+          <div class="product-block-group--price" id="Price-{{ section.id }}" role="status">
+            {% render 'product-prices',
+              use_variant: true,
+              product: product,
+              show_sale_badge: block.settings.show_saving,
+              price_text_size: 'm:text-xl md:m:text-2xl',
+              sale_badge_type: block.settings.sale_badge_type
+            %}
+          </div>
+          {% if rating_chip_markup != blank %}
+            {{ rating_chip_markup }}
+          {% endif %}
         </div>
         {%- if shop.taxes_included -%}
           <div class="m-product-tax">
@@ -160,36 +167,39 @@
           assign reviews_anchor_href = '#' | append: reviews_anchor_id
         %}
         {% if has_rating_badge %}
-          {% capture review_badge_markup %}
-            {% render 'product-reviews-app__badge', product: product %}
-          {% endcapture %}
-          <div class="product-block-group product-block-group--rating" data-review-summary>
-            <a
-              class="m-product-rating__chip"
-              href="{{ reviews_anchor_href }}"
-              data-review-scroll
-              aria-label="{{ 'products.product.product_reviews_heading' | t }}"
-            >
-              <span class="m-product-rating__icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 16 16" role="presentation" focusable="false">
-                  <path
-                    d="M8 1.333l1.49 3.74 4.076.314c.322.025.455.439.208.655l-3.116 2.69.937 3.964c.074.313-.266.564-.54.394L8 10.969l-3.055 2.131c-.275.192-.615-.081-.54-.394l.937-3.964-3.116-2.69c-.247-.216-.114-.63.208-.655l4.076-.314L8 1.333z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              {{ review_badge_markup | strip }}
-              {% if show_numeric_summary %}
-                {% assign rounded_rating = rating_value_float | round: 1 %}
-                <span class="m-product-rating__summary" aria-hidden="true">
-                  <span class="m-product-rating__value">{{ rounded_rating }}</span>
-                  <span class="m-product-rating__separator">/</span>
-                  <span class="m-product-rating__max">5</span>
-                  <span class="m-product-rating__count">&bull; {{ rating_count }}</span>
+          {% capture rating_chip %}
+            {% capture review_badge_markup %}
+              {% render 'product-reviews-app__badge', product: product %}
+            {% endcapture %}
+            <div class="product-block-group product-block-group--rating" data-rating-chip>
+              <a
+                class="m-product-rating__chip"
+                href="{{ reviews_anchor_href }}"
+                data-review-scroll
+                aria-label="{{ 'products.product.product_reviews_heading' | t }}"
+              >
+                <span class="m-product-rating__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" role="presentation" focusable="false">
+                    <path
+                      d="M8 1.333l1.49 3.74 4.076.314c.322.025.455.439.208.655l-3.116 2.69.937 3.964c.074.313-.266.564-.54.394L8 10.969l-3.055 2.131c-.275.192-.615-.081-.54-.394l.937-3.964-3.116-2.69c-.247-.216-.114-.63.208-.655l4.076-.314L8 1.333z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </span>
-              {% endif %}
-            </a>
-          </div>
+                {{ review_badge_markup | strip }}
+                {% if show_numeric_summary %}
+                  {% assign rounded_rating = rating_value_float | round: 1 %}
+                  <span class="m-product-rating__summary" aria-hidden="true">
+                    <span class="m-product-rating__value">{{ rounded_rating }}</span>
+                    <span class="m-product-rating__separator">/</span>
+                    <span class="m-product-rating__max">5</span>
+                    <span class="m-product-rating__count">&bull; {{ rating_count }}</span>
+                  </span>
+                {% endif %}
+              </a>
+            </div>
+          {% endcapture %}
+          {% assign rating_chip_markup = rating_chip %}
         {% endif %}
       {%- when 'meta' -%}
         <ul class="m-product-meta">
