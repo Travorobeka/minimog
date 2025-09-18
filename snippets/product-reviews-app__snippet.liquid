@@ -6,8 +6,15 @@
   endif
 
   assign review_app = settings.review_app
+  assign reviews_anchor_id = 'ProductReviews'
+  if section
+    assign reviews_anchor_id = reviews_anchor_id | append: '-' | append: section.id
+  endif
 %}
-<div class="m-product-reviews__wrapper{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+<div
+  id="{{ reviews_anchor_id }}"
+  class="m-product-reviews__wrapper{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}"
+>
   {% if custom_liquid != blank %}
     {{ custom_liquid }}
   {% else %}

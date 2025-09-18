@@ -152,19 +152,43 @@
           if rating_value != '' or rating_count > 0
             assign has_rating_badge = true
           endif
+
+          assign reviews_anchor_id = 'ProductReviews'
+          if section
+            assign reviews_anchor_id = reviews_anchor_id | append: '-' | append: section.id
+          endif
+          assign reviews_anchor_href = '#' | append: reviews_anchor_id
         %}
         {% if has_rating_badge %}
-          <div class="product-block-group product-block-group--rating m:display-flex m:items-center m:gap-2" data-review-summary>
+          {% capture review_badge_markup %}
             {% render 'product-reviews-app__badge', product: product %}
-            {% if show_numeric_summary %}
-              {% assign rounded_rating = rating_value_float | round: 1 %}
-              <div class="m-product-rating__summary" aria-label="{{ rounded_rating }}/5 {{ 'products.product.product_reviews_heading' | t }}">
-                <span class="m-product-rating__value">{{ rounded_rating }}</span>
-                <span class="m-product-rating__separator">/</span>
-                <span class="m-product-rating__max">5</span>
-                <span class="m-product-rating__count">· {{ rating_count }}</span>
-              </div>
-            {% endif %}
+          {% endcapture %}
+          <div class="product-block-group product-block-group--rating" data-review-summary>
+            <a
+              class="m-product-rating__chip"
+              href="{{ reviews_anchor_href }}"
+              data-review-scroll
+              aria-label="{{ 'products.product.product_reviews_heading' | t }}"
+            >
+              <span class="m-product-rating__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" role="presentation" focusable="false">
+                  <path
+                    d="M8 1.333l1.49 3.74 4.076.314c.322.025.455.439.208.655l-3.116 2.69.937 3.964c.074.313-.266.564-.54.394L8 10.969l-3.055 2.131c-.275.192-.615-.081-.54-.394l.937-3.964-3.116-2.69c-.247-.216-.114-.63.208-.655l4.076-.314L8 1.333z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              {{ review_badge_markup | strip }}
+              {% if show_numeric_summary %}
+                {% assign rounded_rating = rating_value_float | round: 1 %}
+                <span class="m-product-rating__summary" aria-hidden="true">
+                  <span class="m-product-rating__value">{{ rounded_rating }}</span>
+                  <span class="m-product-rating__separator">/</span>
+                  <span class="m-product-rating__max">5</span>
+                  <span class="m-product-rating__count">&bull; {{ rating_count }}</span>
+                </span>
+              {% endif %}
+            </a>
           </div>
         {% endif %}
       {%- when 'meta' -%}
