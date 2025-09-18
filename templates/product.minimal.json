@@ -1,0 +1,220 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": false,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "short_description": {
+          "type": "short_description",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Size"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "short_description",
+        "variant_picker",
+        "buy_buttons"
+      ],
+      "custom_css": [
+        ".m-main-product--wrapper {padding: 56px 0 96px;}",
+        "@media (max-width: 767px) {.m-main-product--wrapper {padding: 28px 0 60px; }}",
+        ".m-product-wishlist {display: none !important;}"
+      ],
+      "settings": {
+        "container": "container",
+        "layout": "layout-3",
+        "show_atwl": false,
+        "enable_history_state": true,
+        "enable_variant_group_images": false,
+        "disable_selected_variant_default": false,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": false,
+        "show_nav_media_mobile": false,
+        "show_pagination_mobile": true,
+        "use_sticky_atc": false,
+        "use_sticky_atc_on_mobile": false,
+        "enable_dynamic_checkout": false,
+        "sticky_atc_wishtlist": false,
+        "sticky_atc_compare": false
+      }
+    },
+    "product_community_cta_RPGryt": {
+      "type": "product-community-cta",
+      "name": "Community invitation",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "eyebrow": "Luxe Circle",
+        "heading": "Join the circle shaping tomorrow’s icons",
+        "body": "<p>Receive private previews, atelier talks, and first access to limited capsules crafted for our community.</p>",
+        "button_label": "Become a member",
+        "button_link": "",
+        "button_size": "m-button--large",
+        "animations": "inherit",
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "favorite_product_slider_TVUXgN": {
+      "type": "favorite-product-slider",
+      "name": "Favorite product slider",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "featured_product": "",
+        "heading": "Example product title",
+        "subheading": "",
+        "description": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.",
+        "header_alignment": "center",
+        "text_color": "inherit",
+        "button_label": "Shop now",
+        "button_link": "",
+        "button_style": "m-button--secondary",
+        "button_size": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "banner_with_slider_QUTcTG": {
+      "type": "banner-with-slider",
+      "blocks": {
+        "item_slide_caxC8V": {
+          "type": "item_slide",
+          "settings": {
+            "color_scheme": "",
+            "content_text_color": "black",
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "subheading": "Hot this week",
+            "heading": "Chenille sweater with<br> raglan sleeves",
+            "description": "",
+            "text_size": "h2",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "item_slide_EWfVQC": {
+          "type": "item_slide",
+          "settings": {
+            "color_scheme": "",
+            "content_text_color": "black",
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "subheading": "Hot this week",
+            "heading": "Chenille sweater with<br> raglan sleeves",
+            "description": "",
+            "text_size": "h2",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "item_slide_LeFEim": {
+          "type": "item_slide",
+          "settings": {
+            "color_scheme": "",
+            "content_text_color": "black",
+            "content_position": "left middle",
+            "text_alignment": "left",
+            "subheading": "Hot this week",
+            "heading": "Chenille sweater with<br> raglan sleeves",
+            "description": "",
+            "text_size": "h2",
+            "button_text": "Shop Now",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_slide_caxC8V",
+        "item_slide_EWfVQC",
+        "item_slide_LeFEim"
+      ],
+      "name": "Image with slider 1",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "layout": "layout-1",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "slide_autoplay": false,
+        "pagination_position": "left",
+        "autorotate_speed": 5,
+        "columns_mobile": "2",
+        "use_scroll_mobile": true,
+        "button_text_1": "Shop Now",
+        "button_link_1": "",
+        "button_style_1": "m-button--white",
+        "button_size_1": "",
+        "button_text_2": "Shop Now",
+        "button_link_2": "",
+        "button_style_2": "m-button--white",
+        "button_size_2": "",
+        "button_text_3": "Shop Now",
+        "button_link_3": "",
+        "button_style_3": "m-button--white",
+        "button_size_3": "",
+        "button_text_4": "Shop Now",
+        "button_link_4": "",
+        "button_style_4": "m-button--white",
+        "button_size_4": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_community_cta_RPGryt",
+    "favorite_product_slider_TVUXgN",
+    "banner_with_slider_QUTcTG"
+  ]
+}

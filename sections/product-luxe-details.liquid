@@ -1,0 +1,309 @@
+{% liquid
+  assign container = section.settings.container
+  if container == 'w-full'
+    assign container = 'container-full'
+  endif
+
+  assign detail_blocks = section.blocks | where: 'type', 'detail'
+  assign size_rows = section.blocks | where: 'type', 'size_row'
+  assign column_labels = section.settings.size_column_one | append: '|' | append: section.settings.size_column_two | append: '|' | append: section.settings.size_column_three | append: '|' | append: section.settings.size_column_four
+  assign column_labels = column_labels | split: '|'
+%}
+
+<style>
+  #luxe-details-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  #luxe-details-{{ section.id }} .luxe-details__inner {
+    display: grid;
+    gap: 48px;
+  }
+  @media (min-width: 992px) {
+    #luxe-details-{{ section.id }} .luxe-details__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px;
+    }
+  }
+  #luxe-details-{{ section.id }} .luxe-details__intro {
+    max-width: 32rem;
+  }
+  #luxe-details-{{ section.id }} .luxe-details__list dt {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-secondary));
+    margin-bottom: 0.35rem;
+  }
+  #luxe-details-{{ section.id }} .luxe-details__list dd {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 1.75rem;
+  }
+  #luxe-details-{{ section.id }} .luxe-details__table-wrapper {
+    overflow-x: auto;
+  }
+  #luxe-details-{{ section.id }} table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  #luxe-details-{{ section.id }} thead {
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
+  }
+  #luxe-details-{{ section.id }} th,
+  #luxe-details-{{ section.id }} td {
+    padding: 0.75rem 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.05);
+  }
+  #luxe-details-{{ section.id }} th {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-secondary));
+  }
+  #luxe-details-{{ section.id }} td {
+    white-space: nowrap;
+  }
+  #luxe-details-{{ section.id }} .luxe-details__note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgb(var(--color-foreground-secondary));
+  }
+</style>
+
+<section
+  id="luxe-details-{{ section.id }}"
+  class="m-section luxe-details m-gradient m-color-{{ section.settings.color_scheme }} {{ section.settings.custom_class }}"
+  data-section-type="product-luxe-details"
+  data-section-id="{{ section.id }}"
+>
+  <div class="{{ container }} m-section-my m-section-py">
+    <div class="luxe-details__inner">
+      <div>
+        {% if section.settings.heading != blank %}
+          <p class="h6" style="letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;">{{ section.settings.heading }}</p>
+        {% endif %}
+        {% if section.settings.intro != blank %}
+          <div class="luxe-details__intro rte">{{ section.settings.intro }}</div>
+        {% endif %}
+        {% if detail_blocks.size > 0 %}
+          <dl class="luxe-details__list">
+            {% for block in detail_blocks %}
+              <div {{ block.shopify_attributes }}>
+                {% if block.settings.title != blank %}
+                  <dt>{{ block.settings.title }}</dt>
+                {% endif %}
+                {% if block.settings.copy != blank %}
+                  <dd>{{ block.settings.copy }}</dd>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </dl>
+        {% endif %}
+      </div>
+      <div>
+        {% if section.settings.size_heading != blank %}
+          <h3 class="h5" style="margin-bottom:1.25rem;">{{ section.settings.size_heading }}</h3>
+        {% endif %}
+        {% assign joined_labels = column_labels | join: '' %}
+        {% if size_rows.size > 0 and joined_labels != '' %}
+          <div class="luxe-details__table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  {% for label in column_labels %}
+                    {% unless label == blank %}
+                      <th scope="col">{{ label }}</th>
+                    {% endunless %}
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in size_rows %}
+                  <tr {{ row.shopify_attributes }}>
+                    {% assign idx = 0 %}
+                    {% for label in column_labels %}
+                      {% unless label == blank %}
+                        {% assign idx = idx | plus: 1 %}
+                        {% assign value_key = 'column_' | append: idx %}
+                        <td>{{ row.settings[value_key] }}</td>
+                      {% endunless %}
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+        {% if section.settings.size_note != blank %}
+          <p class="luxe-details__note">{{ section.settings.size_note }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Key details & sizing",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container type",
+      "default": "container",
+      "options": [
+        { "value": "container", "label": "Fixed width" },
+        { "value": "container-fluid", "label": "Stretched width" },
+        { "value": "w-full", "label": "Full width" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Eyebrow heading",
+      "default": "The investment details"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introductory copy",
+      "default": "<p>Crafted in limited runs with responsibly sourced materials. Designed to layer seamlessly season after season.</p>"
+    },
+    {
+      "type": "text",
+      "id": "size_heading",
+      "label": "Size table heading",
+      "default": "Size & Fit"
+    },
+    {
+      "type": "text",
+      "id": "size_column_one",
+      "label": "Column 1 label",
+      "default": "Size"
+    },
+    {
+      "type": "text",
+      "id": "size_column_two",
+      "label": "Column 2 label",
+      "default": "Bust"
+    },
+    {
+      "type": "text",
+      "id": "size_column_three",
+      "label": "Column 3 label",
+      "default": "Waist"
+    },
+    {
+      "type": "text",
+      "id": "size_column_four",
+      "label": "Column 4 label",
+      "default": "Hip"
+    },
+    {
+      "type": "richtext",
+      "id": "size_note",
+      "label": "Size table note",
+      "default": "<p>Measurements in centimetres. Model is 178cm and wears a size 36.</p>"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "detail",
+      "name": "Key detail",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Tailored for movement"
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Description",
+          "default": "<p>Structured shoulder, fluid body — balances sharp lines with comfort for all-day wear.</p>"
+        }
+      ]
+    },
+    {
+      "type": "size_row",
+      "name": "Size table row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "column_1",
+          "label": "Column 1 value",
+          "default": "34"
+        },
+        {
+          "type": "text",
+          "id": "column_2",
+          "label": "Column 2 value",
+          "default": "84"
+        },
+        {
+          "type": "text",
+          "id": "column_3",
+          "label": "Column 3 value",
+          "default": "66"
+        },
+        {
+          "type": "text",
+          "id": "column_4",
+          "label": "Column 4 value",
+          "default": "92"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 40,
+  "presets": [
+    {
+      "name": "Key details & sizing",
+      "blocks": [
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "size_row" },
+        { "type": "size_row" },
+        { "type": "size_row" }
+      ]
+    }
+  ]
+}
+{% endschema %}

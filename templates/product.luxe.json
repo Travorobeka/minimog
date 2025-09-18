@@ -1,0 +1,445 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "container": "container",
+        "text_alignment": "left",
+        "hide_current": false,
+        "hide_on_mb": false,
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "container": "container",
+        "layout": "layout-3",
+        "show_atwl": false,
+        "enable_history_state": true,
+        "enable_variant_group_images": false,
+        "disable_selected_variant_default": false,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": false,
+        "show_nav_media_mobile": true,
+        "show_pagination_mobile": false,
+        "use_sticky_atc": true,
+        "use_sticky_atc_on_mobile": true,
+        "enable_dynamic_checkout": false,
+        "sticky_atc_wishtlist": false,
+        "sticky_atc_compare": false
+      },
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": false,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "short_description": {
+          "type": "short_description",
+          "settings": {}
+        },
+        "custom_text_comp": {
+          "type": "custom_text",
+          "settings": {
+            "content": "<p>Complimentary global shipping & returns. Duties included.</p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Size"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_text_support": {
+          "type": "custom_text",
+          "settings": {
+            "content": "<p>Need guidance? <a href=\"/pages/contact\">Speak with our concierge</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "short_description",
+        "custom_text_comp",
+        "variant_picker",
+        "buy_buttons",
+        "custom_text_support"
+      ]
+    },
+    "luxe_details": {
+      "type": "product-luxe-details",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "heading": "The investment details",
+        "intro": "<p>Considered tailoring with precision finishing. Designed to live in your wardrobe for decades.</p>",
+        "size_heading": "Size & Fit",
+        "size_column_one": "Size",
+        "size_column_two": "Bust",
+        "size_column_three": "Waist",
+        "size_column_four": "Hip",
+        "size_note": "<p>Measurements in centimetres. For bespoke tailoring, contact concierge.</p>",
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "detail_1": {
+          "type": "detail",
+          "settings": {
+            "title": "Fabric origin",
+            "copy": "<p>Woven in Biella, Italy from regenerative merino with natural stretch.</p>"
+          }
+        },
+        "detail_2": {
+          "type": "detail",
+          "settings": {
+            "title": "Lining",
+            "copy": "<p>Silk twill facing with hand-finished piping for seamless layering.</p>"
+          }
+        },
+        "detail_3": {
+          "type": "detail",
+          "settings": {
+            "title": "Closure",
+            "copy": "<p>Signature horn buttons cast in France, backed for longevity.</p>"
+          }
+        },
+        "size_row_1": {
+          "type": "size_row",
+          "settings": {
+            "column_1": "34",
+            "column_2": "82",
+            "column_3": "64",
+            "column_4": "90"
+          }
+        },
+        "size_row_2": {
+          "type": "size_row",
+          "settings": {
+            "column_1": "36",
+            "column_2": "86",
+            "column_3": "68",
+            "column_4": "94"
+          }
+        },
+        "size_row_3": {
+          "type": "size_row",
+          "settings": {
+            "column_1": "38",
+            "column_2": "90",
+            "column_3": "72",
+            "column_4": "98"
+          }
+        }
+      },
+      "block_order": [
+        "detail_1",
+        "detail_2",
+        "detail_3",
+        "size_row_1",
+        "size_row_2",
+        "size_row_3"
+      ]
+    },
+    "craftsmanship": {
+      "type": "product-craftsmanship",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "eyebrow": "Atelier standard",
+        "heading": "Hand-finished in 28 stages",
+        "body": "<p>Each piece passes through the hands of master tailors who press, stitch, and finish with archival techniques. Structural canvas and hand-set sleeves deliver the signature drape our clients return for.</p>",
+        "image": "",
+        "video_url": "",
+        "video_autoplay": false,
+        "video_poster": "",
+        "cta_label": "Explore the making",
+        "cta_link": "/pages/craft",
+        "custom_class": "",
+        "animations": "inherit",
+        "padding_top": 120,
+        "padding_bottom": 120
+      },
+      "blocks": {
+        "pillar_1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Limited runs",
+            "copy": "Edition of 120, numbered for authenticity with traceable supply chain documents." 
+          }
+        },
+        "pillar_2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Sustainably finished",
+            "copy": "Low-impact dyes and closed-loop water systems keep our environmental footprint light." 
+          }
+        },
+        "pillar_3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Signature interior",
+            "copy": "Silk-bound seams and hidden interior pockets honour timeless bespoke construction." 
+          }
+        }
+      },
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ]
+    },
+    "styling": {
+      "type": "product-styling-inspiration",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "heading": "Editorial styling",
+        "subheading": "Ways to wear from dawn to soirée.",
+        "description": "",
+        "header_alignment": "center",
+        "animations": "inherit",
+        "custom_class": "",
+        "padding_top": 60,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "look_a": {
+          "type": "look",
+          "settings": {
+            "image": "",
+            "eyebrow": "Desk to dinner",
+            "title": "Layer with the Celeste silk dress",
+            "copy": "Structured ease for strategy sessions that roll into evening openings.",
+            "button_label": "Shop the dress",
+            "button_link": "/products/celeste-silk-dress"
+          }
+        },
+        "look_b": {
+          "type": "look",
+          "settings": {
+            "image": "",
+            "eyebrow": "Weekend architecture",
+            "title": "Pair with sculpted denim",
+            "copy": "Contrast tailored precision with relaxed selvedge denim and the Aurelia knit.",
+            "button_label": "Shop the denim",
+            "button_link": "/collections/denim"
+          }
+        },
+        "look_c": {
+          "type": "look",
+          "settings": {
+            "image": "",
+            "eyebrow": "Evening glow",
+            "title": "Cinch with the Atelier belt",
+            "copy": "Define the waist and finish with luminous drop earrings for a quiet statement.",
+            "button_label": "Shop accessories",
+            "button_link": "/collections/accessories"
+          }
+        }
+      },
+      "block_order": [
+        "look_a",
+        "look_b",
+        "look_c"
+      ]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "heading": "Collector reflections",
+        "heading_size": "h3",
+        "subheading": "Reviews from women writing their own legacy.",
+        "description": "",
+        "header_alignment": "left",
+        "design": "testimonials-2",
+        "autorotate": false,
+        "show_navigation": false,
+        "show_pagination": false,
+        "star_color": "#ffffff00",
+        "custom_class": "testimonials--luxe",
+        "animations": "inherit",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "quote_1": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Sofia — Architect",
+            "description": "<p>“The coat moves with me. Clients notice the craftsmanship before I even speak.”</p>",
+            "footer": "<p>Paris</p>",
+            "image": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        },
+        "quote_2": {
+          "type": "testimonial",
+          "settings": {
+            "title": "Leila — Venture Partner",
+            "description": "<p>“Investment dressing in every sense — I’ve worn it from pitch days to private dinners.”</p>",
+            "footer": "<p>New York</p>",
+            "image": "",
+            "image_text": "",
+            "image_link": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "quote_1",
+        "quote_2"
+      ]
+    },
+    "ambassadors": {
+      "type": "product-ambassador-highlights",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "heading": "Luxe Icons",
+        "subheading": "Seen on women shaping culture.",
+        "description": "",
+        "header_alignment": "center",
+        "animations": "inherit",
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "ambassador_a": {
+          "type": "ambassador",
+          "settings": {
+            "image": "",
+            "name": "Maya Chen",
+            "role": "Founder, Studio Meridian",
+            "quote": "“I invest in pieces that speak quietly yet command presence — this coat does exactly that.”",
+            "link_label": "View Maya’s edit",
+            "link": "/collections/maya"
+          }
+        },
+        "ambassador_b": {
+          "type": "ambassador",
+          "settings": {
+            "image": "",
+            "name": "Isabelle Fournier",
+            "role": "Curator, Palais Moderne",
+            "quote": "“The tailoring rivals my vintage couture — with more ease.”",
+            "link_label": "View Isabelle’s edit",
+            "link": "/collections/isabelle"
+          }
+        },
+        "ambassador_c": {
+          "type": "ambassador",
+          "settings": {
+            "image": "",
+            "name": "Amara Patel",
+            "role": "CIO, Lucent Ventures",
+            "quote": "“It anchors my travel wardrobe; luxurious without feeling precious.”",
+            "link_label": "View Amara’s edit",
+            "link": "/collections/amara"
+          }
+        }
+      },
+      "block_order": [
+        "ambassador_a",
+        "ambassador_b",
+        "ambassador_c"
+      ]
+    },
+    "bundles": {
+      "type": "product-bundles",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "heading": "Complete the look",
+        "subheading": "Curated pairings from our stylists.",
+        "description": "",
+        "header_alignment": "left",
+        "layout": "1",
+        "image_position": "right",
+        "image": "",
+        "enable_preload_image": false,
+        "animations": "inherit",
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_reviews": false,
+        "image_ratio": "portrait"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "community": {
+      "type": "product-community-cta",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "eyebrow": "Luxe Circle",
+        "heading": "Join the circle shaping tomorrow’s icons",
+        "body": "<p>Receive atelier previews, private appointments, and access to limited capsules before they launch.</p>",
+        "button_label": "Become a member",
+        "button_link": "/pages/luxe-circle",
+        "button_size": "m-button--large",
+        "animations": "inherit",
+        "custom_class": "",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "remove_params": true,
+        "heading": "You may also love",
+        "heading_size": "h3",
+        "text_align": "center",
+        "limit": 4,
+        "columns": 4,
+        "column_gap": 24,
+        "enable_slider": false,
+        "use_scroll_mobile": true,
+        "padding_top": 80,
+        "padding_bottom": 120,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "luxe_details",
+    "craftsmanship",
+    "styling",
+    "testimonials",
+    "ambassadors",
+    "bundles",
+    "community",
+    "recommendations"
+  ]
+}

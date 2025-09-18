@@ -96,7 +96,7 @@
     {% if template.name == 'product' %}
       data-product-id="{{ product.id }}"
     {% endif %}
-  >      
+  >        
     {%- liquid
       render 'page-transition'
       render 'scroll-top-button'
@@ -135,5 +135,5 @@
     {%- if settings.enable_cart_drawer and template != 'cart' -%}
       {% render 'cart-drawer' %}
     {%- endif -%}
-  {%- render 'foxify-footer' -%}      </body>
+  {%- render 'foxify-footer' -%}        </body>
 </html>
