@@ -125,34 +125,44 @@
         </div>
       {%- when 'rating' -%}
         {% liquid
-          assign rating_value = product.metafields.reviews.rating.value | default: product.metafields.reviews.rating
+          assign rating_value_raw = product.metafields.reviews.rating.value | default: product.metafields.reviews.rating
+          assign rating_value = ''
+          assign rating_value_float = 0
+          if rating_value_raw != blank
+            assign rating_value = rating_value_raw | replace: ',', '.'
+            assign rating_value_float = rating_value | plus: 0
+          endif
+
           assign rating_count_raw = product.metafields.reviews.rating_count
           assign rating_count = 0
           if rating_count_raw != blank
             assign rating_count = rating_count_raw.value | default: rating_count_raw
             assign rating_count = rating_count | plus: 0
           endif
-          assign has_rating_data = false
-          if rating_value != blank
-            assign has_rating_data = true
+
+          assign show_numeric_summary = false
+          if rating_value_float > 0 and rating_count > 0
+            assign show_numeric_summary = true
           endif
+
+          assign has_rating_badge = false
           if settings.review_app != blank
-            assign has_rating_data = true
+            assign has_rating_badge = true
+          endif
+          if rating_value != '' or rating_count > 0
+            assign has_rating_badge = true
           endif
         %}
-        {% if has_rating_data %}
+        {% if has_rating_badge %}
           <div class="product-block-group product-block-group--rating m:display-flex m:items-center m:gap-2" data-review-summary>
             {% render 'product-reviews-app__badge', product: product %}
-            {% if rating_value != blank %}
-              {% assign rating_value = rating_value | plus: 0 %}
-              {% assign rounded_rating = rating_value | round: 1 %}
+            {% if show_numeric_summary %}
+              {% assign rounded_rating = rating_value_float | round: 1 %}
               <div class="m-product-rating__summary" aria-label="{{ rounded_rating }}/5 {{ 'products.product.product_reviews_heading' | t }}">
                 <span class="m-product-rating__value">{{ rounded_rating }}</span>
                 <span class="m-product-rating__separator">/</span>
                 <span class="m-product-rating__max">5</span>
-                {% if rating_count > 0 %}
-                  <span class="m-product-rating__count">· {{ rating_count }}</span>
-                {% endif %}
+                <span class="m-product-rating__count">· {{ rating_count }}</span>
               </div>
             {% endif %}
           </div>
