@@ -12,3 +12,12 @@ html{scroll-behavior:smooth;}
 .main-product__block-title{margin-bottom:24px;}
 .m-product-description{margin-top:24px;}
 @media screen and (max-width: 767px){.product-block-group--pricing{flex-direction:column;align-items:flex-start;gap:16px;}.product-block-group--pricing .product-block-group--rating{margin-left:0;}}
+
+.m-product-info--wrapper{display:flex;flex-direction:column;gap:24px;}
+.product-block-group--pricing{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:32px;padding:24px 28px;margin:16px 0 36px;border-radius:18px;background-color:rgba(var(--color-foreground),0.05);}
+.m-product-pricing-row{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:32px;}
+.product-block-group--pricing .product-block-group--price{flex:1 1 240px;margin-bottom:0;}
+.product-block-group--pricing .product-block-group--rating{flex-shrink:0;margin-bottom:0;}
+@media screen and (max-width: 767px){.m-product-pricing-row{flex-direction:column;align-items:flex-start;gap:20px;}.product-block-group--pricing{padding:20px;gap:20px;}}
+.main-product__block-title{margin-bottom:24px;}
+.m-product-description{margin-top:20px;}
