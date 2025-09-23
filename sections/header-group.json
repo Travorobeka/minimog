@@ -131,7 +131,7 @@
       "settings": {
         "color_scheme": "default",
         "color_scheme_menu": "",
-        "header_design": "logo-center-menu-left",
+        "header_design": "logo-left-menu-center",
         "container": "container-fluid",
         "sticky_header": "always",
         "transparent_on_top": false,
