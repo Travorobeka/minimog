@@ -83,7 +83,7 @@
       ],
       "settings": {
         "container": "container",
-        "layout": "layout-3",
+        "layout": "layout-6",
         "show_atwl": false,
         "enable_history_state": true,
         "enable_variant_group_images": false,
