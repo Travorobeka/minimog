@@ -20,6 +20,10 @@
           "type": "title",
           "settings": {}
         },
+        "rating_8FJbUH": {
+          "type": "rating",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -74,6 +78,7 @@
       "block_order": [
         "badge_ChqgGj",
         "title",
+        "rating_8FJbUH",
         "price",
         "variant_picker",
         "buy_buttons",
