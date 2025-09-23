@@ -115,21 +115,12 @@ if (!customElements.get("product-info")) {
     }
 
     getVariantGroupImagesData() {
-      const variantGroupElement = this.querySelector('#variantGroup[type="application/json"]');
-      if (!variantGroupElement) {
-        return { enable: false, mapping: [] };
-      }
-
-      try {
-        const parsed = JSON.parse(variantGroupElement.textContent || '{}');
-        if (!Array.isArray(parsed.mapping)) {
-          parsed.mapping = [];
-        }
-        return parsed;
-      } catch (error) {
-        console.error('Failed to parse variant group data', error);
-        return { enable: false, mapping: [] };
-      }
+      return (
+        JSON.parse(
+          this.querySelector('#variantGroup[type="application/json"]')
+            .textContent
+        ) || {}
+      );
     }
 
     handleOptionValueChange({ data: { event, target, selectedOptionValues } }) {
@@ -424,20 +415,14 @@ if (!customElements.get("product-info")) {
     }
 
     handleVariantGroupImage(variant) {
-      if (!variant || !this.variantGroupImagesData || !Array.isArray(this.variantGroupImagesData.mapping)) {
-        return;
-      }
-
       const selectedVariantData = this.variantGroupImagesData.mapping.find(
         (item) => Number(item.id) === variant.id
-      ) || {};
-
-      const variantMediaIds = Array.isArray(selectedVariantData.media) ? selectedVariantData.media : [];
+      );
 
       const selectedMedias = (initialItems) => {
         const selectedVariantMedias = Array.from(initialItems)
           .map((media) => {
-            const index = variantMediaIds.indexOf(media.dataset.mediaId);
+            const index = selectedVariantData.media.indexOf(media.dataset.mediaId);
             const mediaType = media.dataset.mediaType;
             if (index !== -1 || mediaType !== 'image') {
               return media;
@@ -457,11 +442,11 @@ if (!customElements.get("product-info")) {
           });
         }
 
-        const orderedMedias = variantMediaIds
+        const orderedMedias = Object.values(selectedVariantData.media)
           .map(id => selectedVariantMedias.find(media => media.dataset.mediaId === id))
           .filter(Boolean);
 
-        const remainingMedias = selectedVariantMedias.filter(media => !variantMediaIds.includes(media.dataset.mediaId));
+        const remainingMedias = selectedVariantMedias.filter(media => !Object.values(selectedVariantData.media).includes(media.dataset.mediaId));
 
         return Array.from([...orderedMedias, ...remainingMedias]).map((media, index) => {
           media.dataset.index = index;

@@ -16,52 +16,6 @@
     assign product_form_id = 'product-form-' | append: section.id
     assign product_form_class = 'product-form-' | append: section.id
     assign first_3d_model = product.media | where: 'media_type', 'model' | first
-
-    assign enable_variant_group_img = false
-    assign variant_group_selected_has_media = false
-    assign variant_group_mapping = ''
-
-    if product.has_only_default_variant == false and product.media.size > 0
-      assign variant_group_variant_ids = ''
-      capture variant_group_mapping
-        [
-          {% for variant in product.variants %}
-            {% if forloop.first == false %},{% endif %}
-            {% assign variant_has_media = false %}
-            {% assign first_media_entry = true %}
-            {
-              "id": {{ variant.id | append: '' | json }},
-              "media": [
-                {% for media in product.media %}
-                  {% assign variant_ids = media.preview_image.variant_ids %}
-                  {% if variant_ids and variant_ids contains variant.id %}
-                    {% unless first_media_entry %},{% endunless %}
-                    {{ media.id | append: '' | json }}
-                    {% assign first_media_entry = false %}
-                    {% assign variant_has_media = true %}
-                  {% endif %}
-                {% endfor %}
-                {% if variant_has_media == false and variant.featured_media %}
-                  {% unless first_media_entry %},{% endunless %}
-                  {{ variant.featured_media.id | append: '' | json }}
-                  {% assign first_media_entry = false %}
-                  {% assign variant_has_media = true %}
-                {% endif %}
-              ]
-            }
-            {% if variant_has_media %}
-              {% assign variant_group_variant_ids = variant_group_variant_ids | append: variant.id | append: '|' %}
-              {% if current_variant and current_variant.id == variant.id %}
-                {% assign variant_group_selected_has_media = true %}
-              {% endif %}
-            {% endif %}
-          {% endfor %}
-        ]
-      {% endcapture %}
-      {% if variant_group_variant_ids != '' %}
-        {% assign enable_variant_group_img = true %}
-      {% endif %}
-    endif
   -%}
 
   {%- if first_3d_model -%}
@@ -85,7 +39,6 @@
     data-url="{{ product.url }}"
     data-update-url="false"
     data-product-id="{{ product.id }}"
-    data-enable-variant-group-images="{{ enable_variant_group_img }}"
     data-variant-option-none-text="{{ variant_option_none_text }}"
     data-show-featured-media="{{ section.settings.show_featured_media }}"
     data-view-mode="quick-view"
@@ -101,9 +54,7 @@
           media_layout: 'layout-4',
           show_nav: true,
           show_thumbnails: false,
-          context: 'quick-view',
-          variant_group_enabled: enable_variant_group_img,
-          variant_group_selected_has_media: variant_group_selected_has_media
+          context: 'quick-view'
         %}
       </div>
       <div class="m-product-quickview--info m-scrollbar--vertical m:display-flex m:w-full md:m:w-1/2">
@@ -229,15 +180,6 @@
       </div>
     </div>
   </product-info>
-
-  {%- if enable_variant_group_img -%}
-    <script id="variantGroup" type="application/json">
-      {
-        "enable": true,
-        "mapping": {{ variant_group_mapping | strip }}
-      }
-    </script>
-  {%- endif -%}
 
   {% if product.media.size > 0 %}
     <script src="{{ 'product-media.js' | asset_url }}" defer="defer"></script>
