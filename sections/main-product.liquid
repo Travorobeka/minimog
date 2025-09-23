@@ -27,15 +27,58 @@
     assign animated = true
   endif
 
-  assign enable_variant_group_img = false
-  if section.settings.enable_variant_group_images and product.metafields['foxecom-bs-kit']['variant-images'].value.enable
-    assign enable_variant_group_img = true
-  endif
-
   assign disable_selected_variant_default = section.settings.disable_selected_variant_default
+
+  assign selected_variant = product.selected_or_first_available_variant
+  assign enable_variant_group_img = false
+  assign variant_group_selected_has_media = false
+  assign variant_group_mapping = ''
+
+  if section.settings.enable_variant_group_images and product.has_only_default_variant == false and product.media.size > 0
+    assign variant_group_variant_ids = ''
+    capture variant_group_mapping
+      [
+        {% for variant in product.variants %}
+          {% if forloop.first == false %},{% endif %}
+          {% assign variant_has_media = false %}
+          {% assign first_media_entry = true %}
+          {
+            "id": {{ variant.id | append: '' | json }},
+            "media": [
+              {% for media in product.media %}
+                {% assign variant_ids = media.preview_image.variant_ids %}
+                {% if variant_ids and variant_ids contains variant.id %}
+                  {% unless first_media_entry %},{% endunless %}
+                  {{ media.id | append: '' | json }}
+                  {% assign first_media_entry = false %}
+                  {% assign variant_has_media = true %}
+                {% endif %}
+              {% endfor %}
+              {% if variant_has_media == false and variant.featured_media %}
+                {% unless first_media_entry %},{% endunless %}
+                {{ variant.featured_media.id | append: '' | json }}
+                {% assign first_media_entry = false %}
+                {% assign variant_has_media = true %}
+              {% endif %}
+            ]
+          }
+          {% if variant_has_media %}
+            {% assign variant_group_variant_ids = variant_group_variant_ids | append: variant.id | append: '|' %}
+            {% if selected_variant and selected_variant.id == variant.id %}
+              {% assign variant_group_selected_has_media = true %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      ]
+    {% endcapture %}
+    {% if variant_group_variant_ids != '' %}
+      {% assign enable_variant_group_img = true %}
+    {% endif %}
+  endif
 
   if product.has_only_default_variant
     assign enable_variant_group_img = false
+    assign variant_group_selected_has_media = false
     assign disable_selected_variant_default = false
   endif
 -%}
@@ -109,7 +152,9 @@
             section: section,
             template_product: true,
             show_thumbnails_mobile: section.settings.show_nav_media_mobile,
-            show_pagination_mobile: section.settings.show_pagination_mobile
+            show_pagination_mobile: section.settings.show_pagination_mobile,
+            variant_group_enabled: enable_variant_group_img,
+            variant_group_selected_has_media: variant_group_selected_has_media
           %}
 
           {% if section.settings.show_atwl %}
@@ -177,7 +222,10 @@
 
   {%- if enable_variant_group_img -%}
     <script id="variantGroup" type="application/json">
-      {{ product.metafields.foxecom-bs-kit.variant-images.value | json }}
+      {
+        "enable": true,
+        "mapping": {{ variant_group_mapping | strip }}
+      }
     </script>
   {%- endif -%}
 </product-info>

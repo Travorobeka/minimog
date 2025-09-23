@@ -21,24 +21,20 @@
 
   assign media_count = product.media.size
 
-  assign enable_variant_group_img = false
-  assign has_variant_group_img = false
-  assign variant_groups = product.metafields['foxecom-bs-kit']['variant-images'].value
-  if section.settings.enable_variant_group_images and product.metafields['foxecom-bs-kit']['variant-images'].value.enable
-    assign enable_variant_group_img = true
+  assign enable_variant_group_img = variant_group_enabled
+  if enable_variant_group_img != true
+    assign enable_variant_group_img = false
+  endif
+
+  assign has_variant_group_img = variant_group_selected_has_media
+  if has_variant_group_img != true
+    assign has_variant_group_img = false
   endif
 
   assign selected_variant = product.selected_or_first_available_variant
 
-  for media in variant_groups.mapping
-    assign media_id = media.id | times: 1
-    if media_id == selected_variant.id and media.media.size > 0
-      assign has_variant_group_img = true
-    endif
-  endfor
-
   assign enable_loading_media = false
-  if has_variant_group_img and template_product and section.settings.enable_variant_group_images and product.has_only_default_variant == false and media_count > 1
+  if enable_variant_group_img and has_variant_group_img and template_product and product.has_only_default_variant == false and media_count > 1
     assign enable_loading_media = true
   endif
 
