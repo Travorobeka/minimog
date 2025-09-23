@@ -30,7 +30,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "size_title": "Color"
+            "size_title": "Size"
           }
         },
         "buy_buttons": {
