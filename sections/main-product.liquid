@@ -164,15 +164,17 @@
         </div>
       </div>
       {% if layout == 'layout-7' %}
-        <div class="m:flex m:flex-wrap md:m:flex-nowrap" style="--column-gap: 70px;">
-          <div class="m:w-full md:m:w-1/2 m:column">
-            <div class="m-product-info--wrapper m:text-color-body">
-              {% render 'main-product-blocks', section: section, product: product, layout_mode: 'left' %}
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem;">
+          <div class="m:flex m:flex-wrap md:m:flex-nowrap" style="--column-gap: 70px;">
+            <div class="m:w-full md:m:w-1/2 m:column">
+              <div class="m-product-info--wrapper m:text-color-body">
+                {% render 'main-product-blocks', section: section, product: product, layout_mode: 'left' %}
+              </div>
             </div>
-          </div>
-          <div class="m:w-full md:m:w-1/2 m:column">
-            <div class="m-product-info--wrapper m:text-color-body">
-              {% render 'main-product-blocks', section: section, product: product, layout_mode: 'right' %}
+            <div class="m:w-full md:m:w-1/2 m:column">
+              <div class="m-product-info--wrapper m:text-color-body">
+                {% render 'main-product-blocks', section: section, product: product, layout_mode: 'right' %}
+              </div>
             </div>
           </div>
         </div>
