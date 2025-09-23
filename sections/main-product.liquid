@@ -92,8 +92,8 @@
           if product.media.size == 1
             assign media_class = 'container-narrow'
           endif
-          assign info_class = 'container-narrow md:m:text-center'
-          assign wrapper_class = 'm:flex m:flex-wrap md:m:block m-product-media--layout-7'
+          assign info_class = 'm:w-full md:m:w-1/2'
+          assign wrapper_class = 'm:flex m:flex-wrap m-product-media--layout-7'
         else
           assign column_gap = '50px'
       endcase
@@ -163,11 +163,26 @@
           {%- endif -%}
         </div>
       </div>
-      <div class="m-main-product--info m:column {{ info_class }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-        <div class="m-product-info--wrapper m:text-color-body">
-          {% render 'main-product-blocks', section: section, product: product %}
+      {% if layout == 'layout-7' %}
+        <div class="m:flex m:flex-wrap md:m:flex-nowrap" style="--column-gap: 70px;">
+          <div class="m:w-full md:m:w-1/2 m:column">
+            <div class="m-product-info--wrapper m:text-color-body">
+              {% render 'main-product-blocks', section: section, product: product, layout_mode: 'left' %}
+            </div>
+          </div>
+          <div class="m:w-full md:m:w-1/2 m:column">
+            <div class="m-product-info--wrapper m:text-color-body">
+              {% render 'main-product-blocks', section: section, product: product, layout_mode: 'right' %}
+            </div>
+          </div>
         </div>
-      </div>
+      {% else %}
+        <div class="m-main-product--info m:column {{ info_class }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+          <div class="m-product-info--wrapper m:text-color-body">
+            {% render 'main-product-blocks', section: section, product: product %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 

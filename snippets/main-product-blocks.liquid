@@ -38,7 +38,22 @@
 {% comment %} Fallback for case not show block price, buy buttons {% endcomment %}
 <input type="hidden" name="id" value="{{ variant_id }}" data-selected-variant="{{ selected_variant_id }}" disabled>
 {% comment %} End comment {% endcomment %}
+{%- assign left_blocks = 'badge,title,rating,price,variant_picker,buy_buttons,addons' | split: ',' -%}
+{%- assign right_blocks = 'description,short_description,shipping,trust_badge,collapsible_tab' | split: ',' -%}
+
 {%- for block in section.blocks -%}
+  {%- assign show_block = true -%}
+  {%- if layout_mode == 'left' -%}
+    {%- unless left_blocks contains block.type -%}
+      {%- assign show_block = false -%}
+    {%- endunless -%}
+  {%- elsif layout_mode == 'right' -%}
+    {%- unless right_blocks contains block.type -%}
+      {%- assign show_block = false -%}
+    {%- endunless -%}
+  {%- endif -%}
+
+  {%- if show_block -%}
   <div
     class="main-product__block main-product__block-{{ block.type }}"
     {{ block.shopify_attributes }}
@@ -1150,4 +1165,5 @@
         </div>
     {%- endcase -%}
   </div>
+  {%- endif -%}
 {%- endfor -%}
