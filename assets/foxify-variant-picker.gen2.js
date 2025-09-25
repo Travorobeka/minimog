@@ -348,19 +348,19 @@ if (!customElements.get('x-variant-picker')) {
           customImage = check ? check.image : ''
 
           if (customColor_1) {
-            optNode.style.setProperty('--option-color-1', `${customColor_1}`)
+            optNode.style.setProperty('--x-option-color-1', `${customColor_1}`)
           }
           if (customColor_2) {
-            optNode.style.setProperty('--option-color-2', `${customColor_2}`)
+            optNode.style.setProperty('--x-option-color-2', `${customColor_2}`)
           }
 
           if (!customColor_1 && !customColor_2 && window.Foxify.Utils.isValidColor(fallbackValue)) {
-            optNode.style.setProperty('--option-color-1', `${fallbackValue}`)
+            optNode.style.setProperty('--x-option-color-1', `${fallbackValue}`)
           }
 
           if (customImage) {
             optNode.querySelector('label').classList.add('has-image')
-            optNode.querySelector('label').style.backgroundImage = `url(${window.Foxify.Utils.getSizedImageUrl(customImage, '100x100')})`
+            optNode.style.setProperty('--x-background-image', `url(${window.Foxify.Utils.getSizedImageUrl(customImage, '100x100')})`)
           }
           return false;
         }
